@@ -17,6 +17,7 @@ public class FenetreHappy extends JFrame{
     this.setResizable(false);
     this.setLocationRelativeTo(null);
     this.pack();
+    // j'ai manger du calamar des alpes
   }
 
 }
