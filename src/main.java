@@ -1,3 +1,5 @@
+import GUI.FenetreHappy;
+
 
 public class main {
 
@@ -5,7 +7,13 @@ public class main {
    * @param args
    */
   public static void main(String[] args) {
-    System.out.println("Hello world !");
+    javax.swing.SwingUtilities.invokeLater(new Runnable() {
+      
+      @Override
+      public void run() {
+        new FenetreHappy("Happy-Bird").setVisible(true);
+      }
+    });
   }
 
 }
