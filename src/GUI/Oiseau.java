@@ -21,11 +21,15 @@ public class Oiseau extends JPanel {
 
 	//LA couleur de la balle
 	private Color c = Color.BLACK;
+        
+        private int x;
+        private int y;
 	
 	/* Constructeur */
 
-	public Oiseau() {
-		// TODO Auto-generated constructor stu
+	public Oiseau(int x, int y) {
+		this.x = x;
+                this.y = y;
 	}
 
 	/* Fonction */
@@ -56,8 +60,8 @@ public class Oiseau extends JPanel {
 	public void paintComponent(Graphics g) {
 		g.setColor(Color.RED);
 		//g2d.fillRect(posX, posY, 8, 8);
-		g.fillOval(20, 20, 25, 25);
+		g.fillOval(this.x, this.y, 25, 25);
 		g.setColor(Color.BLACK);
-		g.fillArc(40,15,20,35,170,20);  /*Fonction du fillArc (position X, position Y, */
+		g.fillArc(this.x+20,this.y-5,20,35,170,20);  /*Fonction du fillArc (position X, position Y, */
 	}
 }
