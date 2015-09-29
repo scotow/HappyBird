@@ -31,16 +31,17 @@ public class Mathematique {
     
     
     public Coordonnee calculerPoint(int t){
-       
-        return null;
+        int coordX = this.formulBezierX(this.formulBezierX(pb1.getX(), pb2.getX(), t), this.formulBezierX(pb2.getX(), pb3.getX(), t), t);
+        int coordY = this.formulBezierX(this.formulBezierX(pb1.getY(), pb2.getY(), t), this.formulBezierX(pb2.getY(), pb3.getY(), t), t);
+        return new Coordonnee(coordX, coordY);
     }
     
-    public double formulBezierX(Coordonnee p1, Coordonnee p2, int t){
-        return (1-t)*p1.getX() + t*p2.getX();
+    public int formulBezierX(int x1, int x2, int t){
+        return (1-t)*x1 + t*x2;
     }
     
-    public double formulBezierY(Coordonnee p1, Coordonnee p2, int t){
-        return (1-t)*p1.getY() + t*p2.getY();
+    public int formulBezierY(int y1,int y2, int t){
+        return (1-t)*y1 + t*y2;
     }
       
 }
