@@ -4,17 +4,17 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
-public class FenetreHappy extends JFrame{
+public class MainFrame extends JFrame{
 
   /**
    * 
    */
   private static final long serialVersionUID = 1L;
   
-  private AnimationPanel animationPanel;
+  private MainPanel animationPanel;
 
-  public FenetreHappy(String nom, int x, int y) {
-    this.animationPanel = new AnimationPanel(x, y);
+  public MainFrame(String nom, int x, int y) {
+    this.animationPanel = new MainPanel(x, y);
     this.setTitle(nom);
     this.setPreferredSize(new Dimension(x, y));
     this.setResizable(false);

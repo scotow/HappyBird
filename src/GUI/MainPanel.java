@@ -14,11 +14,11 @@ import javax.swing.JPanel;
  *
  * @author debaerdm
  */
-public class AnimationPanel extends JPanel{
+public class MainPanel extends JPanel{
     
     private Oiseau oiseau;
 
-    public AnimationPanel(int x, int y) {
+    public MainPanel(int x, int y) {
         oiseau = new Oiseau(20, y-60);
         //this.setBackground(Color.black);
         this.add(this.oiseau);

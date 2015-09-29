@@ -1,6 +1,6 @@
 package HappyBird;
 
-import GUI.FenetreHappy;
+import GUI.MainFrame;
 
 
 public class HappyBird {
@@ -13,7 +13,7 @@ public class HappyBird {
       
       @Override
       public void run() {
-        new FenetreHappy("Happy-Bird", 1024, 720).setVisible(true);
+        new MainFrame("Happy-Bird", 1024, 720).setVisible(true);
       }
     });
   }
