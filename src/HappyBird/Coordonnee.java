@@ -1,38 +1,35 @@
+package HappyBird;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package HappyBird;
-
-import java.io.Serializable;
 
 /**
  *
- * @author Lopez Benjamin
+ * @author debaerdm
  */
+public class Coordonnee {
+    private double x;
+    private double y;
 
-public class Coordonnee implements Serializable{
-    
-    private int x,y;
-    
-    public Coordonnee(int x, int y){
+    public Coordonnee(double x, double y) {
         this.x = x;
         this.y = y;
     }
     
-    public int getX(){
+    public Coordonnee CalculPointBez(Coordonnee pb){
+        return new Coordonnee(this.x-pb.getX(), this.y-pb.getY());
+    }
+    
+    public double getX(){
         return this.x;
     }
     
-    public int getY(){
+    public double getY(){
         return this.y;
     }
-    
-//    public void addDirection(Coordonnee ajout){
-//        this.x += (ajout.x + Constantes.X_FRAME)%Constantes.X_FRAME;
-//        this.y += (ajout.y + Constantes.Y_FRAME)%Constantes.Y_FRAME;
-//    }
     
     public boolean equals(Coordonnee c){
         return this.x == c.x && this.y == c.y;
