@@ -3,6 +3,8 @@ package HappyBird;
 import java.util.ArrayList;
 import java.util.List;
 
+import Exception.PointCourbeException;
+
 /*
  * To change this license header, choose License Headers in Project Properties. To change this
  * template file, choose Tools | Templates and open the template in the editor.
@@ -22,10 +24,9 @@ public class Mathematique {
 
 
 
-  public Coordonnee calculerPoint(double t) {
+  public Coordonnee calculerPoint(double t) throws PointCourbeException {
     double coordX = 0.0;
     double coordY = 0.0;
-    System.out.println(listPoint.size());
     if (listPoint.size() <= 4) {
       switch (listPoint.size()) {
         case 1:
@@ -34,9 +35,7 @@ public class Mathematique {
           break;
         case 2:
           coordX = formulBezier(listPoint.get(0).getX(), listPoint.get(1).getX(), t);
-          System.out.println(coordX + "\n");
           coordY = formulBezier(listPoint.get(0).getY(), listPoint.get(1).getY(), t);
-          System.out.println(coordY + "\n");
           break;
         case 3:
           coordX =
@@ -67,8 +66,8 @@ public class Mathematique {
       }
     }
     else {
-      System.err.println("Trop de point !");
-      return new Coordonnee(42, 42);
+      throw new PointCourbeException("Trop de point !");
+      //return new Coordonnee(42, 42);
     }
     return new Coordonnee(coordX, coordY);
   }

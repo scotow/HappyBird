@@ -6,10 +6,12 @@
 
 package Test;
 
+import static org.junit.Assert.*;
+import Exception.PointCourbeException;
 import HappyBird.Coordonnee;
 import HappyBird.Mathematique;
+
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -18,19 +20,20 @@ import org.junit.Test;
  */
 public class TestCourbe {
     
-    
     @Test
-    public void testBezierQuatreParametre(){
+    public void testBezierQuatreParametre() throws PointCourbeException{
       Mathematique bezierQuatreParametre = new Mathematique();
       for (double i = 0.0; i < 4.0; i++) {
         bezierQuatreParametre.setListPoint(new Coordonnee(i+1.0, i+2.0)); //(1;2)(2;3)(3;4)(4;5)
        }
         Assert.assertEquals(bezierQuatreParametre.calculerPoint(1).getX(), 4.0, 1);
         Assert.assertEquals(bezierQuatreParametre.calculerPoint(1).getY(), 5.0, 1);
+        Assert.assertEquals(bezierQuatreParametre.calculerPoint(0.6).getX(), 2.8, 1);
+        Assert.assertEquals(bezierQuatreParametre.calculerPoint(0.6).getY(), 3.8, 1); // Le dernier parametre sert a donner que un chiffre derriere la virgule.
     }
     
     @Test
-    public void testBezierTroisParametre(){
+    public void testBezierTroisParametre() throws PointCourbeException{
       Mathematique bezierTroisParametre = new Mathematique();
       for (double i = 0.0; i < 3.0; i++) {
         bezierTroisParametre.setListPoint(new Coordonnee(i+1.0, i+2.0)); //(1;2)(2;3)(3;4)
@@ -42,7 +45,7 @@ public class TestCourbe {
     }
     
     @Test
-    public void testBezierDeuxParametre(){
+    public void testBezierDeuxParametre() throws PointCourbeException{
       Mathematique bezierDeuxParametre = new Mathematique();
       for (double i = 0.0; i < 2.0; i++) {
         bezierDeuxParametre.setListPoint(new Coordonnee(i+1.0, i+2.0)); //(1;2)(2;3)
@@ -54,7 +57,7 @@ public class TestCourbe {
     }
     
     @Test
-    public void testBezierUnParametre(){
+    public void testBezierUnParametre() throws PointCourbeException{
       Mathematique bezierUnParametre = new Mathematique();
       bezierUnParametre.setListPoint(new Coordonnee(1.0, 2.0));;
       Assert.assertEquals(bezierUnParametre.calculerPoint(0).getX(), 1.0, 1);
@@ -62,19 +65,22 @@ public class TestCourbe {
     }
     
     @Test
-    public void testBezierVoid(){
+    public void testBezierVoid() throws PointCourbeException{
       Mathematique bezierVoid = new Mathematique();
       Assert.assertEquals(bezierVoid.calculerPoint(0).getX(), 0.0, 1);
       Assert.assertEquals(bezierVoid.calculerPoint(0).getY(), 0.0, 1);
     }
     
     @Test
-    public void testBezierError(){
+    public void testBezierError() throws PointCourbeException{
       Mathematique bezierError = new Mathematique();
       for (double i = 0.0; i < 5.0; i++) {
         bezierError.setListPoint(new Coordonnee(i+1.0, i+2.0)); //(1;2)(2;3)(3;4)(4;5)
        }
-        Assert.assertEquals(bezierError.calculerPoint(1).getX(), 4.0, 42); //42 est le signal d'erreur envoyer !
-        Assert.assertEquals(bezierError.calculerPoint(1).getY(), 5.0, 42);
+      try {
+        System.err.println("Trop de point !!");
+      }catch(IllegalArgumentException aExp){
+        assert(aExp.getMessage().contains("Trop de point !"));
+      }
     }
 }
