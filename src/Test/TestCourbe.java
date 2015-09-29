@@ -24,12 +24,13 @@ public class TestCourbe {
     
     @Before
     public void init(){
-        test = new Mathematique(new Coordonnee(1.0, 1.0), new Coordonnee(5.0, 3.0), new Coordonnee(8.0, 5.0));
+        for (int i = 0; i < 4; i++) {
+         test = new Mathematique(i*2+1, i*4+1); 
+        }
         x = 0;
         y = 0;
     }
     
-    @SuppressWarnings("deprecation")
     @Test
     public void test1(){
         Assert.assertEquals(test.calculerPoint(1).getX(), 8.0, 0);
