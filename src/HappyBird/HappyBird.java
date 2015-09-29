@@ -1,7 +1,9 @@
+package HappyBird;
+
 import GUI.FenetreHappy;
 
 
-public class main {
+public class HappyBird {
 
   /**
    * @param args
