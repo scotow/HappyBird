@@ -7,19 +7,23 @@
 package GUI;
 
 import HappyBird.Oiseau;
+import HappyBird.TrucBleu;
 import java.awt.Color;
+import java.util.List;
+
 import javax.swing.JPanel;
 
 /**
- *
+ * 
  * @author debaerdm
  */
 public class MainPanel extends JPanel{
     
     private Oiseau oiseau;
+    private List <TrucBleu> listeObs;
 
     public MainPanel(int x, int y) {
-        oiseau = new Oiseau(20, y-60);
+        this.oiseau = new Oiseau();
         //this.setBackground(Color.black);
         this.add(this.oiseau);
     }
