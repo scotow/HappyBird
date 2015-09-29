@@ -63,14 +63,13 @@ public class GamePanel extends JPanel{
        // super.paintComponents(g); //To change body of generated methods, choose Tools | Templates.
         g.setColor(Oiseau.BIRD_BODY_COLOR);
         g.fillOval((int)oiseau.getPosition().getX(), (int)oiseau.getPosition().getY(), Oiseau.BIRD_BODY_RADIUS, Oiseau.BIRD_BODY_RADIUS);
-        g.setColor(Color.GREEN);
+        g.setColor(Color.BLUE);
         try {
           for (int i = 0; i < 25; i++) {
             g.fillOval((int)test.calculerPoint(i).getX(),(int)((this.height-50) - test.calculerPoint(i).getY()), 20, 20);
           }
         } catch (PointCourbeException exception) {
-          // TODO Auto-generated catch block
-          exception.printStackTrace();
+          exception.getMessage();
         }
         
     }
