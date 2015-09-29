@@ -19,7 +19,7 @@ public class MainPanel extends JPanel{
     private Oiseau oiseau;
 
     public MainPanel(int x, int y) {
-        oiseau = new Oiseau(20, y-60);
+        this.oiseau = new Oiseau();
         //this.setBackground(Color.black);
         this.add(this.oiseau);
     }
