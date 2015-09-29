@@ -9,6 +9,10 @@ public class PointCourbeException extends Exception {
   
   private String error;
   
+  public PointCourbeException() {
+    super();
+  }
+  
   public PointCourbeException(String error) {
     this.error = error;
   }
