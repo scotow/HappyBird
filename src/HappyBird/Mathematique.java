@@ -29,8 +29,8 @@ public class Mathematique {
     
     
     public Coordonnee calculerPoint(double t){
-        double coordX = this.formulBezier(this.formulBezier(pb1.getX(), pb2.getX(), t), this.formulBezier(pb2.getX(), pb3.getX(), t), t);
-        double coordY = this.formulBezier(this.formulBezier(pb1.getY(), pb2.getY(), t), this.formulBezier(pb2.getY(), pb3.getY(), t), t);
+        double coordX = formulBezier(formulBezier(pb1.getX(), pb2.getX(), t), formulBezier(pb2.getX(), pb3.getX(), t), t);
+        double coordY = formulBezier(formulBezier(pb1.getY(), pb2.getY(), t), formulBezier(pb2.getY(), pb3.getY(), t), t);
         return new Coordonnee(coordX, coordY);
     }
     

@@ -51,8 +51,10 @@ public class GamePanel extends JPanel{
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponents(g); //To change body of generated methods, choose Tools | Templates.
-        g.setColor(oiseau.BIRD_BODY_COLOR);
-        g.fillOval((int)oiseau.getPosition().getX(), (int)oiseau.getPosition().getY(), oiseau.BIRD_BODY_RADIUS, oiseau.BIRD_BODY_RADIUS);
+        g.setColor(Oiseau.BIRD_BODY_COLOR);
+        g.fillOval((int)oiseau.getPosition().getX(), (int)oiseau.getPosition().getY(), Oiseau.BIRD_BODY_RADIUS, Oiseau.BIRD_BODY_RADIUS);
+        g.setColor(Color.GREEN);
+        
     }
     
     
