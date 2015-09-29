@@ -1,6 +1,5 @@
 package HappyBird;
 
-import java.math.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,29 +42,29 @@ public class Mathematique {
                 coordY = listPoint.get(0).getY();
                 break;
             case 1:
-                coordX = this.formulBezier(listPoint.get(0).getX(), listPoint.get(1).getX(), t);
-                coordY = this.formulBezier(listPoint.get(0).getY(), listPoint.get(1).getY(), t);
+                coordX = formulBezier(listPoint.get(0).getX(), listPoint.get(1).getX(), t);
+                coordY = formulBezier(listPoint.get(0).getY(), listPoint.get(1).getY(), t);
                 break;
             case 2:
-                coordX = this.formulBezier(this.formulBezier(listPoint.get(0).getX(),
-                        listPoint.get(1).getX(), t), this.formulBezier(listPoint.get(1).getX(), listPoint.get(2).getX(), t), t);
-                coordY = this.formulBezier(this.formulBezier(listPoint.get(0).getY(),
-                        listPoint.get(1).getY(), t), this.formulBezier(listPoint.get(1).getY(), listPoint.get(2).getY(), t), t);
+                coordX = formulBezier(formulBezier(listPoint.get(0).getX(),
+                        listPoint.get(1).getX(), t), formulBezier(listPoint.get(1).getX(), listPoint.get(2).getX(), t), t);
+                coordY = formulBezier(formulBezier(listPoint.get(0).getY(),
+                        listPoint.get(1).getY(), t), formulBezier(listPoint.get(1).getY(), listPoint.get(2).getY(), t), t);
                 break;
             case 3:
-                coordX = this.formulBezier(this.formulBezier(this.formulBezier(listPoint.get(0).getX(),
+                coordX = formulBezier(formulBezier(formulBezier(listPoint.get(0).getX(),
                         listPoint.get(1).getX(), t),
-                        this.formulBezier(listPoint.get(1).getX(),
+                        formulBezier(listPoint.get(1).getX(),
                         listPoint.get(2).getX(), t), t),
-                        this.formulBezier(this.formulBezier(listPoint.get(1).getX(),
-                        listPoint.get(2).getX(), t), this.formulBezier(listPoint.get(2).getX(),
+                        formulBezier(formulBezier(listPoint.get(1).getX(),
+                        listPoint.get(2).getX(), t), formulBezier(listPoint.get(2).getX(),
                         listPoint.get(3).getX(), t), t), t);
-                coordY = this.formulBezier(this.formulBezier(this.formulBezier(listPoint.get(0).getY(),
+                coordY = formulBezier(formulBezier(formulBezier(listPoint.get(0).getY(),
                         listPoint.get(1).getY(), t),
-                        this.formulBezier(listPoint.get(1).getY(),
+                        formulBezier(listPoint.get(1).getY(),
                         listPoint.get(2).getY(), t), t),
-                        this.formulBezier(this.formulBezier(listPoint.get(1).getY(),
-                        listPoint.get(2).getY(), t), this.formulBezier(listPoint.get(2).getY(),
+                        formulBezier(formulBezier(listPoint.get(1).getY(),
+                        listPoint.get(2).getY(), t), formulBezier(listPoint.get(2).getY(),
                         listPoint.get(3).getY(), t), t), t);
                 break;
             default:
