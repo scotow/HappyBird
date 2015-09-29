@@ -21,7 +21,7 @@ import javax.swing.JPanel;
  * 
  * @author debaerdm
  */
-public class MainPanel extends JPanel{
+public class GamePanel extends JPanel{
     
     private Oiseau oiseau;
     private List <Obstacle> listeObs;
@@ -33,7 +33,7 @@ public class MainPanel extends JPanel{
      * @param x : position x du panel
      * @param y : position y du panel
      */
-    public MainPanel(int x, int y) {
+    public GamePanel() {
         this.oiseau = new Oiseau();
         this.listeObs = new ArrayList <Obstacle>();
         //this.listeObs.add(new TrucBleu(100,200,0));
