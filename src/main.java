@@ -11,7 +11,7 @@ public class main {
       
       @Override
       public void run() {
-        new FenetreHappy("Happy-Bird").setVisible(true);
+        new FenetreHappy("Happy-Bird", 1024, 720).setVisible(true);
       }
     });
   }
