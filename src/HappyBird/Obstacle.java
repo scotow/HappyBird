@@ -3,9 +3,11 @@ package HappyBird;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import javax.swing.JPanel;
 
 
-public class TrucBleu {
+
+public class Obstacle extends JPanel{
 
 	/**
 	 * 
@@ -22,7 +24,7 @@ public class TrucBleu {
 	 * @param y : la position de y
 	 * @param rayon : le rayon du cercle
 	 */
-	public TrucBleu (int x, int y, int rayon) {
+	public Obstacle (int x, int y, int rayon) {
 		this.x = x;
 		this.y = y;
 		this.rayon = rayon;
@@ -35,7 +37,7 @@ public class TrucBleu {
 	
 	public void paintComponent(Graphics g) {
 		g.setColor(Color.BLUE);
-		g.fillArc(this.x,this.y,this.rayon,35,0,180);  
+		g.fillOval(this.x, this.y, 50, 50);  	
 	}
 	
 	
