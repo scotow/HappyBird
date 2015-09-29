@@ -37,21 +37,21 @@ public class Mathematique {
         double coordX = 0.0;
         double coordY = 0.0;
         switch(listPoint.size()){
-            case 0:
+            case 1:
                 coordX = listPoint.get(0).getX();
                 coordY = listPoint.get(0).getY();
                 break;
-            case 1:
+            case 2:
                 coordX = formulBezier(listPoint.get(0).getX(), listPoint.get(1).getX(), t);
                 coordY = formulBezier(listPoint.get(0).getY(), listPoint.get(1).getY(), t);
                 break;
-            case 2:
+            case 3:
                 coordX = formulBezier(formulBezier(listPoint.get(0).getX(),
                         listPoint.get(1).getX(), t), formulBezier(listPoint.get(1).getX(), listPoint.get(2).getX(), t), t);
                 coordY = formulBezier(formulBezier(listPoint.get(0).getY(),
                         listPoint.get(1).getY(), t), formulBezier(listPoint.get(1).getY(), listPoint.get(2).getY(), t), t);
                 break;
-            case 3:
+            case 4:
                 coordX = formulBezier(formulBezier(formulBezier(listPoint.get(0).getX(),
                         listPoint.get(1).getX(), t),
                         formulBezier(listPoint.get(1).getX(),

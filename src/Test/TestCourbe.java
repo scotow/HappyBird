@@ -18,28 +18,48 @@ import org.junit.Test;
  */
 public class TestCourbe {
     
-    Mathematique test;
-    double x;
-    double y;
     
-    @Before
-    public void init(){
-        for (int i = 0; i < 4; i++) {
-         test = new Mathematique(i*2+1, i*4+1); 
-        }
-        x = 0;
-        y = 0;
+    @Test
+    public void testBezierQuatreParametre(){
+      Mathematique bezierQuatreParametre = null;
+      for (double i = 0.0; i < 4.0; i++) {
+        bezierQuatreParametre = new Mathematique(i+1.0, i+2.0); //(1;2)(2;3)(3;4)(4;5)
+       }
+        Assert.assertEquals(bezierQuatreParametre.calculerPoint(1).getX(), 4.0, 0);
+        Assert.assertEquals(bezierQuatreParametre.calculerPoint(1).getY(), 5.0, 0);
     }
     
     @Test
-    public void test1(){
-        Assert.assertEquals(test.calculerPoint(1).getX(), 8.0, 0);
-        Assert.assertEquals(test.calculerPoint(1).getY(), 5.0, 0);
+    public void testBezierTroisParametre(){
+      Mathematique bezierTroisParametre = null;
+      for (double i = 0.0; i < 3.0; i++) {
+        bezierTroisParametre = new Mathematique(i+1.0, i+2.0); //(1;2)(2;3)(3;4)
+       }
+      Assert.assertEquals(bezierTroisParametre.calculerPoint(1).getX(), 3.0, 0);
+      Assert.assertEquals(bezierTroisParametre.calculerPoint(1).getY(), 4.0, 0);
     }
     
     @Test
-    public void test2(){
-      Assert.assertEquals(test.calculerPoint(0).getX(), 1.0, 0);
-      Assert.assertEquals(test.calculerPoint(0).getY(), 1.0, 0);
+    public void testBezierDeuxParametre(){
+      Mathematique bezierDeuxParametre = null;
+      for (double i = 0.0; i < 2.0; i++) {
+        bezierDeuxParametre = new Mathematique(i+1.0, i+2.0); //(1;2)(2;3)
+       }
+      Assert.assertEquals(bezierDeuxParametre.calculerPoint(1).getX(), 2.0, 0);
+      Assert.assertEquals(bezierDeuxParametre.calculerPoint(1).getY(), 3.0, 0);
+    }
+    
+    @Test
+    public void testBezierUnParametre(){
+      Mathematique bezierUnParametre = new Mathematique(1.0, 2.0);
+      Assert.assertEquals(bezierUnParametre.calculerPoint(0).getX(), 1.0, 0);
+      Assert.assertEquals(bezierUnParametre.calculerPoint(0).getY(), 2.0, 0);
+    }
+    
+    @Test
+    public void testBezierVoid(){
+      Mathematique bezierVoid = new Mathematique();
+      Assert.assertEquals(bezierVoid.calculerPoint(0).getX(), 0.0, 0);
+      Assert.assertEquals(bezierVoid.calculerPoint(0).getY(), 0.0, 0);
     }
 }
