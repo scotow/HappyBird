@@ -21,7 +21,8 @@ public class MainFrame extends JFrame{
     this.setLocationRelativeTo(null);
     this.getContentPane().add(this.animationPanel);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.pack();
+    //this.pack();
+    setVisible(true);
   }
   
   

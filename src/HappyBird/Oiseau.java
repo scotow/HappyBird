@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
-public class Oiseau extends JPanel {
+public class Oiseau{
 
 	/* Variables */
 
@@ -21,6 +21,8 @@ public class Oiseau extends JPanel {
         public static final Color BIRD_BODY_COLOR = Color.RED;
         public static final Color BIRD_BEAK_COLOR = Color.BLACK;
 	
+        public static final int BIRD_BODY_RADIUS = 25;
+        
 	/* Constructeur */
 
 	public Oiseau() {
@@ -44,6 +46,10 @@ public class Oiseau extends JPanel {
 	public void bougerBalle() {
 		this.position.ajout(speed, speed);
 	}
+        
+        public Coordonnee getPosition(){
+            return this.position;
+        }
 
 	/**
 	 * Fonction qui dessine l'oiseau sur l ecran

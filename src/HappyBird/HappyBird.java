@@ -13,7 +13,7 @@ public class HappyBird {
       
       @Override
       public void run() {
-        new MainFrame("Happy-Bird", 1024, 720).setVisible(true);
+        new MainFrame("Happy Bird", 1024, 720).setVisible(true);
       }
     });
   }
