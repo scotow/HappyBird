@@ -64,10 +64,8 @@ public class Mathematique {
           coordY = 0.0;
           break;
       }
-    }
-    else {
+    } else {
       throw new PointCourbeException("Trop de point !");
-      //return new Coordonnee(42, 42);
     }
     return new Coordonnee(coordX, coordY);
   }

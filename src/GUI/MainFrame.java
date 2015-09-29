@@ -17,7 +17,7 @@ public class MainFrame extends JFrame{
     setSize(600, 600);
     this.setResizable(false);
     this.setLocationRelativeTo(null);    
-    this.getContentPane().add(new GamePanel());
+    this.getContentPane().add(new GamePanel(this.getWidth(),this.getHeight()));
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     
     setVisible(true);
