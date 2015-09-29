@@ -11,10 +11,10 @@ package HappyBird;
  * @author debaerdm
  */
 public class Coordonnee {
-    private int x;
-    private int y;
+    private double x;
+    private double y;
 
-    public Coordonnee(int x, int y) {
+    public Coordonnee(double x, double y) {
         this.x = x;
         this.y = y;
     }
@@ -23,15 +23,15 @@ public class Coordonnee {
         return new Coordonnee(this.x-pb.getX(), this.y-pb.getY());
     }
     
-    public int getX(){
+    public double getX(){
         return this.x;
     }
     
-    public int getY(){
+    public double getY(){
         return this.y;
     }
     
-    public void ajout(int x, int y){
+    public void ajout(double x, double y){
         this.x += x;
         this.y += y;
     }
