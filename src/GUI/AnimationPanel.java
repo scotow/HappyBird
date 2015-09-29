@@ -6,6 +6,7 @@
 
 package GUI;
 
+import HappyBird.Oiseau;
 import java.awt.Color;
 import javax.swing.JPanel;
 

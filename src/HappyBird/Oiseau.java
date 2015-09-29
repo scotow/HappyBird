@@ -1,4 +1,4 @@
-package GUI;
+package HappyBird;
 
 import java.awt.Color;
 import java.awt.Graphics;
