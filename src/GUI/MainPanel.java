@@ -52,7 +52,7 @@ public class MainPanel extends JPanel{
     public void paintComponent(Graphics g) {
         super.paintComponents(g); //To change body of generated methods, choose Tools | Templates.
         g.setColor(oiseau.BIRD_BODY_COLOR);
-        g.fillOval(oiseau.getPosition().getX(), oiseau.getPosition().getY(), oiseau.BIRD_BODY_RADIUS, oiseau.BIRD_BODY_RADIUS);
+        g.fillOval((int)oiseau.getPosition().getX(), (int)oiseau.getPosition().getY(), oiseau.BIRD_BODY_RADIUS, oiseau.BIRD_BODY_RADIUS);
     }
     
     

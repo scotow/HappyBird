@@ -19,10 +19,9 @@ public class MainFrame extends JFrame{
     this.setPreferredSize(new Dimension(x, y));
     this.setResizable(false);
     this.setLocationRelativeTo(null);
+    this.pack();
     this.getContentPane().add(this.animationPanel);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    //this.pack();
-    setVisible(true);
   }
   
   
