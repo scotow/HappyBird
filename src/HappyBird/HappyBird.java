@@ -13,7 +13,7 @@ public class HappyBird {
       
       @Override
       public void run() {
-        new MainFrame();
+         new MainFrame();
       }
     });
   }
