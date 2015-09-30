@@ -80,7 +80,7 @@ public class TestCourbe {
       try {
         System.err.println("Trop de point !!");
       }catch(IllegalArgumentException aExp){
-        assert(aExp.getMessage().contains("Trop de point !"));
+        assert(aExp.getMessage().contains("Trop de points !"));
       }
     }
 }

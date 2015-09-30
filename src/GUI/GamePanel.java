@@ -16,8 +16,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 
@@ -49,7 +47,8 @@ public class GamePanel extends JPanel{
         test.setListPoint(new Coordonnee(1, 3)); // Premier point
         test.setListPoint(new Coordonnee(70, 200)); // Deuxieme point
         test.setListPoint(new Coordonnee(250, 250)); // Troisieme point
-        test.setListPoint(new Coordonnee(600, 250)); 
+        test.setListPoint(new Coordonnee(600, 250));
+        //test.setListPoint(new Coordonnee(600, 250));
         //this.listeObs.add(new TrucBleu(100,200,0));
         this.b = new Obstacle (100,200,50);
         this.add(b);
@@ -67,6 +66,13 @@ public class GamePanel extends JPanel{
         g.setColor(Oiseau.BIRD_BODY_COLOR);
         g.fillOval((int)oiseau.getPosition().getX(), (int)oiseau.getPosition().getY(), Oiseau.BIRD_BODY_RADIUS, Oiseau.BIRD_BODY_RADIUS);
         g.setColor(Color.BLUE);
+        try {
+			for (double i = 0.0; i < 0.99; i+=0.01) {
+				g.fillOval((int)test.calculerPoint(i).getX(),(this.height-50)-(int)test.calculerPoint(i).getY(), 20, 20);
+			}
+		} catch (PointCourbeException e) {
+			e.getMessage();
+		}
     }
     
     
