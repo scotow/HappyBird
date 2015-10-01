@@ -16,6 +16,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javax.swing.JPanel;
 
@@ -28,10 +29,13 @@ public class GamePanel extends JPanel{
     private Oiseau oiseau;
     private List <Obstacle> listeObs;
     private Obstacle b;
-    private Mathematique test = new Mathematique();
+    private Mathematique courbeBezier;
+    private List<Coordonnee> listPoint;
+    private List<Coordonnee> listPoint2;
     private int width;
     private int height;
     private int buffer;
+    private Random rd = new Random();
     
     /**
      * ajoute les elements dans le panel principal
@@ -42,12 +46,19 @@ public class GamePanel extends JPanel{
     public GamePanel(int width, int height) {
         this.oiseau = new Oiseau();
         this.listeObs = new ArrayList <Obstacle>();
+        this.listPoint = new ArrayList<Coordonnee>();
+        this.listPoint2 = new ArrayList<Coordonnee>();
         this.width = width;
         this.height = height;
-        test.setListPoint(new Coordonnee(1, 3)); // Premier point
-        test.setListPoint(new Coordonnee(70, 200)); // Deuxieme point
-        test.setListPoint(new Coordonnee(250, 250)); // Troisieme point
-        test.setListPoint(new Coordonnee(600, 250));
+        listPoint.add(new Coordonnee(1, 0)); // Premier point
+        listPoint.add(new Coordonnee(rd.nextInt(20)+50, rd.nextInt(20)+120)); // Deuxieme point
+        listPoint.add(new Coordonnee(rd.nextInt(50)+250, rd.nextInt(50)+200)); // Troisieme point
+        //listPoint.add(new Coordonnee(600, rd.nextInt(80)+250));
+        listPoint2.add(new Coordonnee(1, 0)); // Premier point
+        listPoint2.add(new Coordonnee(rd.nextInt(20)+50, rd.nextInt(20)+120)); // Deuxieme point
+        listPoint2.add(new Coordonnee(rd.nextInt(50)+250, rd.nextInt(50)+200)); // Troisieme point
+        //listPoint.add(new Coordonnee(600, rd.nextInt(80)+250));
+        courbeBezier = new Mathematique(listPoint, listPoint2);
         //test.setListPoint(new Coordonnee(600, 250));
         //this.listeObs.add(new TrucBleu(100,200,0));
         this.b = new Obstacle (100,200,50);
@@ -65,10 +76,12 @@ public class GamePanel extends JPanel{
        // super.paintComponents(g); //To change body of generated methods, choose Tools | Templates.
         g.setColor(Oiseau.BIRD_BODY_COLOR);
         g.fillOval((int)oiseau.getPosition().getX(), (int)oiseau.getPosition().getY(), Oiseau.BIRD_BODY_RADIUS, Oiseau.BIRD_BODY_RADIUS);
-        g.setColor(Color.BLUE);
         try {
-			for (double i = 0.0; i < 0.99; i+=0.01) {
-				g.fillOval((int)test.calculerPoint(i).getX(),(this.height-50)-(int)test.calculerPoint(i).getY(), 20, 20);
+			for (double i = 0.0; i < 1; i+=0.01) {
+				g.setColor(Color.BLUE);
+				g.fillOval((int)courbeBezier.calculerPoint(i).getX(),(this.height-30)-(int)courbeBezier.calculerPoint(i).getY(), 3, 3);
+				g.setColor(Color.ORANGE);
+				g.fillOval((int)courbeBezier.calculerPoint2(i).getX(),(this.height-30)-(int)courbeBezier.calculerPoint2(i).getY(), 3, 3);
 			}
 		} catch (PointCourbeException e) {
 			e.getMessage();

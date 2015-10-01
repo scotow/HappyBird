@@ -17,17 +17,22 @@ import Exception.PointCourbeException;
 public class Mathematique {
 
   private List<Coordonnee> listPoint;
+  private List<Coordonnee> listPoint2;
 
-  public Mathematique() {
-    this.listPoint = new ArrayList<Coordonnee>();
+  public Mathematique(List<Coordonnee> listPoint, List<Coordonnee> listPoint2) {
+    this.listPoint = listPoint;
+    this.listPoint2 = listPoint2;
   }
 
 
 
   public Coordonnee calculerPoint(double t) throws PointCourbeException {
-    double coordX = 0.0;
-    double coordY = 0.0;
+	double coordX = 0.0;
+	double coordY = 0.0;
     if (listPoint.size() <= 4) {
+    	/*Coordonnee coord = calculeBezier(listPoint, 1, 1, t);
+        coordX = coord.getX();
+        coordY = coord.getY();*/
       switch (listPoint.size()) {
         case 1:
           coordX = listPoint.get(0).getX();
@@ -69,6 +74,26 @@ public class Mathematique {
     }
     return new Coordonnee(coordX, coordY);
   }
+  
+  public Coordonnee calculerPoint2(double t) throws PointCourbeException {
+		double coordX = 0.0;
+		double coordY = 0.0;
+	    if (listPoint2.size() <= 4) {
+	    	/*Coordonnee coord = calculeBezier(listPoint2,listPoint2.get(0).getX(),listPoint2.get(0).getY(),t);
+	        coordX = coord.getX();
+	        coordY = coord.getY();*/
+	    } else {
+	      throw new PointCourbeException("Trop de point !");
+	    }
+	    return new Coordonnee(coordX, coordY);
+	  }
+  
+  public Coordonnee calculeBezier(List<Coordonnee> listPoint,Coordonnee result,double x, double y,  double t ) {
+	if (listPoint.size() == 1) {
+		return result;
+	}
+	return null;
+  }
 
   public double formulBezier(double point1, double point2, double t) {
     return ((1 - t) * point1) + (t * point2);
@@ -80,5 +105,12 @@ public class Mathematique {
 
   public void setListPoint(Coordonnee coordonnee) {
     listPoint.add(coordonnee);
+  }
+  
+  public boolean videListe(){
+	  for(int i = listPoint.size()-1; i != 0; --i){
+		  this.listPoint.remove(i);
+	  }
+	  return this.listPoint.isEmpty();
   }
 }
