@@ -6,6 +6,7 @@
 
 package HappyBird;
 
+import GUI.GamePanel;
 import java.awt.Toolkit;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -16,26 +17,30 @@ import java.util.TimerTask;
  */
 public class Animation {
     
-    Toolkit toolkit;
-    Timer timer;
+    private static Toolkit toolkit;
+    private static Timer timer;
+    private static Oiseau oiseau;
+    private static GamePanel gamePanel;
 
-    public Animation() {
+    public Animation(Oiseau oiseau, GamePanel gamePanel) {
+        this.oiseau = oiseau;
+        this.gamePanel = gamePanel;
         toolkit = Toolkit.getDefaultToolkit();
         timer = new Timer();
         timer.schedule(new RemindTask(),
                        0,        //initial delay
-                       1*1000);  //subsequent rate
+                       500);  //subsequent rate
     }
 
     class RemindTask extends TimerTask {
-        int numWarningBeeps = 3;
         public void run() {
-            if (numWarningBeeps > 0) {
-                toolkit.beep();
+            if (!Animation.oiseau.getPosition().equals(new Coordonnee(gamePanel.getWidth(), gamePanel.getHeight()))) {
+                Animation.toolkit.beep();
                 System.out.format("Beep!%n");
-                numWarningBeeps--;
+                Animation.oiseau.bougerOiseau();
+                gamePanel.repaint();
             } else {
-                toolkit.beep(); 
+                Animation.toolkit.beep(); 
                 System.out.format("Time's up!%n");
                 //timer.cancel(); //Not necessary because
                                   //we call System.exit
