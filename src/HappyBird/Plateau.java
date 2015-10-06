@@ -20,12 +20,6 @@ public class Plateau {
     
     private final Oiseau oiseau;
     private final ArrayList <Obstacle> obstacles;
-    //private Obstacle b;
-    private Courbe courbeBezier;
-    private List<Coordonnee> listPoint;
-    //private List<Coordonnee> listPoint2;
-    private int buffer;
-    private Random rd = new Random();
     
     public Plateau(GamePanel gamePanel){
         this.oiseau = new Oiseau(gamePanel);
