@@ -35,10 +35,10 @@ public class Obstacle extends JPanel{
 	 * @param g : le graphique
 	 */
 	
-	public void paintComponent(Graphics g) {
+	/*public void paintComponent(Graphics g) {
 		g.setColor(Color.BLUE);
 		g.fillOval(this.x, this.y, 50, 50);  	
-	}
+	}*/
 	
 	
 	

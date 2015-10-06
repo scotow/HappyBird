@@ -61,14 +61,17 @@ public class GamePanel extends JPanel{
         courbeBezier = new Mathematique(listPoint, listPoint2);
         //test.setListPoint(new Coordonnee(600, 250));
         //this.listeObs.add(new TrucBleu(100,200,0));
-        this.b = new Obstacle (100,200,50);
-        this.add(b);
         //Ajoute un par un les TrucBleu 
         /*for (int i = 0 ; i < this.listeObs.size() ; i++) {
         	this.add(this.listeObs.get(i));
         }*/
         setBackground(Color.BLACK);
-       
+        Obstacle o;
+        Random r = new Random();
+        for (int i = 0 ; i < 10 ; i++) {
+        	o = new Obstacle(r.nextInt(500), r.nextInt(350), 15);
+        	listeObs.add(o);
+        }
     }
 
     @Override
@@ -86,6 +89,12 @@ public class GamePanel extends JPanel{
 		} catch (PointCourbeException e) {
 			e.getMessage();
 		}
+        
+        g.setColor(Color.blue);
+        for (int i = 0 ; i < this.listeObs.size(); i++) {
+        	g.fillOval(listeObs.get(i).getX(), listeObs.get(i).getY(), 15,15);
+        }
+        
     }
     
     
