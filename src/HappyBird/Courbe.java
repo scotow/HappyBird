@@ -19,9 +19,6 @@ import java.util.Random;
 public class Courbe {
 
   private List<Coordonnee> listPoint;
-  private double x;
-  private double y;
-  //private List<Coordonnee> listPoint2;
 
     public Courbe() {
         listPoint = new ArrayList<Coordonnee>();
@@ -30,7 +27,6 @@ public class Courbe {
   
   public Courbe(List<Coordonnee> listPoint) {
     this.listPoint = listPoint;
-    //this.listPoint2 = listPoint2;
   }
 
   
