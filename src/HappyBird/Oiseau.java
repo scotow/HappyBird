@@ -64,7 +64,7 @@ public class Oiseau{
 					position = courbe.calculerPoint(temps);
 				}catch (PointCourbeException ex){
 				}finally {
-					if(temps == 1)
+					if(temps >= 1)
 						((Timer)e.getSource()).stop();
 					gamePanel.repaint();
 				}
@@ -72,10 +72,6 @@ public class Oiseau{
 		});
 
 		refreshTimer.start();
-
-
-
-		//this.position.ajout(speed, speed);
 	}
 
 	public Coordonnee getPosition(){
