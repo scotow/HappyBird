@@ -53,7 +53,7 @@ public class Oiseau{
 	}
 
 	/**
-	 * Fonctionne qui met àà jour la position de l'oiseau suivant sa vitesse 
+	 * Fonction qui fait voller l'oiseau en fonction de sa courbe.
 	 */
 	public void bougerOiseau() {
 		Timer refreshTimer = new Timer(100, new ActionListener() {

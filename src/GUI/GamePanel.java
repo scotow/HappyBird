@@ -12,6 +12,8 @@ import HappyBird.Plateau;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JPanel;
 
@@ -19,9 +21,9 @@ import javax.swing.JPanel;
  * 
  * @author debaerdm
  */
-public class GamePanel extends JPanel{
+public class GamePanel extends JPanel implements KeyListener{
     
-    private final Plateau plateau;
+    private Plateau plateau;
     
     /**
      * ajoute les elements dans le panel principal
@@ -30,6 +32,9 @@ public class GamePanel extends JPanel{
      * @param y : position y du panel
      */
     public GamePanel() {
+        setFocusable(true);
+        addKeyListener(this);
+
         plateau = new Plateau(this);
         setBackground(Color.BLACK);
         repaint();
@@ -52,9 +57,18 @@ public class GamePanel extends JPanel{
         	g.fillOval((int)plateau.getObstacles().get(i).getX(), (int)plateau.getObstacles().get(i).getY(), 15,15);                
         }
     }
-    
-    
-    
-    
+
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        if(e.getKeyChar() == ' ')
+            this.plateau = new Plateau(this);
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {}
+
+    @Override
+    public void keyReleased(KeyEvent e) {}
 }
 
