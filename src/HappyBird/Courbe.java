@@ -79,13 +79,6 @@ public class Courbe {
     listPoint.add(coordonnee);
   }
   
-  public boolean videListe(){
-	  for(int i = listPoint.size()-1; i != 0; --i){
-		  this.listPoint.remove(i);
-	  }
-	  return this.listPoint.isEmpty();
-  }
-  
   public double tangente(double t){
       
     
