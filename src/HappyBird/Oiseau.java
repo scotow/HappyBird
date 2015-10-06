@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Exceptions.PointCourbeException;
 import GUI.GamePanel;
+import GUI.MainFrame;
 
 public class Oiseau{
 
@@ -47,7 +48,7 @@ public class Oiseau{
 	 * le haut avec une vitesse de 1.
 	 */
 	public void resetPosition() {
-		this.position = new Coordonnee(10, 600-(BIRD_BODY_RADIUS*3));
+		this.position = new Coordonnee(10, MainFrame.Y_FRAME-(BIRD_BODY_RADIUS*3));
 		this.speed = 0.02;
 		this.temps = 0;
 	}

@@ -6,15 +6,15 @@ import javax.swing.JFrame;
 public class MainFrame extends JFrame{
 
   /**
-   * 
+   * Poulpe-Man
    */
-  //private static final long serialVersionUID = 1L;
-  
- // private GamePanel gamePanel;
+
+  public static final int X_FRAME = 600;
+  public static final int Y_FRAME = 600;
 
   public MainFrame() {
     setTitle("Happy Bird");
-    setSize(600, 600);
+    setSize(X_FRAME, Y_FRAME);
     this.setResizable(false);
     this.setLocationRelativeTo(null);    
     this.getContentPane().add(new GamePanel());

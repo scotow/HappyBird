@@ -6,6 +6,7 @@
 package HappyBird;
 
 import GUI.GamePanel;
+import GUI.MainFrame;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,7 @@ public class Plateau {
     private void placerObstacles(int nombre){
         for (int i = 0 ; i < nombre ; i++) {
             Random rand = new Random();
-        	obstacles.add(new Obstacle(rand.nextInt(200)+380, rand.nextInt(350), 15));
+        	obstacles.add(new Obstacle(rand.nextInt(MainFrame.X_FRAME/3)+MainFrame.X_FRAME/3*2 - 20, rand.nextInt(MainFrame.Y_FRAME/2), 15));
         }
     }
     
