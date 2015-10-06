@@ -1,17 +1,25 @@
 package HappyBird;
 
 import java.awt.Color;
+import javax.swing.Timer;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import Exceptions.PointCourbeException;
+import GUI.GamePanel;
 
 public class Oiseau{
 
 	/* Variables */
+
+	GamePanel gamePanel;
 
 	// Coordonnee de l'oiseau.
 	private Coordonnee position;
 
 
 	//Vitesse de deplacement de l
-	private int speed = 1;
+	private double speed = 0.02;
+	private double temps = 0;
 
 	//Les couleurs de l'oiseau.
         
@@ -25,10 +33,11 @@ public class Oiseau{
         //private int height;
 	/* Constructeur */
 
-	public Oiseau() {
-            resetPosition();
-            this.courbe = new Courbe();
-            this.courbe.setRandomCourbe(this.position);
+	public Oiseau(GamePanel gamePanel) {
+		resetPosition();
+		this.gamePanel = gamePanel;
+		this.courbe = new Courbe();
+		this.courbe.setRandomCourbe(this.position);
 	}
 
 	/* Fonction */
@@ -39,21 +48,41 @@ public class Oiseau{
 	 */
 	public void resetPosition() {
 		this.position = new Coordonnee(10, 600-(BIRD_BODY_RADIUS*3));
-                this.speed = 1;
+		this.speed = 0.02;
+		this.temps = 0;
 	}
 
 	/**
 	 * Fonctionne qui met àà jour la position de l'oiseau suivant sa vitesse 
 	 */
 	public void bougerOiseau() {
-		this.position.ajout(speed, speed);
+		Timer refreshTimer = new Timer(100, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				temps += speed;
+				try {
+					position = courbe.calculerPoint(temps);
+				}catch (PointCourbeException ex){
+				}finally {
+					if(temps == 1)
+						((Timer)e.getSource()).stop();
+					gamePanel.repaint();
+				}
+			}
+		});
+
+		refreshTimer.start();
+
+
+
+		//this.position.ajout(speed, speed);
 	}
-        
-        public Coordonnee getPosition(){
+
+	public Coordonnee getPosition(){
             return this.position;
         }
-        
-        public Courbe getCourbe(){
+
+	public Courbe getCourbe(){
             return this.courbe;
         }
 

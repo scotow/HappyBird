@@ -5,6 +5,8 @@
  */
 package HappyBird;
 
+import GUI.GamePanel;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -24,10 +26,11 @@ public class Plateau {
     private int buffer;
     private Random rd = new Random();
     
-    public Plateau(){
-        this.oiseau = new Oiseau();
+    public Plateau(GamePanel gamePanel){
+        this.oiseau = new Oiseau(gamePanel);
         this.obstacles = new ArrayList<>();
         placerObstacles(10);
+        oiseau.bougerOiseau();
     }
     
     private void placerObstacles(int nombre){

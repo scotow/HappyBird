@@ -35,7 +35,7 @@ public class Coordonnee {
     public Coordonnee CalculPointBez(Coordonnee pb){
         return new Coordonnee(this.x-pb.getX(), this.y-pb.getY());
     }
-    /*-------------------Les getter----------------------------------------------*/
+    /*-------------------Les getters----------------------------------------------*/
     
     /**
      * retourne la position x
@@ -53,6 +53,12 @@ public class Coordonnee {
     public double getY(){
         return this.y;
     }
+
+    /*-------------------Les setters----------------------------------------------*/
+
+    public void setX(double x){this.x = x;}
+
+    public void setY(double y){this.y = y;}
     
     /*----------------------------------------------------------------------------*/
     

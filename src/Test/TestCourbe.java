@@ -6,8 +6,7 @@
 
 package Test;
 
-import static org.junit.Assert.*;
-import Exception.PointCourbeException;
+import Exceptions.PointCourbeException;
 import HappyBird.Coordonnee;
 import HappyBird.Courbe;
 

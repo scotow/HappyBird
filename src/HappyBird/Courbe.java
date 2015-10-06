@@ -1,7 +1,6 @@
 package HappyBird;
 
-import Exception.PointCourbeException;
-import java.math.*;
+import Exceptions.PointCourbeException;
 
 import java.util.ArrayList;
 import java.util.List;

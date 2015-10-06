@@ -6,18 +6,12 @@
 
 package GUI;
 
-import Exception.PointCourbeException;
-import HappyBird.Coordonnee;
-import HappyBird.Courbe;
+import Exceptions.PointCourbeException;
 import HappyBird.Oiseau;
-import HappyBird.Obstacle;
 import HappyBird.Plateau;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 import javax.swing.JPanel;
 
@@ -36,9 +30,9 @@ public class GamePanel extends JPanel{
      * @param y : position y du panel
      */
     public GamePanel() {
-        plateau = new Plateau();
-        
+        plateau = new Plateau(this);
         setBackground(Color.BLACK);
+        repaint();
     }
 
     @Override

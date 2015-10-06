@@ -6,7 +6,7 @@
 
 package GUI;
 
-import Exception.PointCourbeException;
+import Exceptions.PointCourbeException;
 import HappyBird.Courbe;
 import java.awt.Dimension;
 import java.awt.Graphics;
