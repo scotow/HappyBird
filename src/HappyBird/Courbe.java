@@ -1,10 +1,11 @@
 package HappyBird;
 
-import java.util.ArrayList;
-import java.util.List;
+import Exception.PointCourbeException;
 import java.math.*;
 
-import Exception.PointCourbeException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 /*
  * To change this license header, choose License Headers in Project Properties. To change this
@@ -15,22 +16,30 @@ import Exception.PointCourbeException;
  *
  * @author debaerdm
  */
-public class Mathematique {
+public class Courbe {
 
   private List<Coordonnee> listPoint;
-  private List<Coordonnee> listPoint2;
+  private double x;
+  private double y;
+  //private List<Coordonnee> listPoint2;
 
-    public Mathematique() {
+    public Courbe() {
         listPoint = new ArrayList<Coordonnee>();
     }
   
   
-  public Mathematique(List<Coordonnee> listPoint, List<Coordonnee> listPoint2) {
+  public Courbe(List<Coordonnee> listPoint) {
     this.listPoint = listPoint;
-    this.listPoint2 = listPoint2;
+    //this.listPoint2 = listPoint2;
   }
 
-
+  
+    public void setRandomCourbe(Coordonnee beginning){
+        Random rand = new Random();
+        listPoint.add(new Coordonnee(beginning.getX()+(Oiseau.BIRD_BODY_RADIUS/2), beginning.getY())); // Premier point
+        listPoint.add(new Coordonnee(rand.nextInt(20)+50, rand.nextInt(20)+120)); // Deuxieme point
+        listPoint.add(new Coordonnee(rand.nextInt(50)+550, rand.nextInt(50)+200)); // Troisieme point
+    }
 
   public Coordonnee calculerPoint(double t) throws PointCourbeException {
 	double coordX = 0.0;
@@ -84,28 +93,30 @@ public class Mathematique {
     return new Coordonnee(coordX, coordY);
   }
   
-  public Coordonnee calculerPoint2(double t) throws PointCourbeException {
+  /*public Coordonnee calculerPoint2(double t) throws PointCourbeException {
 		double coordX = 0.0;
 		double coordY = 0.0;
 	    if (listPoint2.size() <= 4) {
-	    	/*Coordonnee coord = calculeBezier(listPoint2,listPoint2.get(0).getX(),listPoint2.get(0).getY(),t);
+	    	Coordonnee coord = calculeBezier(listPoint2,listPoint2.get(0).getX(),listPoint2.get(0).getY(),t);
 	        coordX = coord.getX();
-	        coordY = coord.getY();*/
+	        coordY = coord.getY();
 	    } else {
 	      throw new PointCourbeException("Trop de point !");
 	    }
 	    return new Coordonnee(coordX, coordY);
 	  }
-  
-  public Coordonnee calculeBezier(double t) {
-    double x = 0;
-    double y = 0;
-    for (int i = 0; i < listPoint.size(); i++) {
-        x += (this.listPoint.get(i).getX() + (Math.pow(t, listPoint.size())*(listPoint.get(i+1).getX() - listPoint.get(i).getX())));
-        y += (this.listPoint.get(i).getY() + (Math.pow(t, listPoint.size())*(listPoint.get(i+1).getY() - listPoint.get(i).getY())));
+  */
+  /*public Coordonnee calculeBezier(List<Coordonnee> listPoint, double t) {
+    if (listPoint.size()-1 == 0) {
+        return new Coordonnee(listPoint.get(0).getX(), listPoint.get(0).getY());
     }
-    return new Coordonnee(x, y);
-  }
+    for (int i = 0; i < listPoint.size(); i++) {
+       x = formulBezier(listPoint.get(i).getX(), listPoint.get(i+1).getX(), t);
+       y = formulBezier(listPoint.get(i).getY(), listPoint.get(i+1).getY(), t);
+    }
+    
+    return calculeBezier(listPoint, t);
+  }*/
 
   public double formulBezier(double point1, double point2, double t) {
     return ((1 - t) * point1) + (t * point2);

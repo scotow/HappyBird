@@ -7,7 +7,7 @@
 package GUI;
 
 import Exception.PointCourbeException;
-import HappyBird.Mathematique;
+import HappyBird.Courbe;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
@@ -21,10 +21,10 @@ import javax.swing.JPanel;
  */
 public class CourbePanel extends JPanel{
 
-    private Mathematique courbe;
+    private Courbe courbe;
     private int frameHeight;
     
-    public CourbePanel(int x, int y, int width, int height, int frameHeight, Mathematique mathematique) {
+    public CourbePanel(int x, int y, int width, int height, int frameHeight, Courbe mathematique) {
         this.setPreferredSize(new Dimension(width, height));
         this.setLocation(new Point(x, y));
         this.frameHeight = frameHeight;

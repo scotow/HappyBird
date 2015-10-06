@@ -1,8 +1,6 @@
 package HappyBird;
 
 import java.awt.Color;
-import java.awt.Graphics;
-import javax.swing.JPanel;
 
 public class Oiseau{
 
@@ -16,18 +14,21 @@ public class Oiseau{
 	private int speed = 1;
 
 	//Les couleurs de l'oiseau.
+        
+        private Courbe courbe;
                 
         //Constantes.
         public static final Color BIRD_BODY_COLOR = Color.RED;
         public static final Color BIRD_BEAK_COLOR = Color.BLACK;
 	
         public static final int BIRD_BODY_RADIUS = 25;
-        private int height;
+        //private int height;
 	/* Constructeur */
 
-	public Oiseau(int height) {
-                this.height = height;
-		resetPosition();
+	public Oiseau() {
+            resetPosition();
+            this.courbe = new Courbe();
+            this.courbe.setRandomCourbe(this.position);
 	}
 
 	/* Fonction */
@@ -37,19 +38,23 @@ public class Oiseau{
 	 * le haut avec une vitesse de 1.
 	 */
 	public void resetPosition() {
-		this.position = new Coordonnee(10, this.height-(BIRD_BODY_RADIUS*3));
+		this.position = new Coordonnee(10, 600-(BIRD_BODY_RADIUS*3));
                 this.speed = 1;
 	}
 
 	/**
 	 * Fonctionne qui met àà jour la position de l'oiseau suivant sa vitesse 
 	 */
-	public void bougerBalle() {
+	public void bougerOiseau() {
 		this.position.ajout(speed, speed);
 	}
         
         public Coordonnee getPosition(){
             return this.position;
+        }
+        
+        public Courbe getCourbe(){
+            return this.courbe;
         }
 
 	/**

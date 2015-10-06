@@ -1,10 +1,8 @@
 package HappyBird;
 
-import javax.swing.JPanel;
 
 
-
-public class Obstacle extends JPanel{
+public class Obstacle extends Coordonnee{
 
 	/**
 	 * 
@@ -12,9 +10,9 @@ public class Obstacle extends JPanel{
 	 * Il s'agit des obstacles qui apparaissent sur l'ecran
 	 * 
 	 */
-	private Coordonnee c;
-	private int rayon;
+	//private int x, y, rayon;
 
+        private final int rayon;
 	
 	/**
 	 * Cree un obstacle
@@ -23,13 +21,8 @@ public class Obstacle extends JPanel{
 	 * @param rayon : le rayon du cercle
 	 */
 	public Obstacle (int x, int y, int rayon) {
-		this.c = new Coordonnee (x,y);
-		this.rayon = rayon;
-	}
-	
-	public Obstacle (Coordonnee c) {
-		this.c = c;
-		
+            super(x, y);
+            this.rayon = rayon;
 	}
 
 	/**
@@ -38,7 +31,7 @@ public class Obstacle extends JPanel{
 	 * @return true s'il y a collision
 	 */
 	public boolean collision (Obstacle o) {
-		if (this.getCoord().equals(o.getCoord())) {
+		if (this.getX() == o.getX() && this.getY() == o.getY()) {
 			return true;
 		}
 		return false;
@@ -48,12 +41,24 @@ public class Obstacle extends JPanel{
 	/*-------------------Les getter-----------------------------*/
 	
 	/**
-	 * Retourne les coordonnees de l'obstacle
-	 * @return c : les coordonnees de l'obstacle
+	 * Retourne la position x
+	 * @return x : la position x de l'obstacle
 	 */
-	public Coordonnee getCoord () {
-		return this.c;
+	public double getX() {
+		return this.x;
 	}
+	
+	/**
+	 * Retourne la position y
+	 * @return y : la position y de l'obstacle
+	 */
+	public double getY() {
+		return this.y;
+	}
+        
+        public Coordonnee getCoord(){
+            return this.getCoord();
+        }
 	
 	/**
 	 * Retourne le rayon

@@ -9,7 +9,7 @@ package Test;
 import static org.junit.Assert.*;
 import Exception.PointCourbeException;
 import HappyBird.Coordonnee;
-import HappyBird.Mathematique;
+import HappyBird.Courbe;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,7 +22,7 @@ public class TestCourbe {
     
     @Test
     public void testBezierTroisParametre() throws PointCourbeException{
-      Mathematique bezierTroisParametre = new Mathematique();
+      Courbe bezierTroisParametre = new Courbe();
       for (double i = 0.0; i < 3.0; i++) {
         bezierTroisParametre.setListPoint(new Coordonnee(i+1.0, i+2.0)); //(1;2)(2;3)(3;4)
        }
@@ -34,7 +34,7 @@ public class TestCourbe {
     
     @Test
     public void testBezierDeuxParametre() throws PointCourbeException{
-      Mathematique bezierDeuxParametre = new Mathematique();
+      Courbe bezierDeuxParametre = new Courbe();
       for (double i = 0.0; i < 2.0; i++) {
         bezierDeuxParametre.setListPoint(new Coordonnee(i+1.0, i+2.0)); //(1;2)(2;3)
        }
@@ -46,7 +46,7 @@ public class TestCourbe {
     
     @Test
     public void testBezierUnParametre() throws PointCourbeException{
-      Mathematique bezierUnParametre = new Mathematique();
+      Courbe bezierUnParametre = new Courbe();
       bezierUnParametre.setListPoint(new Coordonnee(1.0, 2.0));;
       Assert.assertEquals(bezierUnParametre.calculerPoint(0).getX(), 1.0, 1);
       Assert.assertEquals(bezierUnParametre.calculerPoint(0).getY(), 2.0, 1);
@@ -54,14 +54,14 @@ public class TestCourbe {
     
     @Test
     public void testBezierVoid() throws PointCourbeException{
-      Mathematique bezierVoid = new Mathematique();
+      Courbe bezierVoid = new Courbe();
       Assert.assertEquals(bezierVoid.calculerPoint(0).getX(), 0.0, 1);
       Assert.assertEquals(bezierVoid.calculerPoint(0).getY(), 0.0, 1);
     }
     
     @Test
     public void testBezierError() throws PointCourbeException{
-      Mathematique bezierError = new Mathematique();
+      Courbe bezierError = new Courbe();
       for (double i = 0.0; i < 4.0; i++) {
         bezierError.setListPoint(new Coordonnee(i+1.0, i+2.0)); //(1;2)(2;3)(3;4)(4;5)
        }
