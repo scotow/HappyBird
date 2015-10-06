@@ -68,6 +68,7 @@ public class GamePanel extends JPanel{
         setBackground(Color.BLACK);
         Obstacle o;
         Random r = new Random();
+        int x, y;
         for (int i = 0 ; i < 10 ; i++) {
         	o = new Obstacle(r.nextInt(500), r.nextInt(350), 15);
         	listeObs.add(o);

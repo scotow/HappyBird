@@ -1,8 +1,5 @@
 package HappyBird;
 
-import java.awt.Color;
-import java.awt.Graphics;
-
 import javax.swing.JPanel;
 
 
@@ -12,14 +9,14 @@ public class Obstacle extends JPanel{
 	/**
 	 * 
 	 * @author garbey
-	 * Il s'agit des trucs bleus qui apparaissent sur l'ecran
+	 * Il s'agit des obstacles qui apparaissent sur l'ecran
 	 * 
 	 */
 	private int x, y, rayon;
 
 	
 	/**
-	 * Cree un TrucBleu
+	 * Cree un obstacle
 	 * @param x : la position de x
 	 * @param y : la position de y
 	 * @param rayon : le rayon du cercle
@@ -31,22 +28,23 @@ public class Obstacle extends JPanel{
 	}
 
 	/**
-	 * Affiche le TrucBleu
-	 * @param g : le graphique
+	 * Retourne vrai s'il y a collision avec deux obstacles
+	 * @param Obstacle o a analyser
+	 * @return true s'il y a collision
 	 */
+	public boolean collision (Obstacle o) {
+		if (this.getX() == o.getX() && this.getY() == o.getY()) {
+			return true;
+		}
+		return false;
+	}
 	
-	/*public void paintComponent(Graphics g) {
-		g.setColor(Color.BLUE);
-		g.fillOval(this.x, this.y, 50, 50);  	
-	}*/
-	
-	
-	
+
 	/*-------------------Les getter-----------------------------*/
 	
 	/**
 	 * Retourne la position x
-	 * @return x : la position x du TrucBleu
+	 * @return x : la position x de l'obstacle
 	 */
 	public int getX() {
 		return this.x;
@@ -54,7 +52,7 @@ public class Obstacle extends JPanel{
 	
 	/**
 	 * Retourne la position y
-	 * @return y : la position y du TrucBleu
+	 * @return y : la position y de l'obstacle
 	 */
 	public int getY() {
 		return this.y;
