@@ -21,18 +21,6 @@ import org.junit.Test;
 public class TestCourbe {
     
     @Test
-    public void testBezierQuatreParametre() throws PointCourbeException{
-      Mathematique bezierQuatreParametre = new Mathematique();
-      for (double i = 0.0; i < 4.0; i++) {
-        bezierQuatreParametre.setListPoint(new Coordonnee(i+1.0, i+2.0)); //(1;2)(2;3)(3;4)(4;5)
-       }
-        Assert.assertEquals(bezierQuatreParametre.calculerPoint(1).getX(), 4.0, 1);
-        Assert.assertEquals(bezierQuatreParametre.calculerPoint(1).getY(), 5.0, 1);
-        Assert.assertEquals(bezierQuatreParametre.calculerPoint(0.6).getX(), 2.8, 1);
-        Assert.assertEquals(bezierQuatreParametre.calculerPoint(0.6).getY(), 3.8, 1); // Le dernier parametre sert a donner que un chiffre derriere la virgule.
-    }
-    
-    @Test
     public void testBezierTroisParametre() throws PointCourbeException{
       Mathematique bezierTroisParametre = new Mathematique();
       for (double i = 0.0; i < 3.0; i++) {
@@ -74,7 +62,7 @@ public class TestCourbe {
     @Test
     public void testBezierError() throws PointCourbeException{
       Mathematique bezierError = new Mathematique();
-      for (double i = 0.0; i < 5.0; i++) {
+      for (double i = 0.0; i < 4.0; i++) {
         bezierError.setListPoint(new Coordonnee(i+1.0, i+2.0)); //(1;2)(2;3)(3;4)(4;5)
        }
       try {

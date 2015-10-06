@@ -2,6 +2,7 @@ package HappyBird;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.math.*;
 
 import Exception.PointCourbeException;
 
@@ -54,6 +55,7 @@ public class Mathematique {
           coordY =
               formulBezier(formulBezier(listPoint.get(0).getY(), listPoint.get(1).getY(), t),
                   formulBezier(listPoint.get(1).getY(), listPoint.get(2).getY(), t), t);
+          
           break;
         /*case 4:
           coordX =
@@ -74,6 +76,8 @@ public class Mathematique {
           coordY = 0.0;
           break;
       }
+        //coordX = calculeBezier(t).getX();
+       // coordY = calculeBezier(t).getY();
     } else {
       throw new PointCourbeException("Trop de point !");
     }
@@ -93,11 +97,14 @@ public class Mathematique {
 	    return new Coordonnee(coordX, coordY);
 	  }
   
-  public Coordonnee calculeBezier(List<Coordonnee> listPoint,Coordonnee result,double x, double y,  double t ) {
-	if (listPoint.size() == 1) {
-		return result;
-	}
-	return null;
+  public Coordonnee calculeBezier(double t) {
+    double x = 0;
+    double y = 0;
+    for (int i = 0; i < listPoint.size(); i++) {
+        x += (this.listPoint.get(i).getX() + (Math.pow(t, listPoint.size())*(listPoint.get(i+1).getX() - listPoint.get(i).getX())));
+        y += (this.listPoint.get(i).getY() + (Math.pow(t, listPoint.size())*(listPoint.get(i+1).getY() - listPoint.get(i).getY())));
+    }
+    return new Coordonnee(x, y);
   }
 
   public double formulBezier(double point1, double point2, double t) {
@@ -117,5 +124,11 @@ public class Mathematique {
 		  this.listPoint.remove(i);
 	  }
 	  return this.listPoint.isEmpty();
+  }
+  
+  public double tangente(double x, double y){
+      double a = (x/y);
+      double b = y-(a*x);
+      return (a*x)+b;
   }
 }

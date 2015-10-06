@@ -86,6 +86,7 @@ public class GamePanel extends JPanel{
 		g.setColor(Color.ORANGE);
 		g.fillOval((int)courbeBezier.calculerPoint2(i).getX(),(int)courbeBezier.calculerPoint2(i).getY(), 6, 6);
             }
+            g.drawLine((int)courbeBezier.tangente(listPoint.get(0).getX(), listPoint.get(0).getY()), (int)courbeBezier.tangente(listPoint.get(1).getX(), listPoint.get(1).getY()), (int)listPoint.get(0).getY(), (int)listPoint.get(1).getY());
         } catch (PointCourbeException e) {
             e.getMessage();
         }
