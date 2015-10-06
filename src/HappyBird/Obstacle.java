@@ -12,7 +12,8 @@ public class Obstacle extends JPanel{
 	 * Il s'agit des obstacles qui apparaissent sur l'ecran
 	 * 
 	 */
-	private int x, y, rayon;
+	private Coordonnee c;
+	private int rayon;
 
 	
 	/**
@@ -22,9 +23,13 @@ public class Obstacle extends JPanel{
 	 * @param rayon : le rayon du cercle
 	 */
 	public Obstacle (int x, int y, int rayon) {
-		this.x = x;
-		this.y = y;
+		this.c = new Coordonnee (x,y);
 		this.rayon = rayon;
+	}
+	
+	public Obstacle (Coordonnee c) {
+		this.c = c;
+		
 	}
 
 	/**
@@ -33,7 +38,7 @@ public class Obstacle extends JPanel{
 	 * @return true s'il y a collision
 	 */
 	public boolean collision (Obstacle o) {
-		if (this.getX() == o.getX() && this.getY() == o.getY()) {
+		if (this.getCoord().equals(o.getCoord())) {
 			return true;
 		}
 		return false;
@@ -43,19 +48,11 @@ public class Obstacle extends JPanel{
 	/*-------------------Les getter-----------------------------*/
 	
 	/**
-	 * Retourne la position x
-	 * @return x : la position x de l'obstacle
+	 * Retourne les coordonnees de l'obstacle
+	 * @return c : les coordonnees de l'obstacle
 	 */
-	public int getX() {
-		return this.x;
-	}
-	
-	/**
-	 * Retourne la position y
-	 * @return y : la position y de l'obstacle
-	 */
-	public int getY() {
-		return this.y;
+	public Coordonnee getCoord () {
+		return this.c;
 	}
 	
 	/**
