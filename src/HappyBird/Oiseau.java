@@ -22,10 +22,11 @@ public class Oiseau{
         public static final Color BIRD_BEAK_COLOR = Color.BLACK;
 	
         public static final int BIRD_BODY_RADIUS = 25;
-        
+        private int height;
 	/* Constructeur */
 
-	public Oiseau() {
+	public Oiseau(int height) {
+                this.height = height;
 		resetPosition();
 	}
 
@@ -36,7 +37,7 @@ public class Oiseau{
 	 * le haut avec une vitesse de 1.
 	 */
 	public void resetPosition() {
-		this.position = new Coordonnee(150, 150);
+		this.position = new Coordonnee(10, this.height-(BIRD_BODY_RADIUS*3));
                 this.speed = 1;
 	}
 

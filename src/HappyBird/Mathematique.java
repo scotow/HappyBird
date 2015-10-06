@@ -19,6 +19,11 @@ public class Mathematique {
   private List<Coordonnee> listPoint;
   private List<Coordonnee> listPoint2;
 
+    public Mathematique() {
+        listPoint = new ArrayList<Coordonnee>();
+    }
+  
+  
   public Mathematique(List<Coordonnee> listPoint, List<Coordonnee> listPoint2) {
     this.listPoint = listPoint;
     this.listPoint2 = listPoint2;
@@ -29,7 +34,7 @@ public class Mathematique {
   public Coordonnee calculerPoint(double t) throws PointCourbeException {
 	double coordX = 0.0;
 	double coordY = 0.0;
-    if (listPoint.size() <= 4) {
+    if (listPoint.size() <= 3) {
     	/*Coordonnee coord = calculeBezier(listPoint, 1, 1, t);
         coordX = coord.getX();
         coordY = coord.getY();*/
@@ -50,7 +55,7 @@ public class Mathematique {
               formulBezier(formulBezier(listPoint.get(0).getY(), listPoint.get(1).getY(), t),
                   formulBezier(listPoint.get(1).getY(), listPoint.get(2).getY(), t), t);
           break;
-        case 4:
+        /*case 4:
           coordX =
               formulBezier(
                   formulBezier(formulBezier(listPoint.get(0).getX(), listPoint.get(1).getX(), t),
@@ -63,7 +68,7 @@ public class Mathematique {
                       formulBezier(listPoint.get(1).getY(), listPoint.get(2).getY(), t), t),
                   formulBezier(formulBezier(listPoint.get(1).getY(), listPoint.get(2).getY(), t),
                       formulBezier(listPoint.get(2).getY(), listPoint.get(3).getY(), t), t), t);
-          break;
+          break;*/
         default:
           coordX = 0.0;
           coordY = 0.0;
