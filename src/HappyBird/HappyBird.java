@@ -14,7 +14,7 @@ public class HappyBird {
       @Override
       public void run() {
           
-         Animation a = new Animation();
+         //Animation a = new Animation();
          new MainFrame();
       }
     });
