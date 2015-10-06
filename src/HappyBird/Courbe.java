@@ -55,10 +55,10 @@ public class Courbe {
     } catch (PointCourbeException exception) {
       exception.printStackTrace();
     }
-	this.coordX = bezier.getX();
-	this.coordY = bezier.getY();
-	this.coordXDeriv = bezierDeriv.getX();
-	this.coordYDeriv = bezierDeriv.getY();
+    this.coordX = bezier.getX();
+    this.coordY = bezier.getY();
+    this.coordXDeriv = bezierDeriv.getX();
+    this.coordYDeriv = bezierDeriv.getY();
     return new Coordonnee(coordX, coordY);
   }
   
@@ -68,7 +68,7 @@ public class Courbe {
     return new Coordonnee(bezierTangenteX, bezierTangenteY);
   }
 
-  ///////////Non utiliser mais on la garde en cas de problÃ¨me////////////////////
+  ///////////Non utiliser mais on la garde en cas de problème////////////////////
   /* public double formulBezier(double point1, double point2, double t) {
     return ((1 - t) * point1) + (t * point2);
   }*/
@@ -151,4 +151,3 @@ public class Courbe {
     return bezierTangenteY;
   }
 }
-
