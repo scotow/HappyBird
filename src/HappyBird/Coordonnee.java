@@ -77,6 +77,18 @@ public class Coordonnee {
     }
     
     /**
+     * test les collisions deux cercles
+     * @param c : Coordonnees de l'objet vise
+     * @param rayonUn : le rayon du premier cercle
+     * @param rayonDeux : le rayon du deuxieme cercle
+     * @return : vrai s'il y a collision, faux s'il n'y en a pas
+     */
+    public boolean collisionCercle(Coordonnee c, int rayonUn, int rayonDeux) {
+    	//astuce faire |x - x| et |y - y| soit la valeur absolue des deux valeurs
+    	return false;
+    }
+    
+    /**
      * affiche les coordonnees
      * @return la chaine caractere voulue
      */
