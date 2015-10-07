@@ -29,7 +29,17 @@ public class Plateau {
     private void placerObstacles(int nombre){
         for (int i = 0 ; i < nombre ; i++) {
             Random rand = new Random();
-            obstacles.add(new Obstacle(rand.nextInt(MainFrame.X_FRAME/3)+MainFrame.X_FRAME/3*2 - 20, rand.nextInt(MainFrame.Y_FRAME/2), 15));
+            Obstacle tmp = new Obstacle(rand.nextInt(MainFrame.X_FRAME/3)+MainFrame.X_FRAME/3*2 - 20, rand.nextInt(MainFrame.Y_FRAME/2));
+            boolean valuable = true;
+            for(Obstacle j : obstacles){
+                 if(Math.abs(tmp.getX() - j.getX()) <= Obstacle.RADIUS*2 && Math.abs(tmp.getY() - j.getY()) <= Obstacle.RADIUS*2){
+                     i--;
+                     valuable = false;
+                     break;
+                }
+            }
+            if(valuable)
+                obstacles.add(tmp);
         }
     }
     

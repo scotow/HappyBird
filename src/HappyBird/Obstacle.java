@@ -10,19 +10,18 @@ public class Obstacle extends Coordonnee{
 	 * Il s'agit des obstacles qui apparaissent sur l'ecran
 	 * 
 	 */
-	//private int x, y, rayon;
 
-        private final int rayon;
+
+
+	public static final int RADIUS = 15;
 	
 	/**
 	 * Cree un obstacle
 	 * @param x : la position de x
 	 * @param y : la position de y
-	 * @param rayon : le rayon du cercle
 	 */
-	public Obstacle (int x, int y, int rayon) {
+	public Obstacle (int x, int y) {
             super(x, y);
-            this.rayon = rayon;
 	}
 
 	/**
@@ -35,37 +34,5 @@ public class Obstacle extends Coordonnee{
 			return true;
 		}
 		return false;
-	}
-	
-
-	/*-------------------Les getter-----------------------------*/
-	
-	/**
-	 * Retourne la position x
-	 * @return x : la position x de l'obstacle
-	 */
-	public double getX() {
-		return this.x;
-	}
-	
-	/**
-	 * Retourne la position y
-	 * @return y : la position y de l'obstacle
-	 */
-	public double getY() {
-		return this.y;
-	}
-        
-        public Coordonnee getCoord(){
-            return this.getCoord();
-        }
-	
-	/**
-	 * Retourne le rayon
-	 * @return rayon : le rayon
-	 */
-	
-	public int getRayon() {
-		return this.rayon;
 	}
 }
