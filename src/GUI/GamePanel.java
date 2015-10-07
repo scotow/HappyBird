@@ -52,7 +52,7 @@ public class GamePanel extends JPanel implements KeyListener{
             e.getMessage();
         }
         g.setColor(Oiseau.BIRD_BODY_COLOR);
-        g.fillOval((int)plateau.getOiseau().getPosition().getX(), (int)plateau.getOiseau().getPosition().getY(), Oiseau.BIRD_BODY_RADIUS, Oiseau.BIRD_BODY_RADIUS);
+        g.fillOval((int)plateau.getOiseau().getPosition().getX()-Oiseau.BIRD_BODY_RADIUS/2, (int)plateau.getOiseau().getPosition().getY()-Oiseau.BIRD_BODY_RADIUS/2, Oiseau.BIRD_BODY_RADIUS, Oiseau.BIRD_BODY_RADIUS);
         g.setColor(Color.ORANGE);
         for (int i = 0 ; i < plateau.getObstacles().size(); i++) {
         	g.fillOval((int)plateau.getObstacles().get(i).getX(), (int)plateau.getObstacles().get(i).getY(), 15,15);                
