@@ -42,6 +42,7 @@ public class GamePanel extends JPanel implements KeyListener{
 
     @Override
     public void paintComponent(Graphics g) {
+        super.paintComponent(g); //To change body of generated methods, choose Tools | Templates.
         try {
             g.setColor(Color.BLUE);
             for (double i = 0; i < 1; i+=0.02) {
