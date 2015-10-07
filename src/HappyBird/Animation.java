@@ -37,7 +37,7 @@ public class Animation {
             if (!Animation.oiseau.getPosition().equals(new Coordonnee(gamePanel.getWidth(), gamePanel.getHeight()))) {
                 Animation.toolkit.beep();
                 System.out.format("Beep!%n");
-                Animation.oiseau.bougerOiseau();
+                Animation.oiseau.bouger();
                 gamePanel.repaint();
             } else {
                 Animation.toolkit.beep(); 

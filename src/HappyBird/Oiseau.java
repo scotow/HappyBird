@@ -56,7 +56,7 @@ public class Oiseau{
 	/**
 	 * Fonction qui fait voller l'oiseau en fonction de sa courbe.
 	 */
-	public void bougerOiseau() {
+	public void bouger() {
 		Timer refreshTimer = new Timer(100, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -83,8 +83,12 @@ public class Oiseau{
             return this.courbe;
         }
 
+	public double getTemps(){
+		return this.temps;
+	}
+
 	/**
-	 * Fonction qui dessine l'oiseau sur l ecran
+	 * Fonction qui dessine l'oiseau sur l'écran.
 	 * 
 	 * @param g
 	 *            le moteur graphique

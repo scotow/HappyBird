@@ -23,7 +23,7 @@ public class Plateau {
         this.oiseau = new Oiseau(gamePanel);
         this.obstacles = new ArrayList<>();
         placerObstacles(10);
-        oiseau.bougerOiseau();
+        oiseau.bouger();
     }
     
     private void placerObstacles(int nombre){

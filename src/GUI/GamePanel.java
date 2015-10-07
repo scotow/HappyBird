@@ -24,13 +24,7 @@ import javax.swing.JPanel;
 public class GamePanel extends JPanel implements KeyListener{
     
     private Plateau plateau;
-    
-    /**
-     * ajoute les elements dans le panel principal
-     * @author garbey
-     * @param x : position x du panel
-     * @param y : position y du panel
-     */
+
     public GamePanel() {
         setFocusable(true);
         addKeyListener(this);
@@ -45,7 +39,7 @@ public class GamePanel extends JPanel implements KeyListener{
         super.paintComponent(g); //To change body of generated methods, choose Tools | Templates.
         try {
             g.setColor(Color.BLUE);
-            for (double i = 0; i < 1; i+=0.02) {
+            for (double i = 0; i < plateau.getOiseau().getTemps() ; i+=0.02) {
                 g.fillOval((int)plateau.getOiseau().getCourbe().calculerPoint(i).getX(),(int)plateau.getOiseau().getCourbe().calculerPoint(i).getY(), 6, 6);
             }
         } catch (PointCourbeException e) {
