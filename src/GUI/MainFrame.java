@@ -9,8 +9,8 @@ public class MainFrame extends JFrame{
    * Poulpe-Man
    */
 
-  public static final int X_FRAME = 600;
-  public static final int Y_FRAME = 600;
+  public static final int X_FRAME = 900;
+  public static final int Y_FRAME = 470;
 
   public MainFrame() {
     setTitle("Happy Bird");

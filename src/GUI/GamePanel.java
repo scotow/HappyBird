@@ -16,7 +16,7 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 
 /**
  * 
@@ -31,13 +31,14 @@ public class GamePanel extends JPanel implements KeyListener{
         addKeyListener(this);
 
         plateau = new Plateau(this);
-        setBackground(Color.BLACK);
+        //setBackground(Color.BLACK);
         repaint();
     }
 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g); //To change body of generated methods, choose Tools | Templates.
+        g.drawImage(new ImageIcon(getClass().getResource("/GUI/images/background.png")).getImage(), 0, 0, null);
         try {
             g.setColor(Color.BLUE);
             for (double i = 0; i < plateau.getOiseau().getTemps() ; i+=0.02) {
