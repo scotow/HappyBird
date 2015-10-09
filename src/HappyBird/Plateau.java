@@ -20,7 +20,7 @@ public class Plateau {
     private final ArrayList <Obstacle> obstacles;
     
     public Plateau(GamePanel gamePanel){
-        this.oiseau = new Oiseau(gamePanel);
+        this.oiseau = new Oiseau(gamePanel, this);
         this.obstacles = new ArrayList<>();
         placerObstacles(10);
         oiseau.bouger();
@@ -43,7 +43,15 @@ public class Plateau {
         }
     }
 
-
+    public void checkForColision(){
+        for(Obstacle i : obstacles){
+            if(Math.abs(i.getX() - oiseau.getPosition().getX()) <= Obstacle.RADIUS/2 + Oiseau.BIRD_BODY_RADIUS/2 &&
+                    Math.abs(i.getY() - oiseau.getPosition().getY()) <= Obstacle.RADIUS/2 + Oiseau.BIRD_BODY_RADIUS/2){
+                i.touched();
+                oiseau.resetPosition();
+            }
+        }
+    }
     
     public Oiseau getOiseau(){
         return this.oiseau;

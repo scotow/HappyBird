@@ -1,8 +1,9 @@
 package HappyBird;
 
-import java.awt.Color;
 
-	public class Obstacle extends Bounds{
+import java.awt.*;
+
+public class Obstacle extends Coordonnee{
 
 	/**
 	 * 
@@ -14,9 +15,11 @@ import java.awt.Color;
 
 
 	public static final int RADIUS = 15;
-    public static final Color OBSTACLES_BODY_COLOR = Color.ORANGE;
-    public static final Color OBSTRACLES_BEAK_COLOR = Color.GRAY;
-	public int collision = 0;
+
+	public static final Color NOT_TOUCHED_COLOR = Color.ORANGE;
+	public static final Color TOUCHED_COLOR = Color.MAGENTA;
+
+	private boolean touched = false;
 	
 	/**
 	 * Cree un obstacle
@@ -24,11 +27,7 @@ import java.awt.Color;
 	 * @param y : la position de y
 	 */
 	public Obstacle (int x, int y) {
-            super((double)x, (double)y, RADIUS);
-	}
-	
-	public int getCollision() {
-		return collision;
+            super(x, y);
 	}
 
 	/**
@@ -36,7 +35,14 @@ import java.awt.Color;
 	 * @param Obstacle o a analyser
 	 * @return true s'il y a collision
 	 */
-	public boolean collision(Oiseau oiseau) {
-		return super.equalsCercle(oiseau);
+
+	public boolean isTouched(){
+		return touched;
 	}
+
+	public void touched(){
+		touched = true;
+	}
+
+
 }
