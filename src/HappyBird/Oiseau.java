@@ -8,7 +8,7 @@ import Exceptions.PointCourbeException;
 import GUI.GamePanel;
 import GUI.MainFrame;
 
-public class Oiseau extends Bounds{
+public class Oiseau extends Bounds {
 
 	/* Variables */
 
@@ -17,23 +17,22 @@ public class Oiseau extends Bounds{
 	// Coordonnee de l'oiseau.
 	private Coordonnee position;
 
-
-	//Vitesse de deplacement de l
+	// Vitesse de deplacement de l
 	private double speed = 0.02;
 	private double temps = 0;
 	private boolean collision = false;
 
-	//Les couleurs de l'oiseau.
-        
-        private Courbe courbe;
-                
-        //Constantes.
-        public static final Color BIRD_BODY_COLOR = Color.RED;
-        public static final Color BIRD_BEAK_COLOR = Color.BLACK;
-	
-        public static final int BIRD_BODY_RADIUS = 25;
-        public static final Coordonnee POSITION_INITIAL = new Coordonnee(10, MainFrame.Y_FRAME-(BIRD_BODY_RADIUS*3));
-        //private int height;
+	// Les couleurs de l'oiseau.
+
+	private Courbe courbe;
+
+	// Constantes.
+	public static final Color BIRD_BODY_COLOR = Color.RED;
+	public static final Color BIRD_BEAK_COLOR = Color.BLACK;
+
+	public static final int BIRD_BODY_RADIUS = 25;
+	public static final Coordonnee POSITION_INITIAL = new Coordonnee(10, MainFrame.Y_FRAME - (BIRD_BODY_RADIUS * 3));
+	// private int height;
 	/* Constructeur */
 
 	public Oiseau(GamePanel gamePanel) {
@@ -68,10 +67,10 @@ public class Oiseau extends Bounds{
 				try {
 					position = courbe.calculerPoint(temps);
 					detectionCollision();
-				}catch (PointCourbeException ex){
-				}finally {
-					if(temps >= 3)
-						((Timer)e.getSource()).stop();
+				} catch (PointCourbeException ex) {
+				} finally {
+					if (temps >= 3)
+						((Timer) e.getSource()).stop();
 					gamePanel.repaint();
 				}
 			}
@@ -79,9 +78,9 @@ public class Oiseau extends Bounds{
 
 		refreshTimer.start();
 	}
-	
-	public boolean detectionCollision(){
-		if (position.getX() > MainFrame.X_FRAME-300) {
+
+	public boolean detectionCollision() {
+		if (position.getX() > MainFrame.X_FRAME - 300) {
 			System.out.println(gamePanel.getPlateau().getObstacles().size());
 			for (Obstacle obstacle : gamePanel.getPlateau().getObstacles()) {
 				if (obstacle.collision(Oiseau.this)) {
@@ -99,19 +98,19 @@ public class Oiseau extends Bounds{
 		}
 		return collision;
 	}
-	
-	public Coordonnee getPosition(){
-            return this.position;
-        }
 
-	public Courbe getCourbe(){
-            return this.courbe;
-        }
+	public Coordonnee getPosition() {
+		return this.position;
+	}
 
-	public double getTemps(){
+	public Courbe getCourbe() {
+		return this.courbe;
+	}
+
+	public double getTemps() {
 		return this.temps;
 	}
-	
+
 	public double getSpeed() {
 		return speed;
 	}
@@ -122,13 +121,13 @@ public class Oiseau extends Bounds{
 	 * @param g
 	 *            le moteur graphique
 	 */
-//	public void paintComponent(Graphics g) {
-//		g.setColor(Color.RED);
-//		//g2d.fillRect(posX, posY, 8, 8);
-//		g.fillOval(position.getX(), position.getY(), 25, 25);
-//		g.setColor(Color.BLACK);
-//		g.fillArc(this.x+20,this.y-5,20,35,170,20);  /*Fonction du fillArc (position X, position Y, */
-//	}
-        
-        
+	// public void paintComponent(Graphics g) {
+	// g.setColor(Color.RED);
+	// //g2d.fillRect(posX, posY, 8, 8);
+	// g.fillOval(position.getX(), position.getY(), 25, 25);
+	// g.setColor(Color.BLACK);
+	// g.fillArc(this.x+20,this.y-5,20,35,170,20); /*Fonction du fillArc
+	// (position X, position Y, */
+	// }
+
 }
