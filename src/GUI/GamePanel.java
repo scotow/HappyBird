@@ -54,7 +54,7 @@ public class GamePanel extends JPanel implements KeyListener{
                 g.setColor(Obstacle.TOUCHED_COLOR);
             else
                 g.setColor(Obstacle.NOT_TOUCHED_COLOR);
-        	g.fillOval((int)plateau.getObstacles().get(i).getX(), (int)plateau.getObstacles().get(i).getY(), Obstacle.RADIUS, Obstacle.RADIUS);
+        	g.fillOval((int)plateau.getObstacles().get(i).getX()-Obstacle.RADIUS/2, (int)plateau.getObstacles().get(i).getY()-Obstacle.RADIUS/2, Obstacle.RADIUS, Obstacle.RADIUS);
         }
     }
 
