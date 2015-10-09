@@ -41,13 +41,13 @@ public class GamePanel extends JPanel implements KeyListener{
         g.drawImage(new ImageIcon(getClass().getResource("/GUI/images/background.png")).getImage(), 0, 0, null);
         try {
             g.setColor(Color.BLUE);
-            for (double i = 0; i < plateau.getOiseau().getTemps() ; i+=0.02) {
+            for (double i = 0; i < plateau.getOiseau().getTemps() ; i+= plateau.getOiseau().getSpeed()) {
                 g.fillOval((int)plateau.getOiseau().getCourbe().calculerPoint(i).getX(),(int)plateau.getOiseau().getCourbe().calculerPoint(i).getY(), 6, 6);
             }
         } catch (PointCourbeException e) {
             e.getMessage();
         }
-        g.setColor(Oiseau.BIRD_BODY_COLOR);
+		g.setColor((plateau.getOiseau().detectionCollision())? Oiseau.BIRD_BEAK_COLOR : Oiseau.BIRD_BODY_COLOR);
         g.fillOval((int)plateau.getOiseau().getPosition().getX()-Oiseau.BIRD_BODY_RADIUS/2, (int)plateau.getOiseau().getPosition().getY()-Oiseau.BIRD_BODY_RADIUS/2, Oiseau.BIRD_BODY_RADIUS, Oiseau.BIRD_BODY_RADIUS);
         g.setColor(Color.ORANGE);
         for (int i = 0 ; i < plateau.getObstacles().size(); i++) {
@@ -67,5 +67,9 @@ public class GamePanel extends JPanel implements KeyListener{
 
     @Override
     public void keyReleased(KeyEvent e) {}
+    
+    public Plateau getPlateau() {
+		return plateau;
+	}
 }
 

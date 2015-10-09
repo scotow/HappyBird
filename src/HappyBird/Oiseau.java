@@ -8,7 +8,7 @@ import Exceptions.PointCourbeException;
 import GUI.GamePanel;
 import GUI.MainFrame;
 
-public class Oiseau{
+public class Oiseau extends Bounds{
 
 	/* Variables */
 
@@ -21,6 +21,7 @@ public class Oiseau{
 	//Vitesse de deplacement de l
 	private double speed = 0.02;
 	private double temps = 0;
+	private boolean collision = false;
 
 	//Les couleurs de l'oiseau.
         
@@ -31,10 +32,12 @@ public class Oiseau{
         public static final Color BIRD_BEAK_COLOR = Color.BLACK;
 	
         public static final int BIRD_BODY_RADIUS = 25;
+        public static final Coordonnee POSITION_INITIAL = new Coordonnee(10, MainFrame.Y_FRAME-(BIRD_BODY_RADIUS*3));
         //private int height;
 	/* Constructeur */
 
 	public Oiseau(GamePanel gamePanel) {
+		super(POSITION_INITIAL.getX(), POSITION_INITIAL.getY(), BIRD_BODY_RADIUS);
 		resetPosition();
 		this.gamePanel = gamePanel;
 		this.courbe = new Courbe();
@@ -48,9 +51,10 @@ public class Oiseau{
 	 * le haut avec une vitesse de 1.
 	 */
 	public void resetPosition() {
-		this.position = new Coordonnee(10, MainFrame.Y_FRAME-(BIRD_BODY_RADIUS*3));
-		this.speed = 0.02;
+		this.position = POSITION_INITIAL;
+		this.speed = 0.01;
 		this.temps = 0;
+		collision = false;
 	}
 
 	/**
@@ -63,9 +67,10 @@ public class Oiseau{
 				temps += speed;
 				try {
 					position = courbe.calculerPoint(temps);
+					detectionCollision();
 				}catch (PointCourbeException ex){
 				}finally {
-					if(temps >= 1)
+					if(temps >= 3)
 						((Timer)e.getSource()).stop();
 					gamePanel.repaint();
 				}
@@ -74,7 +79,27 @@ public class Oiseau{
 
 		refreshTimer.start();
 	}
-
+	
+	public boolean detectionCollision(){
+		if (position.getX() > MainFrame.X_FRAME-300) {
+			System.out.println(gamePanel.getPlateau().getObstacles().size());
+			for (Obstacle obstacle : gamePanel.getPlateau().getObstacles()) {
+				if (obstacle.collision(Oiseau.this)) {
+					collision = true;
+					try {
+						Thread.sleep(200);
+					} catch (InterruptedException e1) {
+						e1.printStackTrace();
+					}
+					resetPosition();
+					courbe.clear();
+					courbe.setRandomCourbe(position);
+				}
+			}
+		}
+		return collision;
+	}
+	
 	public Coordonnee getPosition(){
             return this.position;
         }
@@ -85,6 +110,10 @@ public class Oiseau{
 
 	public double getTemps(){
 		return this.temps;
+	}
+	
+	public double getSpeed() {
+		return speed;
 	}
 
 	/**

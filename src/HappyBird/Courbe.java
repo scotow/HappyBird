@@ -41,9 +41,9 @@ public class Courbe {
     public void setRandomCourbe(Coordonnee beginning){
         Random rand = new Random();
         listPoint.add(new Coordonnee(beginning.getX()+(Oiseau.BIRD_BODY_RADIUS/2), beginning.getY()+(Oiseau.BIRD_BODY_RADIUS/2))); // Premier point
-        listPoint.add(new Coordonnee(rand.nextInt(20)+50, rand.nextInt(20)+120)); // Deuxieme point
-        listPoint.add(new Coordonnee(rand.nextInt(50)+900, rand.nextInt(50)+100)); // Troisieme point
-        listPoint.add(new Coordonnee(rand.nextInt(50)+950, rand.nextInt(50)+150)); // Quatrieme point
+        listPoint.add(new Coordonnee(rand.nextInt(50)+50, rand.nextInt(20)+120)); // Deuxieme point
+        listPoint.add(new Coordonnee(rand.nextInt(200)+400, rand.nextInt(50)+100)); // Troisieme point
+        listPoint.add(new Coordonnee(rand.nextInt(400)+550, rand.nextInt(50)+150)); // Quatrieme point
     }
 
   public Coordonnee calculerPoint(double t) throws PointCourbeException {
@@ -120,6 +120,10 @@ public class Courbe {
 
   public double tangente(double point, double bezier, double bezierDeriv){
       return (point-bezier)/bezierDeriv;
+  }
+  
+  public void clear(){
+	  listPoint.clear();
   }
   
   
