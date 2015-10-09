@@ -1,8 +1,6 @@
 package HappyBird;
 
 import Exceptions.PointCourbeException;
-
-import java.math.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -25,7 +23,6 @@ public class Courbe {
   private double coordYDeriv;
   private double bezierTangenteX;
   private double bezierTangenteY;
-  //private List<Coordonnee> listPoint2;
 
     public Courbe() {
         listPoint = new ArrayList<Coordonnee>();
@@ -59,14 +56,16 @@ public class Courbe {
     this.coordY = bezier.getY();
     this.coordXDeriv = bezierDeriv.getX();
     this.coordYDeriv = bezierDeriv.getY();
+    /*this.bezierTangenteX = tangente(coordX, coordXDeriv, t);
+    this.bezierTangenteY = tangente(coordY, coordYDeriv, t);*/
     return new Coordonnee(coordX, coordY);
   }
   
-  public Coordonnee calculerTangente(int index){
+  /*public Coordonnee calculerTangente(int index){
     this.bezierTangenteX = this.tangente(this.listPoint.get(index).getX(), this.coordX, this.coordXDeriv);
     this.bezierTangenteY = this.tangente(this.listPoint.get(index).getY(), this.coordY, this.coordYDeriv);
     return new Coordonnee(bezierTangenteX, bezierTangenteY);
-  }
+  }*/
 
   ///////////Non utiliser mais on la garde en cas de probl�me////////////////////
   /* public double formulBezier(double point1, double point2, double t) {
@@ -118,9 +117,9 @@ public class Courbe {
     listPoint.add(coordonnee);
   }
 
-  public double tangente(double point, double bezier, double bezierDeriv){
-      return (point-bezier)/bezierDeriv;
-  }
+  /*public double tangente(double point1, double point2, double t){
+      return point2*(t-);
+  }*/
   
   public void clear(){
 	  listPoint.clear();
