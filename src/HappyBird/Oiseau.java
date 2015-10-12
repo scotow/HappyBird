@@ -73,15 +73,18 @@ public class Oiseau{
 					plateau.checkForColision();
 				}catch (PointCourbeException ex){
 				}finally {
-					if(temps >= 1)
+					if(temps >= 1) {
 						flyTimer.stop();
+						plateau.simulationDeVol(false);
+					}
 					gamePanel.repaint();
 				}
 			}
 		});
-
 		flyTimer.start();
 	}
+
+	public void stopFly(){this.flyTimer.stop();}
 
 	public Coordonnee getPosition(){
             return this.position;
