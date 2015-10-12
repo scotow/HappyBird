@@ -41,7 +41,7 @@ public class GamePanel extends JPanel implements KeyListener{
         g.drawImage(new ImageIcon(getClass().getResource("/GUI/images/background.png")).getImage(), 0, 0, null);
         try {
             g.setColor(Color.BLUE);
-            for (double i = 0; i < plateau.getOiseau().getTemps() ; i+=0.02) {
+            for (double i = 0; i < plateau.getOiseau().getTemps() ; i+=plateau.getOiseau().getSpeed()) {
                 g.fillOval((int)plateau.getOiseau().getCourbe().calculerPoint(i).getX(),(int)plateau.getOiseau().getCourbe().calculerPoint(i).getY(), 6, 6);
             }
         } catch (PointCourbeException e) {

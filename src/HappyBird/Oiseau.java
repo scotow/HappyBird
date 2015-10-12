@@ -22,8 +22,8 @@ public class Oiseau{
 
 
 	//Vitesse de deplacement de l
-	private double speed = 0.02;
-	private double temps = 0;
+	private double speed;
+	private double temps;
 
 	//Les couleurs de l'oiseau.
 
@@ -64,7 +64,7 @@ public class Oiseau{
 	 * Fonction qui fait voller l'oiseau en fonction de sa courbe.
 	 */
 	public void bouger() {
-		flyTimer = new Timer(100, new ActionListener() {
+		flyTimer = new Timer((int)(speed*5000), new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				temps += speed;
@@ -93,6 +93,10 @@ public class Oiseau{
 
 	public double getTemps(){
 		return this.temps;
+	}
+
+	public double getSpeed(){
+		return this.speed;
 	}
 
 	/**
