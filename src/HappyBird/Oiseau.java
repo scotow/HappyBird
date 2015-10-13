@@ -102,19 +102,7 @@ public class Oiseau{
 		return this.speed;
 	}
 
-	/**
-	 * Fonction qui dessine l'oiseau sur l'écran.
-	 * 
-	 * @param g
-	 *            le moteur graphique
-	 */
-//	public void paintComponent(Graphics g) {
-//		g.setColor(Color.RED);
-//		//g2d.fillRect(posX, posY, 8, 8);
-//		g.fillOval(position.getX(), position.getY(), 25, 25);
-//		g.setColor(Color.BLACK);
-//		g.fillArc(this.x+20,this.y-5,20,35,170,20);  /*Fonction du fillArc (position X, position Y, */
-//	}
+
         
         
 }
