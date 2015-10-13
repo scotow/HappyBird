@@ -6,7 +6,7 @@ import java.awt.Color;
 public class Constante {
 
   public static final Color BIRD_BODY_COLOR = Color.RED;
-  public static final Color BIRD_BEAK_COLOR = Color.BLACK;
+  public static final Color BIRD_BREAK_COLOR = Color.BLACK;
 
   public static final int BIRD_BODY_RADIUS = 25;
   

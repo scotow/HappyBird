@@ -50,7 +50,7 @@ public class GamePanel extends JPanel{
             g.setColor(Constante.BIRD_BODY_COLOR);
         }
         else
-            g.setColor(Constante.BIRD_BEAK_COLOR);
+            g.setColor(Constante.BIRD_BREAK_COLOR);
         g.fillOval((int)plateau.getOiseau().getPosition().getX()-Constante.BIRD_BODY_RADIUS/2, (int)plateau.getOiseau().getPosition().getY()-Constante.BIRD_BODY_RADIUS/2, Constante.BIRD_BODY_RADIUS, Constante.BIRD_BODY_RADIUS);
         for (int i = 0 ; i < plateau.getObstacles().size(); i++) {
             if(plateau.getObstacles().get(i).isTouched())
