@@ -7,14 +7,12 @@
 package GUI;
 
 import Exceptions.PointCourbeException;
-import HappyBird.Obstacle;
-import HappyBird.Oiseau;
+import HappyBird.Constante;
+import HappyBird.Coordonnee;
 import HappyBird.Plateau;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 import javax.swing.*;
 
@@ -22,16 +20,13 @@ import javax.swing.*;
  * 
  * @author debaerdm
  */
-public class GamePanel extends JPanel implements KeyListener{
+public class GamePanel extends JPanel{
     
+    private static final long serialVersionUID = 1L;
     private Plateau plateau;
 
     public GamePanel() {
-        setFocusable(true);
-        addKeyListener(this);
-
         plateau = new Plateau(this);
-        //setBackground(Color.BLACK);
         repaint();
     }
 
@@ -47,28 +42,23 @@ public class GamePanel extends JPanel implements KeyListener{
         } catch (PointCourbeException e) {
             e.getMessage();
         }
-        g.setColor(Oiseau.BIRD_BODY_COLOR);
-        g.fillOval((int)plateau.getOiseau().getPosition().getX()-Oiseau.BIRD_BODY_RADIUS/2, (int)plateau.getOiseau().getPosition().getY()-Oiseau.BIRD_BODY_RADIUS/2, Oiseau.BIRD_BODY_RADIUS, Oiseau.BIRD_BODY_RADIUS);
+        g.setColor(Color.BLACK);
+        for (Coordonnee Coordonnee : plateau.getOiseau().getCourbe().getListPoint()) {
+            g.fillOval((int)Coordonnee.getX(), (int)Coordonnee.getY(), 15, 15);
+        }
+        if (!plateau.getOiseau().isTouched()) {
+            g.setColor(Constante.BIRD_BODY_COLOR);
+        }
+        else
+            g.setColor(Constante.BIRD_BEAK_COLOR);
+        g.fillOval((int)plateau.getOiseau().getPosition().getX()-Constante.BIRD_BODY_RADIUS/2, (int)plateau.getOiseau().getPosition().getY()-Constante.BIRD_BODY_RADIUS/2, Constante.BIRD_BODY_RADIUS, Constante.BIRD_BODY_RADIUS);
         for (int i = 0 ; i < plateau.getObstacles().size(); i++) {
             if(plateau.getObstacles().get(i).isTouched())
-                g.setColor(Obstacle.TOUCHED_COLOR);
+                g.setColor(Constante.OBSTACLE_TOUCHED_COLOR);
             else
-                g.setColor(Obstacle.NOT_TOUCHED_COLOR);
-        	g.fillOval((int)plateau.getObstacles().get(i).getX()-Obstacle.RADIUS/2, (int)plateau.getObstacles().get(i).getY()-Obstacle.RADIUS/2, Obstacle.RADIUS, Obstacle.RADIUS);
+                g.setColor(Constante.OBSTACLE_NOT_TOUCHED_COLOR);
+        	g.fillOval((int)plateau.getObstacles().get(i).getX()-Constante.OBSTACLE_RADIUS/2, (int)plateau.getObstacles().get(i).getY()-Constante.OBSTACLE_RADIUS/2, Constante.OBSTACLE_RADIUS, Constante.OBSTACLE_RADIUS);
         }
     }
-
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        if(e.getKeyChar() == ' ')
-            this.plateau = new Plateau(this);
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {}
-
-    @Override
-    public void keyReleased(KeyEvent e) {}
 }
 
