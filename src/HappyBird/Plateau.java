@@ -15,6 +15,7 @@ import java.util.TimerTask;
 /**
  *
  * @author Lopez Benjamin
+ * Le fameux plateau de jeu
  */
 public class Plateau {
 
@@ -29,7 +30,10 @@ public class Plateau {
         this.oiseau = new Oiseau(gamePanel, this);
         simulationDeVol(false);
     }
-    
+    /**
+     * Place un certain nombre d'obstacle dans le plateau
+     * @param nombre voulu d'obstacle
+     */
     private void placerObstacles(int nombre){
         obstacles.clear();
         for (int i = 0 ; i < nombre ; i++) {
@@ -47,7 +51,9 @@ public class Plateau {
                 obstacles.add(tmp);
         }
     }
-
+    /**
+     * Test les collisions entre l'oiseau et les obstacles 
+     */
     public void checkForColision(){
         for(Obstacle i : obstacles){
             if(Math.abs(i.getX() - oiseau.getPosition().getX()) <= Obstacle.RADIUS/2 + Oiseau.BIRD_BODY_RADIUS/2 &&
@@ -58,13 +64,21 @@ public class Plateau {
             }
         }
     }
-
+    
+    
+    /**
+     * Reset le Plateau a sa forme initiale
+     */
     public void resetPlateau(){
         oiseau.resetPosition();
         placerObstacles(10);
         oiseau.bouger();
     }
 
+    /**
+     * La simulation qui lance la boucle de jeu. S'il y a collision, je recommence jusqu'a 10 tentatives
+     * @param obstacleTouched booleen donnant l'existence de la collision
+     */
     public void simulationDeVol(boolean obstacleTouched){
         Timer waitingTimer = new Timer();
         waitingTimer.schedule(new TimerTask() {
@@ -79,10 +93,18 @@ public class Plateau {
 
     }
     
+    /**
+     * Donne l'oiseau du plateau
+     * @return l'oiseau du plateau
+     */
     public Oiseau getOiseau(){
         return this.oiseau;
     }
     
+    /**
+     * Donne la liste d'obstacle du plateau
+     * @return Les obstacle du plateau
+     */
     public ArrayList<Obstacle> getObstacles(){
         return this.obstacles;
     }

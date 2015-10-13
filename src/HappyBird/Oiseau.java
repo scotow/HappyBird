@@ -26,7 +26,7 @@ public class Oiseau{
 	private Timer flyTimer;
 
 
-	//Vitesse de deplacement de l
+	//Vitesse de deplacement de l'oiseau
 	private double speed;
 	private double temps;
 
