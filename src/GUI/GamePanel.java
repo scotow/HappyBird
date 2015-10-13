@@ -46,6 +46,10 @@ public class GamePanel extends JPanel{
         for (Coordonnee Coordonnee : plateau.getOiseau().getCourbe().getListPoint()) {
             g.fillOval((int)Coordonnee.getX(), (int)Coordonnee.getY(), 15, 15);
         }
+        if (plateau.getOiseau().isDeveloper()) {
+          g.setColor(Color.black);
+          g.drawRect((int)plateau.getOiseau().getX()-Constante.BIRD_BODY_RADIUS/2, (int)plateau.getOiseau().getY()-Constante.BIRD_BODY_RADIUS/2, plateau.getOiseau().getWidth(), plateau.getOiseau().getHeight());
+        }
         if (!plateau.getOiseau().isTouched()) {
             g.setColor(Constante.BIRD_BODY_COLOR);
         }
@@ -53,6 +57,10 @@ public class GamePanel extends JPanel{
             g.setColor(Constante.BIRD_BREAK_COLOR);
         g.fillOval((int)plateau.getOiseau().getPosition().getX()-Constante.BIRD_BODY_RADIUS/2, (int)plateau.getOiseau().getPosition().getY()-Constante.BIRD_BODY_RADIUS/2, Constante.BIRD_BODY_RADIUS, Constante.BIRD_BODY_RADIUS);
         for (int i = 0 ; i < plateau.getObstacles().size(); i++) {
+            if (plateau.getObstacles().get(i).isDeveloper()) {
+              g.setColor(Color.black);
+              g.drawRect((int)plateau.getObstacles().get(i).getX()-Constante.OBSTACLE_RADIUS/2, (int)plateau.getObstacles().get(i).getY()-Constante.OBSTACLE_RADIUS/2, plateau.getObstacles().get(i).getWidth(), plateau.getObstacles().get(i).getHeight());
+            }
             if(plateau.getObstacles().get(i).isTouched())
                 g.setColor(Constante.OBSTACLE_TOUCHED_COLOR);
             else
