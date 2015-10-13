@@ -1,8 +1,6 @@
 package HappyBird;
 
 
-import java.awt.*;
-
 public class Obstacle extends Coordonnee{
 
 	/**
@@ -11,13 +9,6 @@ public class Obstacle extends Coordonnee{
 	 * Il s'agit des obstacles qui apparaissent sur l'ecran
 	 * 
 	 */
-
-
-
-	public static final int RADIUS = 15;
-
-	public static final Color NOT_TOUCHED_COLOR = Color.ORANGE;
-	public static final Color TOUCHED_COLOR = Color.MAGENTA;
 
 	private boolean touched = false;
 	
