@@ -32,7 +32,7 @@ public class GamePanel extends JPanel{
 
     @Override
     public void paintComponent(Graphics g) {
-        super.paintComponent(g); //To change body of generated methods, choose Tools | Templates.
+        super.paintComponent(g);
         g.drawImage(new ImageIcon(getClass().getResource("/GUI/images/background.png")).getImage(), 0, 0, null);
         try {
             g.setColor(Color.BLUE);

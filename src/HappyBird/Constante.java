@@ -21,4 +21,6 @@ public class Constante {
 
   public static final Color OBSTACLE_NOT_TOUCHED_COLOR = Color.ORANGE;
   public static final Color OBSTACLE_TOUCHED_COLOR = Color.MAGENTA;
+  
+  
 }
