@@ -8,6 +8,11 @@ import Exceptions.PointCourbeException;
 import GUI.GamePanel;
 import GUI.MainFrame;
 
+/**
+ * 
+ * @author 
+ *L'oiseau, objet essentiel dans le jeu
+ */
 public class Oiseau{
 
 	/* Variables */
@@ -83,21 +88,38 @@ public class Oiseau{
 		});
 		flyTimer.start();
 	}
-
+	/**
+	 * Stop l'oiseau
+	 */
 	public void stopFly(){this.flyTimer.stop();}
 
+	/**
+	 * Donne les coordonnees de l'oiseau
+	 * @return les coordonnees de l'oiseau
+	 */
 	public Coordonnee getPosition(){
             return this.position;
         }
 
+	/**
+	 * Donne la courbe de l'oiseau
+	 * @return la courbe de l'oiseau
+	 */
 	public Courbe getCourbe(){
             return this.courbe;
         }
 
+	/**
+	 * Donne le temps de l'oiseau
+	 * @return le temps de l'oiseau
+	 */
 	public double getTemps(){
 		return this.temps;
 	}
-
+	/**
+	 * Donne la vitesse de l'oiseau
+	 * @return la vitesse de l'oiseau
+	 */
 	public double getSpeed(){
 		return this.speed;
 	}
