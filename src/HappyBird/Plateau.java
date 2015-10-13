@@ -13,6 +13,8 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Lopez Benjamin
@@ -24,9 +26,17 @@ public final class Plateau {
     private final Oiseau oiseau;
     private final ArrayList <Obstacle> obstacles;
     private int simulation = 10;
+    private boolean modeDeveloper = false;
     
     public Plateau(GamePanel gamePanel){
         this.gamePanel = gamePanel;
+        int choix = JOptionPane.showConfirmDialog(null, "Go to debug ? (Developer)");
+        if (choix == JOptionPane.OK_OPTION) {
+          modeDeveloper = true;
+        }
+        else {
+          modeDeveloper = false;
+        }
         this.obstacles = new ArrayList<>();
         this.oiseau = new Oiseau(gamePanel, this);
         simulationDeVol(false);
@@ -37,6 +47,9 @@ public final class Plateau {
         for (int i = 0 ; i < nombre ; i++) {
             Random rand = new Random();
             Obstacle tmp = new Obstacle(rand.nextInt(MainFrame.X_FRAME/3)+MainFrame.X_FRAME/3*2 - 20, rand.nextInt(MainFrame.Y_FRAME/2));
+            if (modeDeveloper) {
+              tmp.setDeveloper(true);
+            }
             boolean valuable = true;
             for(Obstacle j : obstacles){
                  if(Math.abs(tmp.getX() - j.getX()) <= Constante.OBSTACLE_RADIUS*2 && Math.abs(tmp.getY() - j.getY()) <= Constante.OBSTACLE_RADIUS*2){
@@ -87,6 +100,14 @@ public final class Plateau {
     
     public Oiseau getOiseau(){
         return this.oiseau;
+    }
+    
+    public boolean isModeDeveloper(){
+      return modeDeveloper;
+    }
+    
+    public void setModeDeveloper(boolean modeDeveloper) {
+      this.modeDeveloper = modeDeveloper;
     }
     
     public ArrayList<Obstacle> getObstacles(){

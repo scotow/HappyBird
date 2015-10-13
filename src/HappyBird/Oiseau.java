@@ -7,15 +7,12 @@ import Exceptions.PointCourbeException;
 import GUI.GamePanel;
 import GUI.MainFrame;
 
-public final class Oiseau{
+public final class Oiseau extends Bounds{
 
 	/* Variables */
 
 	private final GamePanel gamePanel;
 	private final Plateau plateau;
-
-	// Coordonnee de l'oiseau.
-	private Coordonnee position;
 
 	private Timer flyTimer;
 
@@ -30,8 +27,12 @@ public final class Oiseau{
 
 	/* Constructeur */
 	public Oiseau(GamePanel gamePanel, Plateau plateau) {
+	    super(Constante.BIRD_BODY_RADIUS*2, MainFrame.Y_FRAME-(Constante.BIRD_BODY_RADIUS*3),(int) (Constante.BIRD_BODY_RADIUS),(int) (Constante.BIRD_BODY_RADIUS));
 		resetPosition();
 		this.gamePanel = gamePanel;
+		if (plateau.isModeDeveloper()) {
+	      setDeveloper(true);
+        }
 		this.plateau = plateau;
 		this.courbe = new Courbe();
                 this.plateau.placerObstacles(10);
@@ -39,7 +40,7 @@ public final class Oiseau{
 	}
         
         public void genererCourbe(){
-            this.courbe.setRandomCourbe(this.position);
+            this.courbe.setRandomCourbe(new Coordonnee(this.getX(), this.getY()));
         }
 
 	/* Fonction */
@@ -49,8 +50,9 @@ public final class Oiseau{
 	 * le haut avec une vitesse de 1.
 	 */
 	public void resetPosition() {
-		this.position = new Coordonnee(Constante.BIRD_BODY_RADIUS*2, MainFrame.Y_FRAME-(Constante.BIRD_BODY_RADIUS*3));
-                this.setTouched(false);
+	    this.setX(Constante.BIRD_BODY_RADIUS*2);
+	    this.setY(MainFrame.Y_FRAME-(Constante.BIRD_BODY_RADIUS*3));
+        this.setTouched(false);
 		this.speed = 0.02;
 		this.temps = 0;
 		if(flyTimer != null)
@@ -67,7 +69,8 @@ public final class Oiseau{
 			public void actionPerformed(ActionEvent e) {
 				temps += speed;
 				try {
-					position = courbe.calculerPoint(temps);
+					setX(courbe.calculerPoint(temps).getX());
+					setY(courbe.calculerPoint(temps).getY());
 					plateau.checkForColision();
 				}catch (PointCourbeException ex){
 				}finally {
@@ -85,7 +88,7 @@ public final class Oiseau{
 	public void stopFly(){this.flyTimer.stop();}
 
 	public Coordonnee getPosition(){
-            return this.position;
+            return new Coordonnee(getX(), getY());
         }
 
 	public Courbe getCourbe(){

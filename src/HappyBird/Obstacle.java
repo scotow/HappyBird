@@ -1,7 +1,7 @@
 package HappyBird;
 
 
-public class Obstacle extends Coordonnee{
+public class Obstacle extends Bounds{
 
 	/**
 	 * 
@@ -17,8 +17,8 @@ public class Obstacle extends Coordonnee{
 	 * @param x : la position de x
 	 * @param y : la position de y
 	 */
-	public Obstacle (int x, int y) {
-            super(x, y);
+	public Obstacle (double x, double y) {
+            super(x, y, (int)(Constante.OBSTACLE_RADIUS),(int)(Constante.OBSTACLE_RADIUS));
 	}
 
 	/**
