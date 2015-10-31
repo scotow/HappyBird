@@ -1,4 +1,4 @@
-package HappyBird;
+package HappyBird.Object;
 
 public class Bounds extends Coordonnee {
   

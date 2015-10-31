@@ -1,4 +1,4 @@
-package HappyBird;
+package HappyBird.Object;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -87,6 +87,6 @@ public class Coordonnee {
      * @return la chaine caractere voulue
      */
     public String toString(){
-        return "x : " + this.x + "\ty : " + this.y;
+        return "(" + this.x + ";" + this.y+")";
     }
 }
