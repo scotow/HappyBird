@@ -8,24 +8,23 @@ import java.util.Observer;
 
 import javax.swing.Timer;
 
-import HappyBird.Controller.CollisionController;
+import HappyBird.Controller.CollisionControler;
 import HappyBird.Controller.PositionControler;
 import HappyBird.model.PlateauModel;
 import HappyBird.view.ObjectView;
 
 public class TimerBouger implements Observer {
-	
-	
+
 	protected PlateauModel model;
-	protected CollisionController collisionController;
+	protected CollisionControler collisionControler;
 	protected PositionControler positionControler;
 	private ObjectView objectView;
-	
-	public TimerBouger(ObjectView objectView, PlateauModel plateauModel, CollisionController collisionController,
+
+	public TimerBouger(ObjectView objectView, PlateauModel plateauModel, CollisionControler collisionControler,
 			PositionControler positionControler) {
 		this.objectView = objectView;
 		this.model = plateauModel;
-		this.collisionController = collisionController;
+		this.collisionControler = collisionControler;
 		this.positionControler = positionControler;
 		plateauModel.addObserver(TimerBouger.this);
 	}
@@ -36,8 +35,11 @@ public class TimerBouger implements Observer {
 			public void actionPerformed(ActionEvent e) {
 				model.setT(model.getT() + model.getSpeed());
 				positionControler.fixeOiseau();
-				model.addRectangle(new Rectangle((int)model.getOiseauPostion().getX(), (int)model.getOiseauPostion().getY(), 5, 5));
-				if(collisionController.Collision()){
+				model.addRectangle(new Rectangle((int) model.getOiseauPostion().getX(),
+						(int) model.getOiseauPostion().getY(), 5, 5));
+				model.addCoordonneeDerive(model.getCourbe().calculerTangente(model.getOiseauPostion().getX(),
+						model.getOiseauPostion().getY(), model.getListeDePoint(), model.getT()));
+				if (collisionControler.Collision()) {
 					model.stopFly();
 					objectView.simulationDeVol();
 				}
@@ -54,8 +56,7 @@ public class TimerBouger implements Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 		objectView.repaint();
-		
+
 	}
-	
-	
+
 }

@@ -6,12 +6,12 @@ import HappyBird.Object.Oiseau;
 import HappyBird.model.PlateauModel;
 import HappyBird.view.HappyView;
 
-public class CollisionController {
+public class CollisionControler {
 
 	private PlateauModel plateauModel;
 	private HappyView happyView = null;
 
-	public CollisionController(PlateauModel plateauModel) {
+	public CollisionControler(PlateauModel plateauModel) {
 		this.plateauModel = plateauModel;
 	}
 

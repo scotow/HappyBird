@@ -11,7 +11,7 @@ import java.util.TimerTask;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import HappyBird.Controller.CollisionController;
+import HappyBird.Controller.CollisionControler;
 import HappyBird.Controller.PositionControler;
 import HappyBird.Object.Constante;
 import HappyBird.Object.Coordonnee;
@@ -25,17 +25,17 @@ public class ObjectView extends JPanel implements Observer {
 	 */
 	private static final long serialVersionUID = 1L;
 	protected PlateauModel model;
-	protected CollisionController collisionController;
+	protected CollisionControler collisionControler;
 	protected PositionControler positionControler;
 	protected TimerBouger bouger;
 	protected boolean random = false;
 
-	public ObjectView(PlateauModel plateauModel, CollisionController collisionController,
+	public ObjectView(PlateauModel plateauModel, CollisionControler collisionControler,
 			PositionControler positionControler) {
 		this.model = plateauModel;
-		this.collisionController = collisionController;
+		this.collisionControler = collisionControler;
 		this.positionControler = positionControler;
-		this.bouger = new TimerBouger(ObjectView.this, plateauModel, collisionController, positionControler);
+		this.bouger = new TimerBouger(ObjectView.this, plateauModel, collisionControler, positionControler);
 		plateauModel.addObserver(ObjectView.this);
 	}
 
@@ -53,18 +53,10 @@ public class ObjectView extends JPanel implements Observer {
 		super.paintComponent(g);
 		g.drawImage(new ImageIcon(getClass().getResource("/HappyBird/view/images/background.png")).getImage(), 0, 0,
 				null);
-		g.setColor(Constante.POINT_BEZIER);
-		for (int i = 0; i < model().getRectangles().size(); i++) {
-			if (i%50 == 0) {
-				g.fillRect(model().getRectangleByIndex(i).x, model().getRectangleByIndex(i).y,
-						model().getRectangleByIndex(i).width, model().getRectangleByIndex(i).height);
-			}
-		}
 	}
 
 	public void resetPosition() {
-		model.setCompteur(0);
-		model.setOiseauPostion(Constante.BIRD_BODY_RADIUS * 2, Constante.Y_FRAME - (Constante.BIRD_BODY_RADIUS * 3));
+		model.setOiseauPosition(Constante.BIRD_BODY_RADIUS * 2, Constante.Y_FRAME - (Constante.BIRD_BODY_RADIUS * 3));
 		model.setT(0);
 		if (model.getFlyTimer() != null)
 			if (model.getFlyTimer().isRunning())
@@ -75,6 +67,7 @@ public class ObjectView extends JPanel implements Observer {
 		resetPosition();
 		model.clearPoint();
 		model.clearRectangles();
+		model.clearCoordonneeDerive();
 		positionControler.fixePointBezier((random) ? 0 : clickPut().getX(), (random) ? 0 : clickPut().getY(), random);
 		bouger();
 	}

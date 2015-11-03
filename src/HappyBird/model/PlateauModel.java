@@ -25,16 +25,8 @@ public class PlateauModel extends Observable {
 	private int waiting = 0;
 	private int simulation = 10;
 	private Timer flyTimer;
-	private int compteur = 0;
 	private List<Rectangle> rectangles = new ArrayList<>();
-	
-	public int getCompteur() {
-		return compteur;
-	}
-	
-	public void setCompteur(int compteur) {
-		this.compteur = compteur;
-	}
+	private List<Coordonnee> coordDeriver = new ArrayList<>();
 	
 	public List<Obstacle> getListeDObstacles() {
 		return ListeDObstacles;
@@ -54,6 +46,10 @@ public class PlateauModel extends Observable {
 	
 	public List<Rectangle> getRectangles() {
 		return rectangles;
+	}
+	
+	public List<Coordonnee> getCoordonneeDerive() {
+		return coordDeriver;
 	}
 	
 	public Obstacle getObstacle(int index){
@@ -125,8 +121,18 @@ public class PlateauModel extends Observable {
 		notifyObservers();
 	}
 	
+	public void addCoordonneeDerive(Coordonnee coordonnee){
+		coordDeriver.add(coordonnee);
+		setChanged();
+		notifyObservers();
+	}
+	
 	public Rectangle getRectangleByIndex(int index){
 		return rectangles.get(index);
+	}
+	
+	public Coordonnee getCoordonneeDeriveByIndex(int index){
+		return coordDeriver.get(index);
 	}
 	
 	public void removePoint(Coordonnee coordonnee){
@@ -159,14 +165,14 @@ public class PlateauModel extends Observable {
 		notifyObservers();
 	}
 	
-	public void setOiseauPostion(double x, double y) {
+	public void setOiseauPosition(double x, double y) {
 		this.oiseau.setPosition(x, y);
 		//System.out.println("Oiseau placer à ("+x+";"+y+").");
 		setChanged();
 		notifyObservers();
 	}
 	
-	public void setObstaclesPostion(double x, double y, int index){
+	public void setObstaclesPosition(double x, double y, int index){
 		ListeDObstacles.get(index).setPosition(x, y);
 		setChanged();
 		notifyObservers();
@@ -210,6 +216,12 @@ public class PlateauModel extends Observable {
 	
 	public void clearRectangles(){
 		rectangles.clear();
+		setChanged();
+		notifyObservers();
+	}
+	
+	public void clearCoordonneeDerive(){
+		coordDeriver.clear();
 		setChanged();
 		notifyObservers();
 	}

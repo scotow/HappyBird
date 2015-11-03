@@ -64,8 +64,7 @@ public class PositionControler {
 	public void fixeOiseau(){
 		Coordonnee tmp = plateauModel.getCourbe().calculerPoint(plateauModel.getListeDePoint(), plateauModel.getT());
 		//System.out.println("Obstacle placer à "+ tmp.toString() +".");
-		plateauModel.setOiseauPostion(tmp.getX(), tmp.getY());
-		plateauModel.setCompteur(plateauModel.getCompteur() + 1);
+		plateauModel.setOiseauPosition(tmp.getX(), tmp.getY() + Constante.BIRD_BODY_RADIUS/2-3);
 	}
 
 	private boolean controlPoint(double x, double y) {

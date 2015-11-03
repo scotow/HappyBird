@@ -3,9 +3,8 @@ package HappyBird.view;
 import java.awt.Graphics;
 import java.util.Observable;
 
-import javax.swing.JOptionPane;
 
-import HappyBird.Controller.CollisionController;
+import HappyBird.Controller.CollisionControler;
 import HappyBird.Controller.PositionControler;
 import HappyBird.Object.Constante;
 import HappyBird.model.PlateauModel;
@@ -17,15 +16,10 @@ public class ElementView extends ObjectView {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public ElementView(PlateauModel plateauModel, CollisionController collisionController,
+	public ElementView(PlateauModel plateauModel, CollisionControler collisionControler,
 			PositionControler positionControler) {
-		super(plateauModel, collisionController, positionControler);
-		int choix = JOptionPane.showConfirmDialog(null, "Random ?");
-		if (choix == JOptionPane.OK_OPTION) {
-			random = true;
-		} else {
-			random = false;
-		}
+		super(plateauModel, collisionControler, positionControler);
+		random = true;
 		positionControler.fixePointBezier((random) ? 0 : clickPut().getX(), (random) ? 0 : clickPut().getY(), random);
 		positionControler.fixeObstacles((random) ? 0 : clickPut().getX(), (random) ? 0 : clickPut().getY(), random);
 		bouger();
@@ -46,10 +40,20 @@ public class ElementView extends ObjectView {
 					(int) model().getObstaclePostion(i).getY() - Constante.OBSTACLE_RADIUS / 2,
 					Constante.OBSTACLE_RADIUS, Constante.OBSTACLE_RADIUS);
 		}
-		/*for (int i = 0; i < model().getListeDePoint().size(); i++) {
-			g.setColor(Constante.POINT_BEZIER);
+		g.setColor(Constante.POINT_BEZIER);
+		for (int i = 0; i < model().getListeDePoint().size(); i++) {
 			g.fillOval((int) model().getPoint(i).getX(), (int) model().getPoint(i).getY(), 15, 15);
-		}*/
+			if (i >= 1) {
+				g.drawLine((int)model().getPoint(i-1).getX() + 15/2, (int)model().getPoint(i-1).getY() + 15/2,
+						(int)model().getPoint(i).getX() + 15/2, (int)model().getPoint(i).getY() + 15/2);
+			}
+		}
+		for (int i = 0; i < model().getRectangles().size(); i++) {
+			if (i % 80 == 0) {
+				g.fillRect(model().getRectangleByIndex(i).x, model().getRectangleByIndex(i).y,
+						model().getRectangleByIndex(i).width, model().getRectangleByIndex(i).height);
+			}
+		}
 		g.setColor(model().getOiseauColor());
 		g.fillOval((int) model().getOiseauPostion().getX() - Constante.BIRD_BODY_RADIUS / 2,
 				(int) model().getOiseauPostion().getY() - Constante.BIRD_BODY_RADIUS / 2, Constante.BIRD_BODY_RADIUS,

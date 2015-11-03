@@ -1,6 +1,6 @@
 package HappyBird.main;
 
-import HappyBird.Controller.CollisionController;
+import HappyBird.Controller.CollisionControler;
 import HappyBird.Controller.PositionControler;
 import HappyBird.model.PlateauModel;
 import HappyBird.view.HappyView;
@@ -9,10 +9,10 @@ public class HappyBird {
 
 	public HappyBird() {
 		PlateauModel plateauModel = new PlateauModel();
-		CollisionController collisionController = new CollisionController(plateauModel);
+		CollisionControler collisionControler = new CollisionControler(plateauModel);
 		PositionControler controler = new PositionControler(plateauModel);
-		HappyView happyView = new HappyView("Happy Bird", plateauModel, collisionController, controler);
-		collisionController.addView(happyView); 
+		HappyView happyView = new HappyView("Happy Bird", plateauModel, collisionControler, controler);
+		collisionControler.addView(happyView); 
 		controler.addView(happyView);
 	}
 
