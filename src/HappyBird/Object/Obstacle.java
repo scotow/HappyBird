@@ -28,27 +28,52 @@ public class Obstacle{
             //super(x, y, (int)(Constante.OBSTACLE_RADIUS),(int)(Constante.OBSTACLE_RADIUS));
 	}
 	
+	/**
+	 * Modifie la position des obstacles
+	 * @param positionX : la nouvelle position x
+	 * @param positionY : la nouvelle position y
+	 */
 	public void setPosition(double positionX, double positionY) {
 		this.positionX = positionX;
 		this.positionY = positionY;
 	}
 	
+	/**
+	 * Retourne les coordonnees de la position de l'obstacle
+	 * @return la position de l'obstacle en type coordonnee
+	 */
 	public Coordonnee getPostionCoordonnee(){
 		return new Coordonnee(positionX, positionY);
 	}
 	
+	/**
+	 * Retourne la position X de l'obstacle
+	 * @return la position x de l'obstacle
+	 */
     public double getPositionX() {
 		return positionX;
 	}
     
+    /**
+     * Retourne la position X de l'obstacle
+     * @return la position Y de l'obstacle
+     */
     public double getPositionY() {
 		return positionY;
 	}
     
+    /**
+     * Modifie la couleur de l'obstacle
+     * @param color : la nouvelle couleur de l'obstacle
+     */
     public void setObstacleColor(Color color) {
 		this.color = color;
 	}
     
+    /**
+     * Retourne la couleur de l'obstacle 
+     * @return la couleur de l'obstacle
+     */
     public Color getObstacleColor() {
 		return color;
 	}
@@ -63,6 +88,9 @@ public class Obstacle{
 		return touched;
 	}
 
+	/**
+	 * L'obstacle est touche, son boolean de collision passe au vrai
+	 */
 	public void touched(){
 		touched = true;
 	}

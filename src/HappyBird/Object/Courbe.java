@@ -8,7 +8,7 @@ import java.util.List;
  */
 
 /**
- *
+ * Concerne les courbes de trajectoire (principalement la partie math)
  * @author debaerdm
  */
 public class Courbe {
@@ -27,20 +27,46 @@ public class Courbe {
 	 * double vitesseY = Math.sin(angleInitial)*vitesseInitial;
 	 */
 
+	/**
+	 * Applique la formule de bezier a la liste de points
+	 * @param listPoint : la liste de points en coordonnees
+	 * @param t : valeur de temps t
+	 * @return : les nouvelles coordonnees
+	 */
 	public Coordonnee calculerPoint(List<Coordonnee> listPoint, double t) {
 		return formulBezier(listPoint, t);
 	}
 
+	/**
+	 * Applique la formule de bezier a la liste de points (derive)
+	 * @param listPoint : la liste de points en coordonnees
+	 * @param t : valeur de temps t
+	 * @return : les nouvelles coordonnees
+	 */
 	public Coordonnee calculerPointDerive(List<Coordonnee> listPoint, double t) {
 		return formulBezierDeriver(listPoint, t);
 	}
 
+	/**
+	 * Calcule la tangente et donne ses coordonnees
+	 * @param x : le positionnement x actuel
+	 * @param y : le positionnement y actuel
+	 * @param coordonnees : liste de coordonnees pour la tangente
+	 * @param t : la valeur de temps t
+	 * @return les coordonnees de la tangente
+	 */
 	public Coordonnee calculerTangente(double x, double y, List<Coordonnee> coordonnees, double t) {
 		double xtmp = ((x - calculerPoint(coordonnees, t).getX()) / (calculerPointDerive(coordonnees, t).getX()));
 		double ytmp = ((y - calculerPoint(coordonnees, t).getY()) / (calculerPointDerive(coordonnees, t).getY()));
 		return new Coordonnee(xtmp, ytmp);
 	}
 
+	/**
+	 * Applique la formule de bezier sur chaque point de la liste donnee
+	 * @param listpoint : la liste de point
+	 * @param t : la valeur de temps t
+	 * @return : les nouvelles coordonnees
+	 */
 	public Coordonnee formulBezier(List<Coordonnee> listpoint, double t) {
 		double x = 0;
 		double xtmp = 0;
@@ -55,6 +81,12 @@ public class Courbe {
 		return new Coordonnee(xtmp, ytmp);
 	}
 
+	/**
+	 * Applique la formule de bezier sur chaque point de la liste donnee (derive)
+	 * @param point : la liste de point
+	 * @param t : la valeur de temps t
+	 * @return : les nouvelles coordonnees
+	 */
 	public Coordonnee formulBezierDeriver(List<Coordonnee> point, double t) {
 		double x = 0;
 		double xtmp = 0;
@@ -69,6 +101,15 @@ public class Courbe {
 		return new Coordonnee(xtmp, ytmp);
 	}
 
+	
+	/**
+	 * Calculs brut sur la formule de beziers
+	 * @param resultat : le resultat que l'on cherche
+	 * @param listPoint : la position du point (x ou y)
+	 * @param t : la valeur de temps t
+	 * @param size : taille de la liste de points
+	 * @return : le resultat
+	 */
 	// (p0*Math.pow((1-t), 3)) + (((3*p1)*t)*Math.pow((1-t), 2)) +
 	// (((3*p2)*Math.pow(t, 2))*(1-t)) + p3*Math.pow(t, 3);
 	public double formuleBezierTest(double resultat, double listPoint, double t, int size) {
@@ -92,6 +133,15 @@ public class Courbe {
 		return resultat;
 	}
 
+	/**
+	 * Calculs brut sur la formule de beziers (derive
+	 * @param resultat : le resultat que l'on cherche
+	 * @param listPoint1 : la premiere valeur du point (x ou y)
+	 * @param listPoint2 : la deuxieme valeur du point (x ou y) 
+	 * @param t : la valeur de temps t
+	 * @param size : taille de la liste de points
+	 * @return : le resultat
+	 */
 	// 3*(((p1-p0)*Math.pow((1-t), 2)) + (2*(p2-p1)*t*(t-1)) +
 	// ((p3-p2)*Math.pow(t, 2)));
 	public double formuleBezierDeriveTest(double resultat, double listPoint1, double listePoint2, double t, int size) {
@@ -112,30 +162,58 @@ public class Courbe {
 		return resultat;
 	}
 
+	/**
+	 * Retourne la coordonnee x de la courbe
+	 * @return la coordonnee x
+	 */
 	public double getCoordX() {
 		return coordX;
 	}
 
+	/**
+	 * Retourne la coordonnee y de la courbe
+	 * @return la coordonne y
+	 */
 	public double getCoordY() {
 		return coordY;
 	}
-
+	
+	/**
+	 * Retourne la coordonnee x de la derivee
+	 * @return la coordonnee x
+	 */
 	public double getCoordXDeriv() {
 		return coordXDeriv;
 	}
-
+	
+	/**
+	 * Retourne la coordonnee y de la derivee
+	 * @return la coordonnee y
+	 */
 	public double getCoordYDeriv() {
 		return coordYDeriv;
 	}
 
+	/**
+	 * Retourne l'angle initiale en entier (normalement en degres)
+	 * @return
+	 */
 	public int getAngleInitial() {
 		return angleInitial;
 	}
 
+	/**
+	 * Retourne la vitesse initiale
+	 * @return : la vitesse initiale
+	 */
 	public int getVitesseInitial() {
 		return vitesseInitial;
 	}
 
+	/**
+	 * Retourne la vitesse de l'axe y 
+	 * @return la vitesse 
+	 */
 	public double getVitesseY() {
 		return vitesseY;
 	}

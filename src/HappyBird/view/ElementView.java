@@ -12,10 +12,16 @@ import HappyBird.model.PlateauModel;
 public class ElementView extends ObjectView {
 
 	/**
-	 * 
+	 * Concerne l'affichage des elements, herite de la vue objet
 	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Cree la vue element
+	 * @param plateauModel : le plateau de jeu
+	 * @param collisionControler : le controleur de collision 
+	 * @param positionControler : le controler de position
+	 */
 	public ElementView(PlateauModel plateauModel, CollisionControler collisionControler,
 			PositionControler positionControler) {
 		super(plateauModel, collisionControler, positionControler);
@@ -31,7 +37,9 @@ public class ElementView extends ObjectView {
 	}
 
 
-	@Override
+	/**
+	 * Affiche les differents objets
+	 */
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		for (int i = 0; i < model().getListeDObstacles().size(); i++) {

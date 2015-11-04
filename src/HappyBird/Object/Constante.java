@@ -1,6 +1,11 @@
 package HappyBird.Object;
 
 
+/**
+ * Les differentes constantes utilisees dans le projet
+ * 
+ */
+
 import java.awt.Color;
 
 public class Constante {

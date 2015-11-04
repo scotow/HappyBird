@@ -8,6 +8,11 @@ import HappyBird.view.HappyView;
 
 public class CollisionControler {
 
+	/**
+	 * Concerne tous les controles de collisions
+	 */
+	
+	
 	private PlateauModel plateauModel;
 	private HappyView happyView = null;
 
@@ -15,6 +20,10 @@ public class CollisionControler {
 		this.plateauModel = plateauModel;
 	}
 
+	/**
+	 * Test la collision, et effectue un changement de couleur et un temps d'attente s'il y a collision
+	 * @return vrai s'il la collision a ete effectuee(avec les changements), faux s'il n'y a pas de collisions
+	 */
 	public boolean Collision() {
 		for (int i = 0; i < plateauModel.getListeDObstacles().size(); i++) {
 			if (controlCollision(plateauModel.getOiseau(), plateauModel.getObstacle(i))) {
@@ -35,6 +44,12 @@ public class CollisionControler {
 		return false;
 	}
 
+	/**
+	 * Verifie la collision entre l'oiseau et un obstacle
+	 * @param oiseau : l'oiseau concerne
+	 * @param obstacles : l'obstacle concerne
+	 * @return : vrai s'il y a collision, faux s'il n'y en a pas
+	 */
 	private boolean controlCollision(Oiseau oiseau, Obstacle obstacles) {
 		boolean ok = false;
 		if (happyView != null) {
@@ -48,6 +63,11 @@ public class CollisionControler {
 		return ok;
 	}
 	
+	/**
+	 * Verifie la collision entre l'oiseau et le reste du plateau
+	 * @param oiseau : l'oiseau concerne
+	 * @return vrai s'il y a collision, faux s'il n'y en a pas
+	 */
 	private boolean controlCollision(Oiseau oiseau){
 		boolean ok = false;
 		if (happyView != null) {
@@ -58,7 +78,11 @@ public class CollisionControler {
 		}
 		return ok;
 	}
-
+	
+	/**
+	 * Ajoute la vue du jeu dans le controleur
+	 * @param happyView : la vue du jeu
+	 */
 	public void addView(HappyView happyView) {
 		this.happyView = happyView;
 	}
