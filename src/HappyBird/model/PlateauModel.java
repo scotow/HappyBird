@@ -19,7 +19,7 @@ public class PlateauModel extends Observable {
 	private List<Coordonnee> ListeDePoint = new ArrayList<>(4);
 	private List<Obstacle> ListeDObstacles = new ArrayList<>(10);
 	private Oiseau oiseau = new Oiseau(Constante.BIRD_BODY_RADIUS*2, Constante.Y_FRAME-(Constante.BIRD_BODY_RADIUS*3));
-	private Bec bec = new Bec(oiseau);
+	//private Bec bec = new Bec(oiseau);
 	private Courbe courbe = new Courbe();
 	private double t = 0;
 	private double speed = 0.0002;	
@@ -307,12 +307,12 @@ public class PlateauModel extends Observable {
 		notifyObservers();
 	}
 
-	public void setBecPosition(Coordonnee coordonnee) {
+	/*public void setBecPosition(Coordonnee coordonnee) {
 		this.bec.setPosition(coordonnee);
 		//System.out.println("Oiseau placer a ("+x+";"+y+").");
 		setChanged();
 		notifyObservers();
-	}
+	}*/
 	
 	/**
 	 * Modifie la position d'un obstacle a l'indice donne, avertit les observeurs
@@ -384,6 +384,15 @@ public class PlateauModel extends Observable {
 		setChanged();
 		notifyObservers();
 	}
+	
+	 /**
+     * Fait animer les objetcs.
+     */
+    public void startFly(){
+        this.flyTimer.start();
+        setChanged();
+        notifyObservers();
+    }
 	
 	/**
 	 * Efface les rectangles de la liste, avertit les observeurs

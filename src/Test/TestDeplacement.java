@@ -2,15 +2,29 @@ package Test;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Before;
 import org.junit.Test;
 
+import HappyBird.Controller.PositionControler;
 import HappyBird.Object.Constante;
 import HappyBird.Object.Coordonnee;
 import HappyBird.Object.Obstacle;
 import HappyBird.Object.Oiseau;
+import HappyBird.model.PlateauModel;
 
 public class TestDeplacement {
 
+  public PlateauModel plateauModel;
+  public PositionControler position;
+ 
+  @Before
+  public void test() {
+    plateauModel = new PlateauModel();
+    position = new PositionControler(plateauModel);
+  }
 
 	@Test
 	public void limiteDroite () {
@@ -27,7 +41,7 @@ public class TestDeplacement {
 	public void testCollisionObstacleCercle () {
 		//voir CollisionControler
 		Obstacle obs = new Obstacle (780.00, 200.00);
-		Oiseau o = new Oiseau (780.00,200.00);
+		Oiseau o = new Oiseau (761.00,200.00);
 		assertTrue(Math.abs(obs.getPositionX() - o.getPositionX()) <= Constante.OBSTACLE_RADIUS / 2
 					+ Constante.BIRD_BODY_RADIUS / 2
 					&& Math.abs(obs.getPositionY() - o.getPositionY()) <= Constante.OBSTACLE_RADIUS / 2
@@ -37,6 +51,42 @@ public class TestDeplacement {
 				+ Constante.BIRD_BODY_RADIUS / 2
 				&& Math.abs(obs.getPositionY() - o.getPositionY()) <= Constante.OBSTACLE_RADIUS / 2
 						+ Constante.BIRD_BODY_RADIUS / 2);
+	}
+	
+	@Test
+	public void OiseauAvantCollision(){
+	  double xtmp = 0;
+	  double ytmp = 0;
+	  Oiseau oiseau = new Oiseau(100, 100);
+	  Obstacle obstacle = new Obstacle(160, 100);
+	  for (int i = 0; i < 10; i += 10) {
+        oiseau.setPosition(oiseau.getPositionX()+i, oiseau.getPositionY());
+        if (!(Math.abs(obstacle.getPositionX() - oiseau.getPositionX()) <= Constante.OBSTACLE_RADIUS / 2
+            + Constante.BIRD_BODY_RADIUS / 2
+            && Math.abs(obstacle.getPositionY() - oiseau.getPositionY()) <= Constante.OBSTACLE_RADIUS / 2
+                    + Constante.BIRD_BODY_RADIUS / 2)) {
+          System.out.println("Pas de collision");
+        }
+      }
+	  oiseau.setPosition(100.0, 100.0);
+	   for (int i = 0; i < 70; i += 10) {
+	        oiseau.setPosition(oiseau.getPositionX()+i, oiseau.getPositionY());
+	        if ((Math.abs(obstacle.getPositionX() - oiseau.getPositionX()) <= Constante.OBSTACLE_RADIUS / 2
+	            + Constante.BIRD_BODY_RADIUS / 2
+	            && Math.abs(obstacle.getPositionY() - oiseau.getPositionY()) <= Constante.OBSTACLE_RADIUS / 2
+	                    + Constante.BIRD_BODY_RADIUS / 2)) {
+	          System.out.println("Il y a collision");
+	          xtmp = oiseau.getX();
+	          ytmp = oiseau.getY();
+	        }
+	      }
+	   
+       for (int i = 0; i < 70; i += 10) {
+         oiseau.setPosition(oiseau.getPositionX()+i, oiseau.getPositionY());
+         if (oiseau.getPositionX() == xtmp && oiseau.getPositionY() == ytmp) {
+           System.out.println("Pas bouger !");
+         }
+       }
 	}
     /*@Test 
 	public void testAjoutCoordonneesObstacle() {

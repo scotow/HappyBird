@@ -6,18 +6,54 @@
 
 package Test;
 
-import HappyBird.Object.Coordonnee;
-import HappyBird.model.Courbe;
+import javax.swing.Timer;
 
-import org.junit.Assert;
+import HappyBird.Controller.CollisionControler;
+import HappyBird.Controller.PositionControler;
+import HappyBird.Object.Coordonnee;
+import HappyBird.Object.Obstacle;
+import HappyBird.Object.Oiseau;
+import HappyBird.model.Courbe;
+import HappyBird.model.PlateauModel;
+import HappyBird.view.ElementView;
+import HappyBird.view.HappyView;
+import static org.junit.Assert.*;
+
+import org.junit.Before;
 import org.junit.Test;
 
 /**
  *
  * @author debaerdm
  */
-public class TestCourbe {
+public class TestObject {
     
+  public PlateauModel plateauModel;
+  public PositionControler position;
+  public CollisionControler collision;
+  public HappyView happyView;
+ 
+  @Before
+  public void test() {
+    plateauModel = new PlateauModel();
+    position = new PositionControler(plateauModel);
+    collision = new CollisionControler(plateauModel);
+    happyView = new HappyView("Test", plateauModel, collision, position);
+    collision.addView(happyView);
+  }
+  
+  @Test
+  public void timerStop(){
+    plateauModel.setOiseauPosition(761.00,200.00);
+    plateauModel.addObstacles(new Obstacle(780.00, 200.00));
+    plateauModel.addObstacles(new Obstacle(740.00, 200.00));
+    plateauModel.setFlyTimer(new Timer(5000, null));
+    plateauModel.startFly();
+    if(collision.collision()) plateauModel.stopFly();
+    assertFalse(plateauModel.getFlyTimer().isRunning());
+  }
+  
+  
     /*@Test
     public void testBezierTroisParametre() throws PointCourbeException{
       Courbe bezierTroisParametre = new Courbe();

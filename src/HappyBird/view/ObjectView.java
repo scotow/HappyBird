@@ -101,7 +101,6 @@ public class ObjectView extends JPanel implements Observer {
 			}
 		}, model.getWaiting());
 		model.setSimulation(model.getSimulation() - 1);
-		;
 		if (model.getSimulation() == 0)
 			System.exit(0);
 	}

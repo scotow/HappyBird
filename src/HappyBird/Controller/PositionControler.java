@@ -91,12 +91,12 @@ public class PositionControler {
 		plateauModel.setOiseauPosition(tmp.getX(), tmp.getY() + Constante.BIRD_BODY_RADIUS/2-3);
 	}
 
-//	public void fixeBec(){
-//		Coordonnee tmp = plateauModel.getCourbe().calculerPoint(plateauModel.getListeDePoint(), plateauModel.getT() + plateauModel.getSpeed());
-//		double YparX = (tmp.getY() - plateauModel.getOiseau().getPositionY())/(tmp.getX() - plateauModel.getOiseau().getPositionX());
-//		//Coordonnee bec = new Coordonnee(plateauModel.getOiseau().getPositionX()+Constante.BIRD_BODY_RADIUS/2)
-//		plateauModel.setBecPosition();
-//	}
+	public void fixeBec(){
+		Coordonnee tmp = plateauModel.getCourbe().calculerPoint(plateauModel.getListeDePoint(), plateauModel.getT() + (plateauModel.getSpeed()*100));
+		double YparX = (tmp.getY() - plateauModel.getOiseau().getPositionY())/(tmp.getX() - plateauModel.getOiseau().getPositionX());
+		//Coordonnee bec = new Coordonnee(plateauModel.getOiseau().getPositionX()+Constante.BIRD_BODY_RADIUS/2)
+		//plateauModel.setBecPosition();
+	}
 
 	
 	/**
@@ -105,7 +105,7 @@ public class PositionControler {
 	 * @param y : la position y du point de bezier
 	 * @return vrai si correctes, faux si incorrectes
 	 */
-	private boolean controlPoint(double x, double y) {
+	public boolean controlPoint(double x, double y) {
 		boolean ok = false;
 		if (happyView != null) {
 			if (plateauModel.getListeDePoint().size() < Constante.POINT_LIST_CAPACITY) {
@@ -123,7 +123,7 @@ public class PositionControler {
 	 * @param y : la position y de l'obstacle
 	 * @return vrai si correctes, faux si incorrectes
 	 */
-	private boolean controlObstacle(double x, double y) {
+	public boolean controlObstacle(double x, double y) {
 		boolean ok = false;
 		if (happyView != null) {
 			if (plateauModel.getListeDObstacles().size() < Constante.OBSTACLES_LIST_CAPACITY) {

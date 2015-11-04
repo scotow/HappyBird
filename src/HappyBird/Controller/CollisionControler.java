@@ -1,5 +1,7 @@
 package HappyBird.Controller;
 
+import java.util.Timer;
+
 import HappyBird.Object.Constante;
 import HappyBird.Object.Obstacle;
 import HappyBird.Object.Oiseau;
@@ -30,6 +32,7 @@ public class CollisionControler {
 				plateauModel.setObstaclesColor(Constante.OBSTACLE_TOUCHED_COLOR, i);
 				plateauModel.setOiseauColor(Constante.BIRD_BREAK_COLOR);
 				plateauModel.setWaiting(2000);
+				plateauModel.stopFly();
 				return true;
 			}
 			else {
@@ -39,6 +42,7 @@ public class CollisionControler {
 		}
 		if (controlCollision(plateauModel.getOiseau())) {
 			plateauModel.setWaiting(1000);
+			plateauModel.stopFly();
 			return true;
 		}
 		return false;
