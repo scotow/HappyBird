@@ -90,6 +90,14 @@ public class PositionControler {
 		//System.out.println("Obstacle placer  "+ tmp.toString() +".");
 		plateauModel.setOiseauPosition(tmp.getX(), tmp.getY() + Constante.BIRD_BODY_RADIUS/2-3);
 	}
+
+//	public void fixeBec(){
+//		Coordonnee tmp = plateauModel.getCourbe().calculerPoint(plateauModel.getListeDePoint(), plateauModel.getT() + plateauModel.getSpeed());
+//		double YparX = (tmp.getY() - plateauModel.getOiseau().getPositionY())/(tmp.getX() - plateauModel.getOiseau().getPositionX());
+//		//Coordonnee bec = new Coordonnee(plateauModel.getOiseau().getPositionX()+Constante.BIRD_BODY_RADIUS/2)
+//		plateauModel.setBecPosition();
+//	}
+
 	
 	/**
 	 * Teste si la liste et les coordonnees du point sont correctes

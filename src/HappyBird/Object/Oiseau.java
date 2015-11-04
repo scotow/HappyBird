@@ -10,7 +10,7 @@ public class Oiseau extends Bounds{
     
     private double positionX;
     private double positionY;
-    
+
     private Color OiseauColor = Constante.BIRD_BODY_COLOR;
     
     /**

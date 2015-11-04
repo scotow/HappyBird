@@ -8,10 +8,7 @@ import java.util.Observable;
 
 import javax.swing.Timer;
 
-import HappyBird.Object.Constante;
-import HappyBird.Object.Coordonnee;
-import HappyBird.Object.Obstacle;
-import HappyBird.Object.Oiseau;
+import HappyBird.Object.*;
 
 public class PlateauModel extends Observable {
 	
@@ -22,6 +19,7 @@ public class PlateauModel extends Observable {
 	private List<Coordonnee> ListeDePoint = new ArrayList<>(4);
 	private List<Obstacle> ListeDObstacles = new ArrayList<>(10);
 	private Oiseau oiseau = new Oiseau(Constante.BIRD_BODY_RADIUS*2, Constante.Y_FRAME-(Constante.BIRD_BODY_RADIUS*3));
+	private Bec bec = new Bec(oiseau);
 	private Courbe courbe = new Courbe();
 	private double t = 0;
 	private double speed = 0.0002;	
@@ -304,6 +302,13 @@ public class PlateauModel extends Observable {
 	 */
 	public void setOiseauPosition(double x, double y) {
 		this.oiseau.setPosition(x, y);
+		//System.out.println("Oiseau placer a ("+x+";"+y+").");
+		setChanged();
+		notifyObservers();
+	}
+
+	public void setBecPosition(Coordonnee coordonnee) {
+		this.bec.setPosition(coordonnee);
 		//System.out.println("Oiseau placer a ("+x+";"+y+").");
 		setChanged();
 		notifyObservers();
