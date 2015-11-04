@@ -24,7 +24,7 @@ public class CollisionControler {
 	 * Test la collision, et effectue un changement de couleur et un temps d'attente s'il y a collision
 	 * @return vrai s'il la collision a ete effectuee(avec les changements), faux s'il n'y a pas de collisions
 	 */
-	public boolean Collision() {
+	public boolean collision() {
 		for (int i = 0; i < plateauModel.getListeDObstacles().size(); i++) {
 			if (controlCollision(plateauModel.getOiseau(), plateauModel.getObstacle(i))) {
 				plateauModel.setObstaclesColor(Constante.OBSTACLE_TOUCHED_COLOR, i);
