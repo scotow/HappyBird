@@ -1,6 +1,9 @@
-package HappyBird.Object;
+package HappyBird.model;
 
 import java.util.List;
+
+import HappyBird.Object.Constante;
+import HappyBird.Object.Coordonnee;
 
 /*
  * To change this license header, choose License Headers in Project Properties. To change this
@@ -11,7 +14,7 @@ import java.util.List;
  * Concerne les courbes de trajectoire (principalement la partie math)
  * @author debaerdm
  */
-public class Courbe {
+public class Courbe{
 
 	private double coordX;
 	private double coordY;
@@ -34,6 +37,7 @@ public class Courbe {
 	 * @return : les nouvelles coordonnees
 	 */
 	public Coordonnee calculerPoint(List<Coordonnee> listPoint, double t) {
+		//return new Coordonnee(getOiseauPostion().getX()+10, (37.0/20250.0)*Math.pow(getOiseauPostion().getX(), 2)+(-74.0/45.0)*getOiseauPostion().getX()+470);
 		return formulBezier(listPoint, t);
 	}
 

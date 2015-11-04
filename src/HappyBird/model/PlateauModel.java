@@ -10,7 +10,6 @@ import javax.swing.Timer;
 
 import HappyBird.Object.Constante;
 import HappyBird.Object.Coordonnee;
-import HappyBird.Object.Courbe;
 import HappyBird.Object.Obstacle;
 import HappyBird.Object.Oiseau;
 
@@ -113,6 +112,14 @@ public class PlateauModel extends Observable {
 	 */
 	public Coordonnee getObstaclePostion(int index){
 		return ListeDObstacles.get(index).getPostionCoordonnee();
+	}
+	
+	public int[] getObstacleTaille(int index){
+		return new int[]{ListeDObstacles.get(index).getWidth(),ListeDObstacles.get(index).getHeight()};
+	}
+	
+	public int[] getOiseauTaille(){
+		return new int[]{oiseau.getWidth(), oiseau.getHeight()};
 	}
 	
 	/**

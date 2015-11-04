@@ -3,7 +3,7 @@ package HappyBird.Object;
 import java.awt.Color;
 
 
-public class Obstacle{
+public class Obstacle extends Bounds{
 
 	/**
 	 * 
@@ -11,8 +11,6 @@ public class Obstacle{
 	 * Il s'agit des obstacles qui apparaissent sur l'ecran
 	 * 
 	 */
-
-	private boolean touched = false;
 	private double positionX;
 	private double positionY;
 	
@@ -23,9 +21,9 @@ public class Obstacle{
 	 * @param y : la position de y
 	 */
 	public Obstacle (double x, double y) {
+		super(x, y, Constante.OBSTACLE_RADIUS, Constante.OBSTACLE_RADIUS);
 		this.positionX = x;
 		this.positionY = y;
-            //super(x, y, (int)(Constante.OBSTACLE_RADIUS),(int)(Constante.OBSTACLE_RADIUS));
 	}
 	
 	/**
@@ -62,6 +60,16 @@ public class Obstacle{
 		return positionY;
 	}
     
+    @Override
+    public int getWidth() {
+    	return super.getWidth();
+    }
+    
+    @Override
+    public int getHeight() {
+    	return super.getHeight();
+    }
+    
     /**
      * Modifie la couleur de l'obstacle
      * @param color : la nouvelle couleur de l'obstacle
@@ -76,23 +84,6 @@ public class Obstacle{
      */
     public Color getObstacleColor() {
 		return color;
-	}
-
-	/**
-	 * Retourne vrai s'il y a collision avec deux obstacles
-	 * @param Obstacle o a analyser
-	 * @return true s'il y a collision
-	 */
-
-	public boolean isTouched(){
-		return touched;
-	}
-
-	/**
-	 * L'obstacle est touche, son boolean de collision passe au vrai
-	 */
-	public void touched(){
-		touched = true;
 	}
 
 

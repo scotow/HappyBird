@@ -7,7 +7,7 @@
 package Test;
 
 import HappyBird.Object.Coordonnee;
-import HappyBird.Object.Courbe;
+import HappyBird.model.Courbe;
 
 import org.junit.Assert;
 import org.junit.Test;

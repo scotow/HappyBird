@@ -3,7 +3,6 @@ package HappyBird.view;
 import java.awt.Graphics;
 import java.util.Observable;
 
-
 import HappyBird.Controller.CollisionControler;
 import HappyBird.Controller.PositionControler;
 import HappyBird.Object.Constante;
@@ -18,9 +17,13 @@ public class ElementView extends ObjectView {
 
 	/**
 	 * Cree la vue element
-	 * @param plateauModel : le plateau de jeu
-	 * @param collisionControler : le controleur de collision 
-	 * @param positionControler : le controler de position
+	 * 
+	 * @param plateauModel
+	 *            : le plateau de jeu
+	 * @param collisionControler
+	 *            : le controleur de collision
+	 * @param positionControler
+	 *            : le controler de position
 	 */
 	public ElementView(PlateauModel plateauModel, CollisionControler collisionControler,
 			PositionControler positionControler) {
@@ -36,7 +39,6 @@ public class ElementView extends ObjectView {
 		ElementView.this.repaint();
 	}
 
-
 	/**
 	 * Affiche les differents objets
 	 */
@@ -44,18 +46,20 @@ public class ElementView extends ObjectView {
 		super.paintComponent(g);
 		for (int i = 0; i < model().getListeDObstacles().size(); i++) {
 			g.setColor(model().getObstaclesColor(i));
-			g.fillOval((int) model().getObstaclePostion(i).getX() - Constante.OBSTACLE_RADIUS / 2,
-					(int) model().getObstaclePostion(i).getY() - Constante.OBSTACLE_RADIUS / 2,
-					Constante.OBSTACLE_RADIUS, Constante.OBSTACLE_RADIUS);
+			g.fillOval((int) model().getObstaclePostion(i).getX() - model().getObstacleTaille(i)[0] / 2,
+					(int) model().getObstaclePostion(i).getY() - model().getObstacleTaille(i)[1] / 2,
+					model().getObstacleTaille(i)[0], model().getObstacleTaille(i)[1]);
 		}
 		g.setColor(Constante.POINT_BEZIER);
-		for (int i = 0; i < model().getListeDePoint().size(); i++) {
-			g.fillOval((int) model().getPoint(i).getX(), (int) model().getPoint(i).getY(), 15, 15);
-			if (i >= 1) {
-				g.drawLine((int)model().getPoint(i-1).getX() + 15/2, (int)model().getPoint(i-1).getY() + 15/2,
-						(int)model().getPoint(i).getX() + 15/2, (int)model().getPoint(i).getY() + 15/2);
-			}
-		}
+		/*
+		 * for (int i = 0; i < model().getListeDePoint().size(); i++) {
+		 * g.fillOval((int) model().getPoint(i).getX(), (int)
+		 * model().getPoint(i).getY(), 15, 15); if (i >= 1) {
+		 * g.drawLine((int)model().getPoint(i-1).getX() + 15/2,
+		 * (int)model().getPoint(i-1).getY() + 15/2,
+		 * (int)model().getPoint(i).getX() + 15/2,
+		 * (int)model().getPoint(i).getY() + 15/2); } }
+		 */
 		for (int i = 0; i < model().getRectangles().size(); i++) {
 			if (i % 80 == 0) {
 				g.fillRect(model().getRectangleByIndex(i).x, model().getRectangleByIndex(i).y,
@@ -63,9 +67,9 @@ public class ElementView extends ObjectView {
 			}
 		}
 		g.setColor(model().getOiseauColor());
-		g.fillOval((int) model().getOiseauPostion().getX() - Constante.BIRD_BODY_RADIUS / 2,
-				(int) model().getOiseauPostion().getY() - Constante.BIRD_BODY_RADIUS / 2, Constante.BIRD_BODY_RADIUS,
-				Constante.BIRD_BODY_RADIUS);
+		g.fillOval((int) model().getOiseauPostion().getX() - model().getOiseauTaille()[0] / 2,
+				(int) model().getOiseauPostion().getY() - model().getOiseauTaille()[1] / 2,
+				model().getOiseauTaille()[0], model().getOiseauTaille()[1]);
 	}
 
 }

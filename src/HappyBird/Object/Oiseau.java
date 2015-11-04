@@ -2,12 +2,11 @@ package HappyBird.Object;
 
 import java.awt.Color;
 
-public class Oiseau{
+public class Oiseau extends Bounds{
 
 	/**
 	 * L'objet oiseau, element principal du jeu
 	 */
-    private boolean touched = false;
     
     private double positionX;
     private double positionY;
@@ -20,6 +19,7 @@ public class Oiseau{
      * @param y : positionnement en y
      */
     public Oiseau(double x, double y) {
+    	super(x, y, Constante.BIRD_BODY_RADIUS, Constante.BIRD_BODY_RADIUS);
 		this.positionX = x;
 		this.positionY = y;
 	}
@@ -58,6 +58,16 @@ public class Oiseau{
 		return positionY;
 	}
     
+    @Override
+    public int getWidth() {
+    	return super.getWidth();
+    }
+    
+    @Override
+    public int getHeight() {
+    	return super.getHeight();
+    }
+    
     /**
      * Modifie la couleur de l'oiseau
      * @param oiseauColor : la nouvelle couleur de l'oiseau
@@ -73,22 +83,6 @@ public class Oiseau{
     public Color getOiseauColor() {
 		return OiseauColor;
 	}
-    
-    /**
-     * Retourne le booleen de collision
-     * @return le booleen de collision
-     */
-    public boolean isTouched() {
-        return touched;
-    }
-
-    /**
-     * Modifie le booleen de collision
-     * @param touched : la nouvelle valeur de collision
-     */
-    public void setTouched(boolean touched) {
-        this.touched = touched;
-    }
         
         
         
