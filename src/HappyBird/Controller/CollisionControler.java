@@ -1,7 +1,5 @@
 package HappyBird.Controller;
 
-import java.util.Timer;
-
 import HappyBird.Object.Constante;
 import HappyBird.Object.Obstacle;
 import HappyBird.Object.Oiseau;
@@ -76,7 +74,8 @@ public class CollisionControler {
 		boolean ok = false;
 		if (happyView != null) {
 			if (oiseau.getPositionX() + Constante.BIRD_BODY_RADIUS /2 >= Constante.X_FRAME ||
-					oiseau.getPositionY() + Constante.BIRD_BODY_RADIUS /2 >= Constante.Y_FRAME) {
+					oiseau.getPositionY() + Constante.BIRD_BODY_RADIUS /2 >= Constante.Y_FRAME-10
+					|| oiseau.getPositionX() + Constante.BIRD_BODY_RADIUS /2 <= 0) {
 				ok = true;
 			}
 		}

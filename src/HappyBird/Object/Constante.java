@@ -8,7 +8,7 @@ package HappyBird.Object;
 
 import java.awt.Color;
 
-public class Constante {
+public abstract class Constante {
 
   public static final Color BIRD_BODY_COLOR = Color.RED;
   public static final Color BIRD_BREAK_COLOR = Color.BLACK;
@@ -33,6 +33,4 @@ public class Constante {
   public static final int Y_FRAME = 470;
   
   public static final Color POINT_BEZIER = Color.BLUE;
-  
-  
 }

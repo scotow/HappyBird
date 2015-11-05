@@ -16,14 +16,15 @@ public class PlateauModel extends Observable {
 	 * Le plateau de jeu (qui est un observable appelant chaque observeur apres une modification)
 	 */
 	
+    private int compteurListe = 0;
 	private List<Coordonnee> ListeDePoint = new ArrayList<>(4);
 	private List<Obstacle> ListeDObstacles = new ArrayList<>(10);
-	private Oiseau oiseau = new Oiseau(Constante.BIRD_BODY_RADIUS*2, Constante.Y_FRAME-(Constante.BIRD_BODY_RADIUS*3));
+	private Oiseau oiseau = new Oiseau(0, 0);
 	//private Bec bec = new Bec(oiseau);
 	private Courbe courbe = new Courbe();
 	private double t = 0;
 	private double speed = 0.0002;	
-	private int waiting = 0;
+	private int waiting = 1;
 	private int simulation = 10;
 	private Timer flyTimer;
 	private List<Rectangle> rectangles = new ArrayList<>();
@@ -60,6 +61,10 @@ public class PlateauModel extends Observable {
 	public List<Coordonnee> getListeDePoint() {
 		return ListeDePoint;
 	}
+	
+	public int getCompteurListe() {
+      return compteurListe;
+    }
 	
 	/**
 	 * Retourne la liste de rectangle du plateau
@@ -263,6 +268,12 @@ public class PlateauModel extends Observable {
 		setChanged();
 		notifyObservers();
 	}
+	
+	public void setCompteurListe(int compteurListe) {
+      this.compteurListe = compteurListe;
+      setChanged();
+      notifyObservers();
+    }
 	
 	/**
 	 * Supprime obstacle de la liste, avertit les observeurs
