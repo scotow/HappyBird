@@ -54,7 +54,7 @@ public class ObjectView extends JPanel implements Observer {
   public void bouger() {
     bouger.bouger();
   }
-  
+
   /*
    * protected void paintComponent(Graphics g) { super.paintComponent(g); g.drawImage(new
    * ImageIcon(getClass().getResource("/HappyBird/view/images/background.png")).getImage(), 0, 0,

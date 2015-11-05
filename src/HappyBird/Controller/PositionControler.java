@@ -33,67 +33,84 @@ public class PositionControler {
    */
   public void fixePointBezier() {
     if (!controlPoint(plateauModel.getCompteurListe())) {
-      System.out.println("la");
       switch (plateauModel.getCompteurListe()) {
         case 0:
-          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS*2, Constante.Y_FRAME-(Constante.BIRD_BODY_RADIUS*3)));
+          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS * 2, Constante.Y_FRAME
+              - (Constante.BIRD_BODY_RADIUS * 3)));
           plateauModel.addPoint(new Coordonnee(100, 100));
           plateauModel.addPoint(new Coordonnee(300, 100));
-          plateauModel.addPoint(new Coordonnee(Constante.X_FRAME+50, 200));
+          plateauModel.addPoint(new Coordonnee(Constante.X_FRAME + 50, 200));
           break;
         case 1:
-          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS*2, Constante.Y_FRAME-(Constante.BIRD_BODY_RADIUS*3)));
-          plateauModel.addPoint(new Coordonnee(200, Constante.Y_FRAME-(Constante.BIRD_BODY_RADIUS*3)));
+          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS * 2, Constante.Y_FRAME
+              - (Constante.BIRD_BODY_RADIUS * 3)));
+          plateauModel.addPoint(new Coordonnee(200, Constante.Y_FRAME
+              - (Constante.BIRD_BODY_RADIUS * 3)));
           plateauModel.addPoint(new Coordonnee(200, 100));
           plateauModel.addPoint(new Coordonnee(-100, 100));
           break;
         case 2:
-          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS*2, Constante.Y_FRAME-(Constante.BIRD_BODY_RADIUS*3)));
+          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS * 2, Constante.Y_FRAME
+              - (Constante.BIRD_BODY_RADIUS * 3)));
           plateauModel.addPoint(new Coordonnee(350, 200));
           plateauModel.addPoint(new Coordonnee(200, 200));
-          plateauModel.addPoint(new Coordonnee(Constante.X_FRAME+50, 600));
+          plateauModel.addPoint(new Coordonnee(Constante.X_FRAME + 50, 600));
           break;
         case 3:
-          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS*2, Constante.Y_FRAME-(Constante.BIRD_BODY_RADIUS*3)));
+          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS * 2, Constante.Y_FRAME
+              - (Constante.BIRD_BODY_RADIUS * 3)));
           plateauModel.addPoint(new Coordonnee(500, 100));
           plateauModel.addPoint(new Coordonnee(500, 0));
           plateauModel.addPoint(new Coordonnee(-100, 0));
           break;
         case 4:
-          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS*2, Constante.Y_FRAME-(Constante.BIRD_BODY_RADIUS*3)));
-          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS*6, Constante.Y_FRAME-(Constante.BIRD_BODY_RADIUS*7)));
-          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS*10, Constante.Y_FRAME-(Constante.BIRD_BODY_RADIUS*11)));
+          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS * 2, Constante.Y_FRAME
+              - (Constante.BIRD_BODY_RADIUS * 3)));
+          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS * 6, Constante.Y_FRAME
+              - (Constante.BIRD_BODY_RADIUS * 7)));
+          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS * 10, Constante.Y_FRAME
+              - (Constante.BIRD_BODY_RADIUS * 11)));
           plateauModel.addPoint(new Coordonnee(Constante.X_FRAME, 0));
           break;
         case 5:
-          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS*2, Constante.Y_FRAME-(Constante.BIRD_BODY_RADIUS*3)));
-          plateauModel.addPoint(new Coordonnee(Constante.X_FRAME,Constante.Y_FRAME-(Constante.BIRD_BODY_RADIUS*3)));
+          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS * 2, Constante.Y_FRAME
+              - (Constante.BIRD_BODY_RADIUS * 3)));
+          plateauModel.addPoint(new Coordonnee(Constante.X_FRAME, Constante.Y_FRAME
+              - (Constante.BIRD_BODY_RADIUS * 3)));
           plateauModel.addPoint(new Coordonnee(15, 0));
           plateauModel.addPoint(new Coordonnee(Constante.X_FRAME, 0));
           break;
         case 6:
-          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS*2, Constante.Y_FRAME-(Constante.BIRD_BODY_RADIUS*3)));
-          plateauModel.addPoint(new Coordonnee(300, Constante.Y_FRAME-(Constante.BIRD_BODY_RADIUS*3)));
-          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS*2, Constante.Y_FRAME-(Constante.BIRD_BODY_RADIUS*6)));
-          plateauModel.addPoint(new Coordonnee(300, Constante.Y_FRAME-(Constante.BIRD_BODY_RADIUS*9)));
+          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS * 2, Constante.Y_FRAME
+              - (Constante.BIRD_BODY_RADIUS * 3)));
+          plateauModel.addPoint(new Coordonnee(300, Constante.Y_FRAME
+              - (Constante.BIRD_BODY_RADIUS * 3)));
+          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS * 2, Constante.Y_FRAME
+              - (Constante.BIRD_BODY_RADIUS * 6)));
+          plateauModel.addPoint(new Coordonnee(300, Constante.Y_FRAME
+              - (Constante.BIRD_BODY_RADIUS * 9)));
           break;
         case 7:
-          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS*2, Constante.Y_FRAME-(Constante.BIRD_BODY_RADIUS*3)));
-          plateauModel.addPoint(new Coordonnee(200, Constante.Y_FRAME-(Constante.BIRD_BODY_RADIUS*3)));
+          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS * 2, Constante.Y_FRAME
+              - (Constante.BIRD_BODY_RADIUS * 3)));
+          plateauModel.addPoint(new Coordonnee(200, Constante.Y_FRAME
+              - (Constante.BIRD_BODY_RADIUS * 3)));
           plateauModel.addPoint(new Coordonnee(200, 100));
-          plateauModel.addPoint(new Coordonnee(Constante.X_FRAME+50, 100));
+          plateauModel.addPoint(new Coordonnee(Constante.X_FRAME + 50, 100));
           break;
         case 8:
-          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS*2, Constante.Y_FRAME-(Constante.BIRD_BODY_RADIUS*3)));
+          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS * 2, Constante.Y_FRAME
+              - (Constante.BIRD_BODY_RADIUS * 3)));
           plateauModel.addPoint(new Coordonnee(250, 200));
           plateauModel.addPoint(new Coordonnee(400, 100));
-          plateauModel.addPoint(new Coordonnee(Constante.X_FRAME+50, 100));
+          plateauModel.addPoint(new Coordonnee(Constante.X_FRAME + 50, 100));
           break;
         case 9:
-          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS*2, Constante.Y_FRAME-(Constante.BIRD_BODY_RADIUS*3)));
+          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS * 2, Constante.Y_FRAME
+              - (Constante.BIRD_BODY_RADIUS * 3)));
           plateauModel.addPoint(new Coordonnee(100, 100));
           plateauModel.addPoint(new Coordonnee(300, 200));
-          plateauModel.addPoint(new Coordonnee(Constante.X_FRAME+50, 500));
+          plateauModel.addPoint(new Coordonnee(Constante.X_FRAME + 50, 500));
           break;
         default:
           plateauModel.addPoint(null);
@@ -115,7 +132,7 @@ public class PositionControler {
   }
 
   /**
-   * Permet de placer les obstacles, de façon aleatoire ou non
+   * Permet de placer les obstacles, de facon aleatoire ou non
    * 
    * @param x : le positionnement en x s'il n'est pas aleatoire
    * @param y : le positionnement en y s'il n'est pas aleatoire
@@ -151,27 +168,16 @@ public class PositionControler {
   }
 
   /**
-   * Permet de placer l'oiseau dans la partie droite du plateau de jeu
+   * Permet changer la position de l'oiseau
    */
   public void fixeOiseau() {
     Coordonnee tmp =
         plateauModel.getCourbe().calculerPoint(plateauModel.getListeDePoint(), plateauModel.getT());
     // System.out.println("Obstacle placer  "+ tmp.toString() +".");
     plateauModel.setOiseauPosition(tmp.getX(), tmp.getY() + Constante.BIRD_BODY_RADIUS / 2 - 3);
+    plateauModel.setBecOiseauPosition(new Coordonnee(tmp.getX(), tmp.getY()
+        + Constante.BIRD_BODY_RADIUS / 2 - 3));
   }
-
-  /*public void fixeBec() {
-    Coordonnee tmp =
-        plateauModel.getCourbe().calculerPoint(plateauModel.getListeDePoint(),
-            plateauModel.getT() + (plateauModel.getSpeed() * 100));
-    double YparX =
-        (tmp.getY() - plateauModel.getOiseau().getPositionY())
-            / (tmp.getX() - plateauModel.getOiseau().getPositionX());
-    // Coordonnee bec = new
-    // Coordonnee(plateauModel.getOiseau().getPositionX()+Constante.BIRD_BODY_RADIUS/2)
-    // plateauModel.setBecPosition();
-  }
-*/
 
   /**
    * Teste si la liste et les coordonnees du point sont correctes
@@ -194,6 +200,7 @@ public class PositionControler {
 
   /**
    * Regarde si on est pas en-dessous de 0 ou au-dessus de 10
+   * 
    * @param compteur le compteur de toutes les listes de point
    * @return vrai si la liste est out of bounds.
    */

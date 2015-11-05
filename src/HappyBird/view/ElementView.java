@@ -1,5 +1,6 @@
 package HappyBird.view;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Observable;
 
@@ -50,14 +51,13 @@ public class ElementView extends ObjectView {
     }
     g.setColor(Constante.POINT_BEZIER);
 
-    /*for (int i = 0; i < model().getListeDePoint().size(); i++) {
-      g.fillOval((int) model().getPoint(i).getX(), (int) model().getPoint(i).getY(), 15, 15);
-      if (i >= 1) {
-        g.drawLine((int) model().getPoint(i - 1).getX() + 15 / 2, (int) model().getPoint(i - 1)
-            .getY() + 15 / 2, (int) model().getPoint(i).getX() + 15 / 2, (int) model().getPoint(i)
-            .getY() + 15 / 2);
-      }
-    }*/
+    /*
+     * for (int i = 0; i < model().getListeDePoint().size(); i++) { g.fillOval((int)
+     * model().getPoint(i).getX(), (int) model().getPoint(i).getY(), 15, 15); if (i >= 1) {
+     * g.drawLine((int) model().getPoint(i - 1).getX() + 15 / 2, (int) model().getPoint(i - 1)
+     * .getY() + 15 / 2, (int) model().getPoint(i).getX() + 15 / 2, (int) model().getPoint(i)
+     * .getY() + 15 / 2); } }
+     */
 
     for (int i = 0; i < model().getRectangles().size(); i++) {
       if (i % 80 == 0) {
@@ -65,10 +65,13 @@ public class ElementView extends ObjectView {
             .getRectangleByIndex(i).width, model().getRectangleByIndex(i).height);
       }
     }
+    g.setColor(model().getBecOiseauColor());
+    g.fillPolygon(model().getBecOiseauPolygon());
     g.setColor(model().getOiseauColor());
     g.fillOval((int) model().getOiseauPostion().getX() - model().getOiseauTaille()[0] / 2,
         (int) model().getOiseauPostion().getY() - model().getOiseauTaille()[1] / 2, model()
             .getOiseauTaille()[0], model().getOiseauTaille()[1]);
+    g.setColor(Color.BLACK);
   }
 
 }
