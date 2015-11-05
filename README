@@ -4,3 +4,5 @@ Les membres sont :
 	- Lopez Benjamin
 	- Garbé Yann
 	- Houset Thomas 
+	
+Le but est de simuler une oiseau entrain de parcourir une courbe ou étant tirer par une personne pour voir si celui si touche les obstacles qui par la suite seront animés par la collision et la gravité.
