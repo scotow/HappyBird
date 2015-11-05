@@ -65,14 +65,6 @@ public class ObjectView extends JPanel implements Observer {
    */
 
   /**
-   * Remet l'oiseau en position de depart
-   */
-  public void resetPosition() {
-
-
-  }
-
-  /**
    * Reset le plateau en t0
    */
   public void resetPlateau() {
