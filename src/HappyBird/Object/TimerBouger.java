@@ -50,8 +50,6 @@ public class TimerBouger implements Observer {
 				positionControler.fixeOiseau();
 				model.addRectangle(new Rectangle((int) model.getOiseauPostion().getX(),
 						(int) model.getOiseauPostion().getY(), 5, 5));
-				model.addCoordonneeDerive(model.getCourbe().calculerTangente(model.getOiseauPostion().getX(),
-						model.getOiseauPostion().getY(), model.getListeDePoint(), model.getT()));
 				if (collisionControler.collision()) {
 					model.stopFly();
 					objectView.simulationDeVol();

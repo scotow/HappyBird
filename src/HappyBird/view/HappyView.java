@@ -6,6 +6,11 @@ import HappyBird.Controller.PositionControler;
 import HappyBird.Object.Constante;
 import HappyBird.model.PlateauModel;
 
+/**
+ * 
+ * @author debaerdm
+ *
+ */
 public class HappyView {
 	
 	protected PlateauModel plateauModel;
@@ -14,6 +19,13 @@ public class HappyView {
 	private ElementView elementView;
 	private JFrame jFrame;
 	
+	/**
+	 * Génere la frame pour afficher notre programme
+	 * @param label
+	 * @param plateauModel
+	 * @param collisionControler
+	 * @param positionControler
+	 */
 	public HappyView(String label, PlateauModel plateauModel, CollisionControler collisionControler, PositionControler positionControler) {
 		this.plateauModel = plateauModel;
 		this.collisionControler = collisionControler;

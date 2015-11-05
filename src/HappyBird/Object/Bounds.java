@@ -1,12 +1,16 @@
 package HappyBird.Object;
 
+/**
+ * Gère la Hitbox.
+ * @author debaerdm
+ *
+ */
 public class Bounds extends Coordonnee {
   
   private double x;
   private double y;
   private int width;
   private int height;
-  private boolean developer = false;
 
   public Bounds(double x, double y, int width, int height) {
     super(x, y);
@@ -38,14 +42,6 @@ public class Bounds extends Coordonnee {
   
   public int getHeight() {
     return height;
-  }
-  
-  public void setDeveloper(boolean developer) {
-    this.developer = developer;
-  }
-  
-  public boolean isDeveloper(){
-    return developer;
   }
 
 }

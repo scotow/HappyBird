@@ -54,10 +54,7 @@ public class ObjectView extends JPanel implements Observer {
   public void bouger() {
     bouger.bouger();
   }
-
-  /**
-   * Place l'image de fond
-   */
+  
   /*
    * protected void paintComponent(Graphics g) { super.paintComponent(g); g.drawImage(new
    * ImageIcon(getClass().getResource("/HappyBird/view/images/background.png")).getImage(), 0, 0,
@@ -65,7 +62,7 @@ public class ObjectView extends JPanel implements Observer {
    */
 
   /**
-   * Reset le plateau en t0
+   * Reset tout les elements.
    */
   public void resetPlateau() {
     model.clearPoint();
@@ -73,7 +70,6 @@ public class ObjectView extends JPanel implements Observer {
     if (model.getCompteurListe() > 10)
       System.exit(0);
     model.clearRectangles();
-    model.clearCoordonneeDerive();
     positionControler.fixePointBezier();
     model.setOiseauPosition(model.getPoint(0).getX(), model.getPoint(0).getY());
     model.setT(0);

@@ -16,7 +16,7 @@ public class ElementView extends ObjectView {
   private static final long serialVersionUID = 1L;
 
   /**
-   * Cree la vue element
+   * Cree la vue element et place des point de bezier puis fixe les obstacles et démarre l'animation
    * 
    * @param plateauModel : le plateau de jeu
    * @param collisionControler : le controleur de collision
@@ -50,14 +50,14 @@ public class ElementView extends ObjectView {
     }
     g.setColor(Constante.POINT_BEZIER);
 
-    for (int i = 0; i < model().getListeDePoint().size(); i++) {
+    /*for (int i = 0; i < model().getListeDePoint().size(); i++) {
       g.fillOval((int) model().getPoint(i).getX(), (int) model().getPoint(i).getY(), 15, 15);
       if (i >= 1) {
         g.drawLine((int) model().getPoint(i - 1).getX() + 15 / 2, (int) model().getPoint(i - 1)
             .getY() + 15 / 2, (int) model().getPoint(i).getX() + 15 / 2, (int) model().getPoint(i)
             .getY() + 15 / 2);
       }
-    }
+    }*/
 
     for (int i = 0; i < model().getRectangles().size(); i++) {
       if (i % 80 == 0) {

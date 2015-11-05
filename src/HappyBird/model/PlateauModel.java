@@ -10,6 +10,11 @@ import javax.swing.Timer;
 
 import HappyBird.Object.*;
 
+/**
+ * Concerne tout les objets du plateau de vue
+ * @author debaerdm
+ *
+ */
 public class PlateauModel extends Observable {
 	
 	/**
@@ -62,6 +67,10 @@ public class PlateauModel extends Observable {
 		return ListeDePoint;
 	}
 	
+	/**
+	 * Cela permet de savoir combien de fois on a regenerer une liste
+	 * @return le nombre de liste passer.
+	 */
 	public int getCompteurListe() {
       return compteurListe;
     }
@@ -117,10 +126,19 @@ public class PlateauModel extends Observable {
 		return ListeDObstacles.get(index).getPostionCoordonnee();
 	}
 	
+	/**
+	 * Donne la taille de l'obstacle a un indice donné
+	 * @param index
+	 * @return un tableau de taille [Width,Height].
+	 */
 	public int[] getObstacleTaille(int index){
 		return new int[]{ListeDObstacles.get(index).getWidth(),ListeDObstacles.get(index).getHeight()};
 	}
 	
+	   /**
+     * Donne la taille de l'oiseau
+     * @return un tableau de taille [Width,Height].
+     */
 	public int[] getOiseauTaille(){
 		return new int[]{oiseau.getWidth(), oiseau.getHeight()};
 	}
@@ -269,6 +287,10 @@ public class PlateauModel extends Observable {
 		notifyObservers();
 	}
 	
+	/**
+	 * Set la liste suivant pour le voir a l'affichage
+	 * @param compteurListe
+	 */
 	public void setCompteurListe(int compteurListe) {
       this.compteurListe = compteurListe;
       setChanged();

@@ -28,14 +28,11 @@ public class PositionControler {
   }
 
   /**
-   * Permet de placer des coordonnees pour la trajectoire de l'oiseau, de façon aleatoire ou non
+   * Permet de placer des coordonnees pour la trajectoire de l'oiseau
    * 
-   * @param x : le positionnement en x s'il n'est pas aleatoire
-   * @param y : le positionnement en y s'il n'est pas aleatoire
-   * @param random : decide si le point est aleatoire ou non
    */
   public void fixePointBezier() {
-    //if (controlPoint(plateauModel.getCompteurListe())) {
+    if (!controlPoint(plateauModel.getCompteurListe())) {
       System.out.println("la");
       switch (plateauModel.getCompteurListe()) {
         case 0:
@@ -105,7 +102,7 @@ public class PositionControler {
           plateauModel.addPoint(null);
           break;
       }
-    //}
+    }
     /*
      * Random rand = new Random(); plateauModel.addPoint(new
      * Coordonnee(plateauModel.getOiseauPostion().getX(), plateauModel.getOiseauPostion().getY()));
@@ -163,7 +160,7 @@ public class PositionControler {
     plateauModel.setOiseauPosition(tmp.getX(), tmp.getY() + Constante.BIRD_BODY_RADIUS / 2 - 3);
   }
 
-  public void fixeBec() {
+  /*public void fixeBec() {
     Coordonnee tmp =
         plateauModel.getCourbe().calculerPoint(plateauModel.getListeDePoint(),
             plateauModel.getT() + (plateauModel.getSpeed() * 100));
@@ -174,7 +171,7 @@ public class PositionControler {
     // Coordonnee(plateauModel.getOiseau().getPositionX()+Constante.BIRD_BODY_RADIUS/2)
     // plateauModel.setBecPosition();
   }
-
+*/
 
   /**
    * Teste si la liste et les coordonnees du point sont correctes
@@ -195,10 +192,15 @@ public class PositionControler {
     return ok;
   }
 
+  /**
+   * Regarde si on est pas en-dessous de 0 ou au-dessus de 10
+   * @param compteur le compteur de toutes les listes de point
+   * @return vrai si la liste est out of bounds.
+   */
   public boolean controlPoint(int compteur) {
     boolean ok = false;
     if (happyView != null) {
-      if (compteur >= 0 || compteur < 10) {
+      if (compteur < 0 || compteur > 9) {
         ok = true;
       }
     }
