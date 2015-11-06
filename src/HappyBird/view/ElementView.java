@@ -17,7 +17,7 @@ public class ElementView extends ObjectView {
   private static final long serialVersionUID = 1L;
 
   /**
-   * Cree la vue element et place des point de bezier puis fixe les obstacles et démarre l'animation
+   * Cree la vue element et place des point de bezier puis fixe les obstacles et dï¿½marre l'animation
    * 
    * @param plateauModel : le plateau de jeu
    * @param collisionControler : le controleur de collision
@@ -66,19 +66,15 @@ public class ElementView extends ObjectView {
       }
     }
     g.setColor(model().getBecOiseauColor());
-    g.fillPolygon(model().getBecOiseauPolygon());
+    /*-------Attention, tout ce qui suit deviendra inutine par la suite---*/
+    DessinerBec(g, (int) model().getOiseauPostion().getX(), (int) model().getOiseauPostion().getY());
     g.setColor(model().getOiseauColor());
     g.fillOval((int) model().getOiseauPostion().getX() - model().getOiseauTaille()[0] / 2,
         (int) model().getOiseauPostion().getY() - model().getOiseauTaille()[1] / 2, model()
-            .getOiseauTaille()[0], model().getOiseauTaille()[1]);
-    g.setColor(Color.BLACK);
-    
-    /*-------Attention, tout ce qui suit deviendra inutine par la suite---*/
-    //DessinerBec(g, (int) model().getOiseauPostion().getX(), (int) model().getOiseauPostion().getY());
+            .getOiseauTaille()[0], model().getOiseauTaille()[1]);  
   }
   
-  
- /* public double AngleX (int x, int dx) {
+  public double AngleX (int x, int dx) {
 		double nb;
 		nb = dx-x;
 		
@@ -113,7 +109,6 @@ public class ElementView extends ObjectView {
 		tmpX = this.model.getRectangleByIndex(this.model.getRectangles().size()-10).x;
 		tmpY = this.model.getRectangleByIndex(this.model.getRectangles().size()-10).y;
 	}
-	g.setColor( Color.green);
 	double autreX = AngleX( tmpX, dx);
 	double autreY = AngleY( tmpY, dy);
 
@@ -135,6 +130,6 @@ public class ElementView extends ObjectView {
 	//si dify = 0, 160 (180-20)|| si difx = 0,(90-20) || si difx = 0.5 et dify = 0.5, (135-20)
 	//g.fillArc(posX,posY,50,50,(int)(360-(180*arcX)-(270*arcY))-20,40);
 	
-	g.fillArc(posX- model().getOiseauTaille()[0] / 2+15,posY - model().getOiseauTaille()[1] / 2 ,25,25,160,40);
-	}*/
+	g.fillArc(posX- model().getOiseauTaille()[0] / 2 + 20,posY - model().getOiseauTaille()[1] / 2 ,25,25,160,40);
+	}
 }

@@ -41,7 +41,7 @@ public class Bec {
     System.out.println(Math.sin(Math.PI * (Constante.BIRD_BODY_RADIUS / 2)));
     System.out.println(Math.sin(Math.PI * (Constante.BIRD_BODY_RADIUS / 2)));
   }
-
+  
   public Polygon getBec() {
     return bec;
   }
@@ -53,6 +53,8 @@ public class Bec {
   public void setPosition(Coordonnee coordonnee) {
     this.coordonnee = coordonnee;
   }
+  
+  
 
   public void setColor(Color color) {
     this.color = color;
