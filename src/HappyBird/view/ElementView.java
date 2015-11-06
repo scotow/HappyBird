@@ -72,6 +72,69 @@ public class ElementView extends ObjectView {
         (int) model().getOiseauPostion().getY() - model().getOiseauTaille()[1] / 2, model()
             .getOiseauTaille()[0], model().getOiseauTaille()[1]);
     g.setColor(Color.BLACK);
+    
+    /*-------Attention, tout ce qui suit deviendra inutine par la suite---*/
+    //DessinerBec(g, (int) model().getOiseauPostion().getX(), (int) model().getOiseauPostion().getY());
   }
+  
+  
+ /* public double AngleX (int x, int dx) {
+		double nb;
+		nb = dx-x;
+		
+		if (nb == 0) {
+			return 0.00;
+		} else {
+			return nb;
+		}
+	}
+	//si bas-gauche, difx = 5 | dify = 5, (5/5)/2
+	
+	public double AngleY (int y, int dy) {
+		int nb;
+		nb = dy-y;
+		if (nb == 0) {
+			return 0.00;
+		} else {
+			return nb;
+		}
+	}
 
+  public void DessinerBec(Graphics g, int dx, int dy) {
+	//Coordonnee tmp = this.model.getCourbe().calculerTangente(dx, dy, this.model.getListeDePoint(), this.model.getT());
+	int tmpX, tmpY;
+	if (this.model.getRectangles().size() == 0) {
+		tmpX = 0;
+		tmpY = 0;
+	}	else if (this.model.getRectangles().size() <= 10) {
+		tmpX = this.model.getRectangleByIndex(this.model.getRectangles().size()-1).x;
+		tmpY = this.model.getRectangleByIndex(this.model.getRectangles().size()-1).y;
+	} else {
+		tmpX = this.model.getRectangleByIndex(this.model.getRectangles().size()-10).x;
+		tmpY = this.model.getRectangleByIndex(this.model.getRectangles().size()-10).y;
+	}
+	g.setColor( Color.green);
+	double autreX = AngleX( tmpX, dx);
+	double autreY = AngleY( tmpY, dy);
+
+	//---------------------------------------------------------
+	//System.out.println(autreX/autreY);
+	//---------------------------------------------------------
+	
+	int posX = (int) (dx+((autreX*3)%15));
+	
+	//---------------------------------------------------------
+	//System.out.println(""+autreX+" || "+(int)((double)40*arcX));
+	//--------------------------------------------------------
+	
+	int posY = (int) (dy+((autreY*3)%15));
+	
+	//----------------------------------------------------------
+	//System.out.println(""+autreY+" || "+(int)((double)40*arcY));
+	//----------------------------------------------------------
+	//si dify = 0, 160 (180-20)|| si difx = 0,(90-20) || si difx = 0.5 et dify = 0.5, (135-20)
+	//g.fillArc(posX,posY,50,50,(int)(360-(180*arcX)-(270*arcY))-20,40);
+	
+	g.fillArc(posX- model().getOiseauTaille()[0] / 2+15,posY - model().getOiseauTaille()[1] / 2 ,25,25,160,40);
+	}*/
 }

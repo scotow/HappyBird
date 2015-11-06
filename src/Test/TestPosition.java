@@ -67,6 +67,33 @@ public class TestPosition {
     assertEquals(plateauModel.getOiseauPostion().getX(), 85.04, 0.00000001);
     assertEquals(plateauModel.getOiseauPostion().getY(), 301.6, 0.00000001);
   }
+  
+  @Test
+  public void superposisionObstacles() {
+	  for (int i = 0 ; i < plateauModel.getListeDObstacles().size() ; i++) {
+		  for (int j = 0 ; j < plateauModel.getListeDObstacles().size() ; j++) {
+			  if (i != j) {
+				  assertFalse(plateauModel.getObstacle(i).equals(plateauModel.getObstaclePostion(j)));
+				  
+				  assertFalse(plateauModel.getObstacle(i).equals(
+						  new Coordonnee(plateauModel.getObstaclePostion(j).getX()-Constante.OBSTACLE_RADIUS, 
+								  plateauModel.getObstaclePostion(j).getY()-Constante.OBSTACLE_RADIUS)));
+				  
+				  assertFalse(plateauModel.getObstacle(i).equals(
+						  new Coordonnee(plateauModel.getObstaclePostion(j).getX()-Constante.OBSTACLE_RADIUS, 
+								  plateauModel.getObstaclePostion(j).getY()+Constante.OBSTACLE_RADIUS)));
+				  
+				  assertFalse(plateauModel.getObstacle(i).equals(
+						  new Coordonnee(plateauModel.getObstaclePostion(j).getX()+Constante.OBSTACLE_RADIUS, 
+								  plateauModel.getObstaclePostion(j).getY()-Constante.OBSTACLE_RADIUS)));
+				  
+				  assertFalse(plateauModel.getObstacle(i).equals(
+						  new Coordonnee(plateauModel.getObstaclePostion(j).getX()+Constante.OBSTACLE_RADIUS, 
+								  plateauModel.getObstaclePostion(j).getY()+Constante.OBSTACLE_RADIUS)));
+			  }
+		  }
+	  }
+  }
 
 
 }

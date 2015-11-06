@@ -199,7 +199,7 @@ public class PlateauModel extends Observable {
   }
 
   /**
-   * Donne la taille de l'obstacle a un indice donné
+   * Donne la taille de l'obstacle a un indice donne
    * 
    * @param index
    * @return un tableau de taille [Width,Height].

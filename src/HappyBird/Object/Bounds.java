@@ -1,7 +1,7 @@
 package HappyBird.Object;
 
 /**
- * Gère la Hitbox.
+ * Gere la Hitbox.
  * 
  * @author debaerdm
  *
