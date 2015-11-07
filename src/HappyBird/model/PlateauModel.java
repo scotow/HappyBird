@@ -9,7 +9,12 @@ import java.util.Observable;
 
 import javax.swing.Timer;
 
-import HappyBird.Object.*;
+import HappyBird.Object.Bounds.Bounds;
+import HappyBird.Object.Config.Constante;
+import HappyBird.Object.Config.Coordonnee;
+import HappyBird.Object.Config.Courbe;
+import HappyBird.Object.Element.Obstacle;
+import HappyBird.Object.Element.Oiseau;
 
 /**
  * Concerne tout les objets du plateau de vue
@@ -108,6 +113,10 @@ public class PlateauModel extends Observable {
   public Obstacle getObstacle(int index) {
     return ListeDObstacles.get(index);
   }
+  
+  public Bounds getBoundsObstacle(int index){
+	  return ListeDObstacles.get(index).getBounds();
+  }
 
   /**
    * Retourne les coordonnees du point a l'indice "index" de la liste
@@ -137,17 +146,6 @@ public class PlateauModel extends Observable {
   }
 
   /**
-   * Change la position du bec de l'oiseau
-   * 
-   * @param coordonnee
-   */
-  public void setBecOiseauPosition(Coordonnee coordonnee) {
-    oiseau.setBecCoordonnee(coordonnee);
-    setChanged();
-    notifyObservers();
-  }
-
-  /**
    * 
    * @return la couleur du bec
    */
@@ -174,8 +172,8 @@ public class PlateauModel extends Observable {
    * @param courbe access a la methode de calculer point.
    * @return un triangle (qui est le bec)
    */
-  public void setBecOiseau(double t, List<Coordonnee> listPoint, Courbe courbe) {
-    oiseau.setBecPolygon(t, listPoint, courbe);
+  public void setBecOiseau() {
+    oiseau.setBecPolygon();
     setChanged();
     notifyObservers();
   }
@@ -428,6 +426,7 @@ public class PlateauModel extends Observable {
    */
   public void setOiseauPosition(double x, double y) {
     this.oiseau.setPosition(x, y);
+    oiseau.setBecCoordonnee(x, y);
     // System.out.println("Oiseau placer a ("+x+";"+y+").");
     setChanged();
     notifyObservers();

@@ -1,8 +1,8 @@
 package HappyBird.Controller;
 
-import HappyBird.Object.Constante;
-import HappyBird.Object.Obstacle;
-import HappyBird.Object.Oiseau;
+import HappyBird.Object.Config.Constante;
+import HappyBird.Object.Element.Obstacle;
+import HappyBird.Object.Element.Oiseau;
 import HappyBird.model.PlateauModel;
 import HappyBird.view.HappyView;
 
@@ -60,12 +60,15 @@ public class CollisionControler {
   private boolean controlCollision(Oiseau oiseau, Obstacle obstacles) {
     boolean ok = false;
     if (happyView != null) {
-      if (Math.abs(obstacles.getPositionX() - oiseau.getPositionX()) <= Constante.OBSTACLE_RADIUS
+      /*if (Math.abs(obstacles.getPositionX() - oiseau.getPositionX()) <= Constante.OBSTACLE_RADIUS
           / 2 + Constante.BIRD_BODY_RADIUS / 2
           && Math.abs(obstacles.getPositionY() - oiseau.getPositionY()) <= Constante.OBSTACLE_RADIUS
               / 2 + Constante.BIRD_BODY_RADIUS / 2) {
         ok = true;
-      }
+      }*/
+    	if (obstacles.getBounds().collision(obstacles, oiseau)) {
+			ok = true;
+		}
     }
     return ok;
   }
@@ -79,9 +82,9 @@ public class CollisionControler {
   private boolean controlCollision(Oiseau oiseau) {
     boolean ok = false;
     if (happyView != null) {
-      if (oiseau.getPositionX() + Constante.BIRD_BODY_RADIUS / 2 >= Constante.X_FRAME
-          || oiseau.getPositionY() + Constante.BIRD_BODY_RADIUS / 2 >= Constante.Y_FRAME - 10
-          || oiseau.getPositionX() + Constante.BIRD_BODY_RADIUS / 2 <= 0) {
+      if (oiseau.getX() + Constante.BIRD_BODY_RADIUS / 2 >= Constante.X_FRAME
+          || oiseau.getY() + Constante.BIRD_BODY_RADIUS / 2 >= Constante.Y_FRAME - 10
+          || oiseau.getX() + Constante.BIRD_BODY_RADIUS / 2 <= 0) {
         ok = true;
       }
     }

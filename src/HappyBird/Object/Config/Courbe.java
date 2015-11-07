@@ -1,9 +1,6 @@
-package HappyBird.model;
+package HappyBird.Object.Config;
 
 import java.util.List;
-
-import HappyBird.Object.Constante;
-import HappyBird.Object.Coordonnee;
 
 /*
  * To change this license header, choose License Headers in Project Properties. To change this
@@ -102,7 +99,9 @@ public class Courbe {
    * @return : les nouvelles coordonnees
    */
   public Coordonnee formulBezierDeriver(List<Coordonnee> point, double t) {
-    double x = 0;
+	  return new Coordonnee(test(point.get(0).getX(), point.get(1).getX(), point.get(2).getX(), point.get(3).getX(), t),
+			  test(point.get(0).getY(), point.get(1).getY(), point.get(2).getY(), point.get(3).getY(), t));
+    /*double x = 0;
     double xtmp = 0;
     double ytmp = 0;
     double y = 0;
@@ -112,7 +111,7 @@ public class Courbe {
       y += formuleBezierDeriveTest(0, point.get(i - 1).getY(), point.get(i).getY(), t, i);
       ytmp = y;
     }
-    return new Coordonnee(xtmp, ytmp);
+    return new Coordonnee(xtmp, ytmp);*/
   }
 
 
@@ -177,6 +176,10 @@ public class Courbe {
     }
 
     return resultat;
+  }
+  
+  public double test(double p0, double p1, double p2, double p3, double t){
+	  return 3*(((p1-p0)*Math.pow((1-t), 2)) + (2*(p2-p1)*t*(t-1)) + ((p3-p2)*Math.pow(t, 2)));
   }
 
   /**

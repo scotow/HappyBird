@@ -10,9 +10,9 @@ import javax.swing.JPanel;
 
 import HappyBird.Controller.CollisionControler;
 import HappyBird.Controller.PositionControler;
-import HappyBird.Object.Coordonnee;
-import HappyBird.Object.TimerBouger;
+import HappyBird.Object.Config.Coordonnee;
 import HappyBird.model.PlateauModel;
+import HappyBird.view.Move.TimerBouger;
 
 public class ObjectView extends JPanel implements Observer {
 

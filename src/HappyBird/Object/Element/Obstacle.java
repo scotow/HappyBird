@@ -1,9 +1,15 @@
-package HappyBird.Object;
+package HappyBird.Object.Element;
 
 import java.awt.Color;
 
+import HappyBird.Exception.BoundsException;
+import HappyBird.Object.Bounds.Bounds;
+import HappyBird.Object.Bounds.BoundsFactory;
+import HappyBird.Object.Config.Constante;
+import HappyBird.Object.Config.Coordonnee;
 
-public class Obstacle extends Bounds {
+
+public class Obstacle{
 
   /**
    * 
@@ -14,6 +20,8 @@ public class Obstacle extends Bounds {
   private double positionY;
 
   private Color color = Constante.OBSTACLE_NOT_TOUCHED_COLOR;
+  
+  private Bounds bounds;
 
   /**
    * Cree un obstacle
@@ -21,10 +29,14 @@ public class Obstacle extends Bounds {
    * @param x : la position de x
    * @param y : la position de y
    */
-  public Obstacle(double x, double y) {
-    super(x, y, Constante.OBSTACLE_RADIUS, Constante.OBSTACLE_RADIUS);
+  public Obstacle(double x, double y, int width, int height, String type) {
     this.positionX = x;
     this.positionY = y;
+    try {
+		bounds = BoundsFactory.boundsFactory(type, x, y, width, height);
+	} catch (BoundsException e) {
+		e.boundsMessageError();
+	}
   }
 
   /**
@@ -65,15 +77,6 @@ public class Obstacle extends Bounds {
     return positionY;
   }
 
-  @Override
-  public int getWidth() {
-    return super.getWidth();
-  }
-
-  @Override
-  public int getHeight() {
-    return super.getHeight();
-  }
 
   /**
    * Modifie la couleur de l'obstacle
@@ -91,6 +94,26 @@ public class Obstacle extends Bounds {
    */
   public Color getObstacleColor() {
     return color;
+  }
+  
+  public int getWidth(){
+	  return this.bounds.getWidth();
+  }
+  
+  public int getHeight(){
+	  return this.bounds.getHeight();
+  }
+  
+  public void setWidth(int width){
+	  this.bounds.setWidth(width);
+  }
+  
+  public void setHeight(int height){
+	  this.bounds.setHeight(height);
+  }
+  
+  public Bounds getBounds() {
+	return bounds;
   }
 
 

@@ -1,4 +1,4 @@
-package HappyBird.Object;
+package HappyBird.view.Move;
 
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;

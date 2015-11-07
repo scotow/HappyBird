@@ -1,4 +1,4 @@
-package HappyBird.Object;
+package HappyBird.Object.Config;
 
 /*
  * To change this license header, choose License Headers in Project Properties. To change this

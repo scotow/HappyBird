@@ -1,4 +1,4 @@
-package HappyBird.Object;
+package HappyBird.Object.Config;
 
 
 /**
@@ -16,7 +16,7 @@ public abstract class Constante {
   public static final Color BEC_COLOR = Color.black;
   public static final Color BEC_BREAK_COLOR = Color.RED;
 
-  public static final int BIRD_BODY_RADIUS = 25;
+  public static final int BIRD_BODY_RADIUS = 35;
 
   public static final double CONSTANTE_GRAVITATIONNELLE = 9.81;
   public static final double PI = Math.PI;
@@ -25,7 +25,7 @@ public abstract class Constante {
   public static final double VITESSE_GRAVITAIONNELLE = 0.10;
   public static final double VITESSE_LANCER = -4;
 
-  public static final int OBSTACLE_RADIUS = 15;
+  public static final int OBSTACLE_RADIUS = 20;
   public static final int OBSTACLES_LIST_CAPACITY = 10;
   public static final int POINT_LIST_CAPACITY = 4;
 
@@ -36,4 +36,6 @@ public abstract class Constante {
   public static final int Y_FRAME = 470;
 
   public static final Color POINT_BEZIER = Color.BLUE;
+  
+  public static final String[] FORME = new String[]{"Rectangle","Cercle"};
 }

@@ -1,19 +1,17 @@
-package HappyBird.Object;
+package HappyBird.Object.Element;
 
 import java.awt.Color;
 import java.awt.Polygon;
-import java.util.List;
 
-import HappyBird.model.Courbe;
+import HappyBird.Object.Bounds.CercleBounds;
+import HappyBird.Object.Config.Constante;
+import HappyBird.Object.Config.Coordonnee;
 
-public class Oiseau extends Bounds {
+public class Oiseau extends CercleBounds{
 
   /**
    * L'objet oiseau, element principal du jeu
    */
-
-  private double positionX;
-  private double positionY;
   private Bec bec;
 
   private Color OiseauColor = Constante.BIRD_BODY_COLOR;
@@ -25,10 +23,8 @@ public class Oiseau extends Bounds {
    * @param y : positionnement en y
    */
   public Oiseau(double x, double y) {
-    super(x, y, Constante.BIRD_BODY_RADIUS, Constante.BIRD_BODY_RADIUS);
-    this.bec = new Bec(new Coordonnee(positionX, positionY));
-    this.positionX = x;
-    this.positionY = y;
+	super(x, y, Constante.BIRD_BODY_RADIUS, Constante.BIRD_BODY_RADIUS);
+    this.bec = new Bec(new Coordonnee(this.getX(), this.getY()));
   }
 
   /**
@@ -38,13 +34,13 @@ public class Oiseau extends Bounds {
    * @param positionY : nouvelle position y
    */
   public void setPosition(double positionX, double positionY) {
-    this.positionX = positionX;
-    this.positionY = positionY;
+    this.setX(positionX);
+    this.setY(positionY);
   }
 
 
-  public void setBecCoordonnee(Coordonnee coordonnee) {
-    this.bec.setPosition(coordonnee);
+  public void setBecCoordonnee(double x, double y) {
+    this.bec.setPosition(x,y);
   }
 
   public void setBecColor(Color color) {
@@ -57,7 +53,7 @@ public class Oiseau extends Bounds {
    * @return les coordonnees de l'oiseau
    */
   public Coordonnee getPostionCoordonnee() {
-    return new Coordonnee(positionX, positionY);
+    return new Coordonnee(this.getX(), this.getY());
   }
 
   public Coordonnee getBecPositionCoordonne() {
@@ -68,40 +64,12 @@ public class Oiseau extends Bounds {
     return this.bec.getColor();
   }
 
-  public void setBecPolygon(double t, List<Coordonnee> listPoint, Courbe courbe) {
-    bec.setPolygon(t, listPoint, courbe);
+  public void setBecPolygon() {
+    bec.setPolygon();
   }
 
   public Polygon getBecPolygon() {
     return bec.getBec();
-  }
-
-  /**
-   * Retourne la position X de l'oiseau
-   * 
-   * @return la position x de l'oiseau
-   */
-  public double getPositionX() {
-    return positionX;
-  }
-
-  /**
-   * Retourne la position y de l'oiseau
-   * 
-   * @return la position y de l'oiseau
-   */
-  public double getPositionY() {
-    return positionY;
-  }
-
-  @Override
-  public int getWidth() {
-    return super.getWidth();
-  }
-
-  @Override
-  public int getHeight() {
-    return super.getHeight();
   }
 
   /**
@@ -121,7 +89,5 @@ public class Oiseau extends Bounds {
   public Color getOiseauColor() {
     return OiseauColor;
   }
-
-
 
 }

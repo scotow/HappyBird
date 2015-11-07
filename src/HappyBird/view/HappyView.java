@@ -3,7 +3,7 @@ package HappyBird.view;
 import javax.swing.JFrame;
 import HappyBird.Controller.CollisionControler;
 import HappyBird.Controller.PositionControler;
-import HappyBird.Object.Constante;
+import HappyBird.Object.Config.Constante;
 import HappyBird.model.PlateauModel;
 
 /**
@@ -20,7 +20,7 @@ public class HappyView {
   private JFrame jFrame;
 
   /**
-   * Génere la frame pour afficher notre programme
+   * Gï¿½nere la frame pour afficher notre programme
    * 
    * @param label
    * @param plateauModel

@@ -2,9 +2,9 @@ package HappyBird.Controller;
 
 import java.util.Random;
 
-import HappyBird.Object.Constante;
-import HappyBird.Object.Coordonnee;
-import HappyBird.Object.Obstacle;
+import HappyBird.Object.Config.Constante;
+import HappyBird.Object.Config.Coordonnee;
+import HappyBird.Object.Element.Obstacle;
 import HappyBird.model.PlateauModel;
 import HappyBird.view.HappyView;
 
@@ -120,15 +120,6 @@ public class PositionControler {
           break;
       }
     }
-    /*
-     * Random rand = new Random(); plateauModel.addPoint(new
-     * Coordonnee(plateauModel.getOiseauPostion().getX(), plateauModel.getOiseauPostion().getY()));
-     * // Premier plateauModel.addPoint(new Coordonnee(rand.nextInt(50) + Constante.X_FRAME / 5,
-     * rand.nextInt(100) + Constante.Y_FRAME / 4)); // Deuxieme plateauModel.addPoint(new
-     * Coordonnee(rand.nextInt(50) + Constante.X_FRAME - 150, rand.nextInt(100) + Constante.Y_FRAME
-     * / 5)); // Troisieme plateauModel.addPoint(new Coordonnee(Constante.X_FRAME, rand.nextInt(100)
-     * + Constante.Y_FRAME / 4)); // Quatrieme
-     */
   }
 
   /**
@@ -144,7 +135,7 @@ public class PositionControler {
         Random rand = new Random();
         Obstacle tmp =
             new Obstacle(rand.nextInt(Constante.X_FRAME / 3) + Constante.X_FRAME / 3 * 2 - 20,
-                rand.nextInt(Constante.Y_FRAME / 2));
+                rand.nextInt(Constante.Y_FRAME / 2)+(Constante.OBSTACLE_RADIUS), Constante.OBSTACLE_RADIUS,Constante.OBSTACLE_RADIUS, Constante.FORME[rand.nextInt(2)]);
         boolean valuable = true;
         for (Obstacle j : plateauModel.getListeDObstacles()) {
           if (Math.abs(tmp.getPositionX() - j.getPositionX()) <= Constante.OBSTACLE_RADIUS * 2
@@ -161,7 +152,7 @@ public class PositionControler {
       }
     } else {
       if (controlObstacle(x, y)) {
-        plateauModel.addObstacles(new Obstacle(x, y));
+        plateauModel.addObstacles(new Obstacle(x, y,Constante.OBSTACLE_RADIUS,Constante.OBSTACLE_RADIUS,"cercle"));
         // System.out.println("Obstacle placer a ("+x+";"+y+").");
       }
     }
@@ -175,8 +166,6 @@ public class PositionControler {
         plateauModel.getCourbe().calculerPoint(plateauModel.getListeDePoint(), plateauModel.getT());
     // System.out.println("Obstacle placer  "+ tmp.toString() +".");
     plateauModel.setOiseauPosition(tmp.getX(), tmp.getY() + Constante.BIRD_BODY_RADIUS / 2 - 3);
-    plateauModel.setBecOiseauPosition(new Coordonnee(tmp.getX(), tmp.getY()
-        + Constante.BIRD_BODY_RADIUS / 2 - 3));
   }
 
   /**
