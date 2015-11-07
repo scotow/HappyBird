@@ -9,12 +9,9 @@ import javax.swing.Timer;
 
 import HappyBird.Controller.CollisionControler;
 import HappyBird.Controller.PositionControler;
-import HappyBird.Object.Coordonnee;
-import HappyBird.Object.Obstacle;
-import HappyBird.Object.Oiseau;
-import HappyBird.model.Courbe;
+import HappyBird.Object.Config.Constante;
+import HappyBird.Object.Element.Obstacle;
 import HappyBird.model.PlateauModel;
-import HappyBird.view.ElementView;
 import HappyBird.view.HappyView;
 import static org.junit.Assert.*;
 
@@ -44,8 +41,8 @@ public class TestObject {
   @Test
   public void timerStop() {
     plateauModel.setOiseauPosition(761.00, 200.00);
-    plateauModel.addObstacles(new Obstacle(780.00, 200.00));
-    plateauModel.addObstacles(new Obstacle(740.00, 200.00));
+    plateauModel.addObstacles(new Obstacle(780.00, 200.00,Constante.OBSTACLE_RADIUS,Constante.OBSTACLE_RADIUS,"Cercle"));
+    plateauModel.addObstacles(new Obstacle(740.00, 200.00,Constante.OBSTACLE_RADIUS,Constante.OBSTACLE_RADIUS,"Cercle"));
     plateauModel.setFlyTimer(new Timer(5000, null));
     plateauModel.startFly();
     if (collision.collision())

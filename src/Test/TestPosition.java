@@ -9,10 +9,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import HappyBird.Controller.PositionControler;
-import HappyBird.Object.Constante;
-import HappyBird.Object.Coordonnee;
-import HappyBird.Object.Obstacle;
-import HappyBird.Object.Oiseau;
+import HappyBird.Object.Config.Constante;
+import HappyBird.Object.Config.Coordonnee;
+import HappyBird.Object.Element.Obstacle;
+import HappyBird.Object.Element.Oiseau;
 import HappyBird.model.PlateauModel;
 
 public class TestPosition {
@@ -32,16 +32,16 @@ public class TestPosition {
   @Test
   public void positionObstacle() {
     // Pas placer dans la zone des obstacles.
-    Obstacle o = new Obstacle(0.0, 50.0);
+    Obstacle o = new Obstacle(0.0, 50.0,Constante.OBSTACLE_RADIUS,Constante.OBSTACLE_RADIUS,"Cercle");
     assertFalse(position.controlObstacle(o.getPositionX(), o.getPositionY()));
     // Placer dans la zone des obstacles
-    o = new Obstacle(780.0, 200.0);
+    o = new Obstacle(780.0, 200.0,Constante.OBSTACLE_RADIUS,Constante.OBSTACLE_RADIUS,"Cercle");
     assertFalse(position.controlObstacle(o.getPositionX(), o.getPositionY()));
     // En-dehors de la Frame
-    o = new Obstacle(Constante.X_FRAME + 50.0, 500.0);
+    o = new Obstacle(Constante.X_FRAME + 50.0, 500.0,Constante.OBSTACLE_RADIUS,Constante.OBSTACLE_RADIUS,"Cercle");
     assertFalse(position.controlObstacle(o.getPositionX(), o.getPositionY()));
     // En-dehors de la frame mais tres loin.
-    o = new Obstacle(-50.0, 10000.0);
+    o = new Obstacle(-50.0, 10000.0,Constante.OBSTACLE_RADIUS,Constante.OBSTACLE_RADIUS,"Cercle");
     assertFalse(position.controlObstacle(o.getPositionX(), o.getPositionY()));
   }
 
@@ -49,14 +49,14 @@ public class TestPosition {
   public void postionOiseauAuDepart() {
     position.fixePointBezier();
     position.fixeOiseau();
-    assertEquals(plateauModel.getOiseau().getPositionX(), plateauModel.getListeDePoint().get(0).getX(), 0);
-    assertEquals(plateauModel.getOiseau().getPositionY(), plateauModel.getListeDePoint().get(0).getY()+ Constante.BIRD_BODY_RADIUS / 2 - 3, 0);
+    assertEquals(plateauModel.getOiseau().getX(), plateauModel.getListeDePoint().get(0).getX(), 0);
+    assertEquals(plateauModel.getOiseau().getY(), plateauModel.getListeDePoint().get(0).getY()+ Constante.BIRD_BODY_RADIUS / 2 - 3, 0);
   }
 
   @Test
   public void positionOiseauDansSaTrajectoire() {
     Oiseau oiseau = new Oiseau(20, (Constante.Y_FRAME - 20));
-    plateauModel.setOiseauPosition(oiseau.getPositionX(), oiseau.getPositionY());
+    plateauModel.setOiseauPosition(oiseau.getX(), oiseau.getY());
     pointBezier.add(new Coordonnee(plateauModel.getOiseauPostion().getX(), plateauModel
         .getOiseauPostion().getY()));
     pointBezier.add(new Coordonnee(100.0, 100.0));
