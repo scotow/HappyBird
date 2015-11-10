@@ -1,8 +1,8 @@
 package HappyBird.view;
 
 import java.awt.Graphics;
-//import java.awt.Graphics2D;
-//import java.awt.geom.AffineTransform;
+import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
 import java.util.Observable;
 
 import HappyBird.Controller.CollisionControler;
@@ -82,7 +82,7 @@ public class ElementView extends ObjectView {
 		model().setBecOiseau();
 			Graphics2D graphics2d = (Graphics2D) g.create();
 		AffineTransform old = graphics2d.getTransform();
-		graphics2d.rotate(Math.atan(-Math.PI/(model().getCourbe()
+		graphics2d.rotate(Math.atan(-(model().getCourbe()
 				.calculerPointDerive(model().getListeDePoint(), model().getT() + model().getSpeed()).getY()
 				/ model().getCourbe()
 						.calculerPointDerive(model().getListeDePoint(), model().getT() + model().getSpeed()).getX())), model().getBecOiseauPosition().getX(), model().getBecOiseauPosition().getY() );

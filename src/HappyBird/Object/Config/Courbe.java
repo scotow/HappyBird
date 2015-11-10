@@ -19,7 +19,7 @@ public class Courbe {
   private double coordXDeriv;
   private double coordYDeriv;
   private int vitesseInitial = 10;
-  private int angleInitial = (int) (Constante.PI / 3);
+  private int angleInitial = (int) (Math.PI / 3);
   private double vitesseY = Constante.VITESSE_LANCER;
 
   // //////////////// Calcule vitesses horizontale et verticale ///////////

@@ -34,7 +34,7 @@ public class PlateauModel extends Observable {
   private Oiseau oiseau = new Oiseau(0, 0);
   private Courbe courbe = new Courbe();
   private double t = 0;
-  private double speed = 0.0002;
+  private double speed = 0.0005;
   private int waiting = 1;
   private int simulation = 10;
   private Timer flyTimer;

@@ -133,13 +133,16 @@ public class PositionControler {
     if (random) {
       for (int i = 0; i < Constante.OBSTACLES_LIST_CAPACITY; i++) {
         Random rand = new Random();
+        int radiusX = rand.nextInt(10)+20;
+        int radiusY = rand.nextInt(10)+20;
+        String type = Constante.FORME[rand.nextInt(2)];
         Obstacle tmp =
             new Obstacle(rand.nextInt(Constante.X_FRAME / 3) + Constante.X_FRAME / 3 * 2 - 20,
-                rand.nextInt(Constante.Y_FRAME / 2)+(Constante.OBSTACLE_RADIUS), Constante.OBSTACLE_RADIUS,Constante.OBSTACLE_RADIUS, Constante.FORME[rand.nextInt(2)]);
+                rand.nextInt(Constante.Y_FRAME / 2)+(radiusY), radiusX,(type.toLowerCase().equals("cercle")) ? radiusX: radiusY, type);
         boolean valuable = true;
         for (Obstacle j : plateauModel.getListeDObstacles()) {
-          if (Math.abs(tmp.getPositionX() - j.getPositionX()) <= Constante.OBSTACLE_RADIUS * 2
-              && Math.abs(tmp.getPositionY() - j.getPositionY()) <= Constante.OBSTACLE_RADIUS * 2) {
+          if (Math.abs(tmp.getPositionX() - j.getPositionX()) <= j.getWidth() * 2
+              && Math.abs(tmp.getPositionY() - j.getPositionY()) <= j.getHeight() * 2) {
             i--;
             valuable = false;
             break;

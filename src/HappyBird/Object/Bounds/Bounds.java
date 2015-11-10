@@ -1,6 +1,5 @@
 package HappyBird.Object.Bounds;
 
-import HappyBird.Object.Element.Obstacle;
 import HappyBird.Object.Element.Oiseau;
 
 /**
@@ -32,6 +31,6 @@ public abstract class Bounds {
 
 	public abstract void setHeight(int height);
 
-	public abstract boolean collision(Obstacle o1, Oiseau o2);
+	public abstract boolean collision(Oiseau o2);
 
 }

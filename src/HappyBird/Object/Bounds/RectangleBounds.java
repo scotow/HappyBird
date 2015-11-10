@@ -1,6 +1,5 @@
 package HappyBird.Object.Bounds;
 
-import HappyBird.Object.Element.Obstacle;
 import HappyBird.Object.Element.Oiseau;
 
 public class RectangleBounds extends Bounds {
@@ -55,29 +54,12 @@ public class RectangleBounds extends Bounds {
 	}
 
 	@Override
-	public boolean collision(Obstacle o1, Oiseau o2) {
-		int cercleDistanceX = (int) Math.abs(o2.getX() - o1.getPositionX() - (o1.getWidth() / 2));
-		int cercleDistanceY = (int) Math.abs(o2.getY() - o1.getPositionY() - (o1.getHeight() / 2));
-
-		if (cercleDistanceX > (o1.getWidth() / 2 + o2.getWidth() / 2)) {
-			return false;
-		}
+	public boolean collision(Oiseau o2) {
+		return this.getX() < o2.getX() + o2.getHeight() / 2
+				&& this.getX() + this.getWidth() > o2.getX()
+				&& this.getY() < o2.getY() + o2.getHeight() / 2
+				&& this.getHeight() + this.getY() > o2.getY();
 		
-		if (cercleDistanceY > (o1.getHeight() / 2 + o2.getWidth() / 2)) {
-			return false;
-		}
-
-		if (cercleDistanceX <= (o1.getWidth() / 2)) {
-			return true;
-		}
-		if (cercleDistanceY <= (o1.getHeight() / 2)) {
-			return true;
-		}
-
-		int cornerDistance = (int) (Math.pow(cercleDistanceX - o1.getWidth() / 2, 2)
-				+ Math.pow(cercleDistanceY - o1.getHeight() / 2, 2));
-
-		return (cornerDistance <= (int) Math.pow(o2.getWidth(), 2));
 	}
 
 }

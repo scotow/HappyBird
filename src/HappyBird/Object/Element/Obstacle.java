@@ -16,8 +16,6 @@ public class Obstacle{
    * @author garbey Il s'agit des obstacles qui apparaissent sur l'ecran
    * 
    */
-  private double positionX;
-  private double positionY;
 
   private Color color = Constante.OBSTACLE_NOT_TOUCHED_COLOR;
   
@@ -30,8 +28,6 @@ public class Obstacle{
    * @param y : la position de y
    */
   public Obstacle(double x, double y, int width, int height, String type) {
-    this.positionX = x;
-    this.positionY = y;
     try {
 		bounds = BoundsFactory.boundsFactory(type, x, y, width, height);
 	} catch (BoundsException e) {
@@ -46,8 +42,8 @@ public class Obstacle{
    * @param positionY : la nouvelle position y
    */
   public void setPosition(double positionX, double positionY) {
-    this.positionX = positionX;
-    this.positionY = positionY;
+    this.bounds.setX(positionX);
+    this.bounds.setY(positionY);
   }
 
   /**
@@ -56,7 +52,7 @@ public class Obstacle{
    * @return la position de l'obstacle en type coordonnee
    */
   public Coordonnee getPostionCoordonnee() {
-    return new Coordonnee(positionX, positionY);
+    return new Coordonnee(bounds.getX(), bounds.getY());
   }
 
   /**
@@ -65,7 +61,7 @@ public class Obstacle{
    * @return la position x de l'obstacle
    */
   public double getPositionX() {
-    return positionX;
+    return bounds.getX();
   }
 
   /**
@@ -74,7 +70,7 @@ public class Obstacle{
    * @return la position Y de l'obstacle
    */
   public double getPositionY() {
-    return positionY;
+    return bounds.getY();
   }
 
 

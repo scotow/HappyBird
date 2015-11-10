@@ -60,13 +60,7 @@ public class CollisionControler {
   private boolean controlCollision(Oiseau oiseau, Obstacle obstacles) {
     boolean ok = false;
     if (happyView != null) {
-      /*if (Math.abs(obstacles.getPositionX() - oiseau.getPositionX()) <= Constante.OBSTACLE_RADIUS
-          / 2 + Constante.BIRD_BODY_RADIUS / 2
-          && Math.abs(obstacles.getPositionY() - oiseau.getPositionY()) <= Constante.OBSTACLE_RADIUS
-              / 2 + Constante.BIRD_BODY_RADIUS / 2) {
-        ok = true;
-      }*/
-    	if (obstacles.getBounds().collision(obstacles, oiseau)) {
+    	if (obstacles.getBounds().collision(oiseau)) {
 			ok = true;
 		}
     }

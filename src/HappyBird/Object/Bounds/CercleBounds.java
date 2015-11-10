@@ -1,6 +1,5 @@
 package HappyBird.Object.Bounds;
 
-import HappyBird.Object.Element.Obstacle;
 import HappyBird.Object.Element.Oiseau;
 
 public class CercleBounds extends Bounds {
@@ -55,9 +54,9 @@ public class CercleBounds extends Bounds {
 	}
 
 	@Override
-	public boolean collision(Obstacle o1, Oiseau o2) {
-		int d2 = (int) (Math.pow(o1.getPositionX() - o2.getX(), 2) + Math.pow(o1.getPositionY() - o2.getY(), 2));
-		return !(d2 > Math.pow(o1.getBounds().getWidth() / 2 + o2.getWidth() / 2, 2));
+	public boolean collision(Oiseau o2) {
+		double d2 = (Math.pow(this.getX() - o2.getX(), 2) + Math.pow(this.getY() - o2.getY(), 2));
+		return !(d2 > Math.pow(this.getWidth() / 2 + o2.getWidth() / 2, 2));
 	}
 
 }
