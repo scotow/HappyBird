@@ -78,16 +78,51 @@ public class ElementView extends ObjectView {
 						model().getRectangleByIndex(i).width, model().getRectangleByIndex(i).height);
 			}
 		}
+		g.setColor(model().getBecOiseauColor());
+		model().setBecOiseau();
+			Graphics2D graphics2d = (Graphics2D) g.create();
+		AffineTransform old = graphics2d.getTransform();
+		/*------------------Soit la dérivee est mauvaise(ce qui m'étonnerai), soit la formule qui l'est)----------*/
+		/*----------------------------------------------------------------------*/
+		
+		double oppose = model().getCourbe()
+				.calculerPointDerive(model().getListeDePoint(),
+						model().getT() /*+ model().getSpeed()*/).getY();
+		double adjacent =  model().getCourbe()
+				.calculerPointDerive(model().getListeDePoint(), 
+						model().getT() /*+ model().getSpeed()*/).getX();
+		/*-------------------------------------------------------------------------*/
+		double oppose2 = model().getCourbe()
+				.calculerPointDerive(model().getListeDePoint(),
+						model().getT()).getY();
+		
+		double adjacent2 =  model().getCourbe()
+				.calculerPointDerive(model().getListeDePoint(), 
+						model().getT()).getX();
+		
+		double n = Math.atan2(-oppose2,adjacent2);
+						//.getT() + model().getSpeed()).getX()));
+		/*-----------------------------------------------------------------------------------------------------*/
+		//double n = Math
+		
+		System.out.println("La tangeante a modifier : "+n);
+		System.out.println("Coordonnées X/Y:"+model().getBecOiseauPosition());
+		
+		graphics2d.rotate(n, model().getBecOiseauPosition().getX()
+						   ,model().getBecOiseauPosition().getY());
+		
+		
+		graphics2d.fillPolygon(model().getBecOiseauPolygon());
+		graphics2d.setTransform(old);
+		
 		/*g.setColor(model().getBecOiseauColor());
 		model().setBecOiseau();
 			Graphics2D graphics2d = (Graphics2D) g.create();
 		AffineTransform old = graphics2d.getTransform();
-		graphics2d.rotate(Math.atan(-(model().getCourbe()
-				.calculerPointDerive(model().getListeDePoint(), model().getT() + model().getSpeed()).getY()
-				/ model().getCourbe()
-						.calculerPointDerive(model().getListeDePoint(), model().getT() + model().getSpeed()).getX())), model().getBecOiseauPosition().getX(), model().getBecOiseauPosition().getY() );
+		graphics2d.rotate(180);
 		graphics2d.fillPolygon(model().getBecOiseauPolygon());
 		graphics2d.setTransform(old);*/
+		
 		g.setColor(model().getOiseauColor());
 		g.fillOval((int) model().getOiseauPostion().getX() - model().getOiseauTaille()[0] / 2,
 				(int) model().getOiseauPostion().getY() - model().getOiseauTaille()[1] / 2,
