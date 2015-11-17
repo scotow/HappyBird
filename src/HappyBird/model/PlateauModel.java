@@ -30,7 +30,7 @@ public class PlateauModel extends Observable {
 
   private int compteurListe = 0;
   private List<Coordonnee> ListeDePoint = new ArrayList<>(Constante.POINT_LIST_CAPACITY);
-  private List<Obstacle> ListeDObstacles = new ArrayList<>(Constante.OBSTACLES_LIST_CAPACITY);
+  private ArrayList<Obstacle> ListeDObstacles = new ArrayList<>(Constante.OBSTACLES_LIST_CAPACITY);
   private Oiseau oiseau = new Oiseau(0, 0);
   private Courbe courbe = new Courbe();
   private double t = 0;
@@ -46,7 +46,7 @@ public class PlateauModel extends Observable {
    * 
    * @return la liste d'obstacle du plateau
    */
-  public List<Obstacle> getListeDObstacles() {
+  public ArrayList<Obstacle> getListeDObstacles() {
     return ListeDObstacles;
   }
 
@@ -532,6 +532,11 @@ public class PlateauModel extends Observable {
    */
   public void clearCoordonneeDerive() {
     coordDeriver.clear();
+    setChanged();
+    notifyObservers();
+  }
+
+  public void repaint(){
     setChanged();
     notifyObservers();
   }
