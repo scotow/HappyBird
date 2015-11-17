@@ -60,11 +60,10 @@ public class ObjectView extends JPanel implements Observer {
 		bouger.bouger();
 	}
 
-	/*protected void paintComponent(Graphics g) {
+	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(new ImageIcon(getClass().getResource("/HappyBird/view/images/background.png")).getImage(), 0, 0,
-				null);
-	}*/
+		g.drawImage(new ImageIcon(getClass().getResource("/HappyBird/view/images/background.png")).getImage(), 0, 0, null);
+	}
 
 	/**
 	 * Reset tout les elements.

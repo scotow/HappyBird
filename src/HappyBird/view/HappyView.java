@@ -20,7 +20,7 @@ public class HappyView {
   private JFrame jFrame;
 
   /**
-   * G�nere la frame pour afficher notre programme
+   * Génere la frame pour afficher notre programme
    * 
    * @param label
    * @param plateauModel
