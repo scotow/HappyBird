@@ -20,7 +20,7 @@ public class ElementView extends ObjectView {
 
 	/**
 	 * Cree la vue element et place des point de bezier puis fixe les obstacles
-	 * et d�marre l'animation
+	 * et d�ｿｽmarre l'animation
 	 * 
 	 * @param plateauModel
 	 *            : le plateau de jeu
@@ -82,7 +82,7 @@ public class ElementView extends ObjectView {
 		model().setBecOiseau();
 			Graphics2D graphics2d = (Graphics2D) g.create();
 		AffineTransform old = graphics2d.getTransform();
-		/*------------------Soit la dérivee est mauvaise(ce qui m'étonnerai), soit la formule qui l'est)----------*/
+		/*------------------Soit la derivee est mauvaise(ce qui m'etonnerai), soit la formule qui l'est)----------*/
 		/*----------------------------------------------------------------------*/
 		
 		double oppose = model().getCourbe()
@@ -100,13 +100,13 @@ public class ElementView extends ObjectView {
 				.calculerPointDerive(model().getListeDePoint(), 
 						model().getT()).getX();
 		
-		double n = Math.atan2(-oppose2,adjacent2);
+		double n = Math.atan2(oppose2,adjacent2);
 						//.getT() + model().getSpeed()).getX()));
 		/*-----------------------------------------------------------------------------------------------------*/
 		//double n = Math
 		
 		System.out.println("La tangeante a modifier : "+n);
-		System.out.println("Coordonnées X/Y:"+model().getBecOiseauPosition());
+		System.out.println("Coordonnees X/Y:"+model().getBecOiseauPosition());
 		
 		graphics2d.rotate(n, model().getBecOiseauPosition().getX()
 						   ,model().getBecOiseauPosition().getY());

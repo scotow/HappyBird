@@ -26,12 +26,12 @@ public class Bec {
 	 */
 	public void setPolygon() {
 		bec = new Polygon(
-				new int[] { (int) (coordonnee.getX() + Constante.BIRD_BODY_RADIUS / 2 * Math.cos(22)),
-						(int) coordonnee.getX() + Constante.BIRD_BODY_RADIUS / 2 + 10,
+				new int[] { (int) (coordonnee.getX() + 1/*Constante.BIRD_BODY_RADIUS / 2 * Math.cos(22)*/),
+						(int) coordonnee.getX() + Constante.BIRD_BODY_RADIUS / 2 + 15,
 						(int) (coordonnee.getX() - Constante.BIRD_BODY_RADIUS / 2 * Math.cos(22)) },
-				new int[] { (int) (coordonnee.getY() + Constante.BIRD_BODY_RADIUS / 2 * Math.sin(25)),
-						(int) coordonnee.getY() + Constante.BIRD_BODY_RADIUS / 2 + 10,
-						(int) (coordonnee.getY() - Constante.BIRD_BODY_RADIUS / 2 * Math.sin(25)) },
+				new int[] { (int) (coordonnee.getY() + Constante.BIRD_BODY_RADIUS / 2 * Math.sin(55)),
+						(int) coordonnee.getY() /*+ Constante.BIRD_BODY_RADIUS /2 + 10*/,
+						(int) (coordonnee.getY() - Constante.BIRD_BODY_RADIUS / 2 * Math.sin(35)) },
 				3);
 	}
 
