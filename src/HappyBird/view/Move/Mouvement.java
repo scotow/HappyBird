@@ -18,7 +18,7 @@ public class Mouvement {
 	private double g = 9.81;
 	
 	/**
-	 * Classe permettant de retrouver la position en x de l'oiseau sur la trajectoire de la courbe en x.
+	 * Méthode permettant de retrouver la position en x de l'oiseau sur la trajectoire de la courbe en x.
 	 * (On suppose que l'oiseau ne rencontre pas de résistance (ex: Air), donc sa vitesse est constante)
 	 * @param t l'instant t
 	 * @return la position sur l'axe x de l'oiseau.
@@ -28,7 +28,7 @@ public class Mouvement {
 	}
 	
 	/**
-	 * Classe permettant de retrouver la position en y de l'oiseau sur la trajectoire de la courbe en x.
+	 * Méthode permettant de retrouver la position en y de l'oiseau sur la trajectoire de la courbe en x.
 	 * (On suppose que l'oiseau ne rencontre pas de résistance (ex: Air), donc sa vitesse est constante)
 	 * @param t l'instant t.
 	 * @return la position sur l'axe y de l'oiseau
@@ -38,7 +38,7 @@ public class Mouvement {
 	}
 	
 	/** 
-	 * Classe permettant de retrouver l'angle X du bec de l'oiseau.
+	 * Méthode permettant de retrouver l'angle X du bec de l'oiseau.
 	 * @param t l(instant t.
 	 * @return l'angle selon l'axe x du bec de l'oiseau.
 	 */
@@ -47,7 +47,7 @@ public class Mouvement {
 	}
 	
 	/**
-	 * Classe permettant de retrouver l'angle Y du bec de l'oiseau.
+	 * Méthode permettant de retrouver l'angle Y du bec de l'oiseau.
 	 * @param t l'instant t.
 	 * @return l'angle selon l'axe y du bec de l'oiseau.
 	 */
