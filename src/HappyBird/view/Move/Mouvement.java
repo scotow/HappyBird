@@ -21,7 +21,7 @@ public class Mouvement {
 	 * Classe permettant de retrouver la position en x de l'oiseau sur la trajectoire de la courbe en x.
 	 * (On suppose que l'oiseau ne rencontre pas de résistance (ex: Air), donc sa vitesse est constante)
 	 * @param t l'instant t
-	 * @return la position x de l'oiseau.
+	 * @return la position sur l'axe x de l'oiseau.
 	 */
 	public int posXOiseau(int t){
 		return (int) (VxOiseau*t+this.x0Oiseau);
@@ -30,10 +30,28 @@ public class Mouvement {
 	/**
 	 * Classe permettant de retrouver la position en y de l'oiseau sur la trajectoire de la courbe en x.
 	 * (On suppose que l'oiseau ne rencontre pas de résistance (ex: Air), donc sa vitesse est constante)
-	 * @param t
-	 * @return la position y de l'oiseau
+	 * @param t l'instant t.
+	 * @return la position sur l'axe y de l'oiseau
 	 */
 	public int posYOiseau(int t){
 		return (int) ( (-(t*t*g)/2) + VyOiseau*t + y0Oiseau );
+	}
+	
+	/** 
+	 * Classe permettant de retrouver l'angle X du bec de l'oiseau.
+	 * @param t l(instant t.
+	 * @return l'angle selon l'axe x du bec de l'oiseau.
+	 */
+	public int angleXOiseau(int t){
+		return (int) (VxOiseau);
+	}
+	
+	/**
+	 * Classe permettant de retrouver l'angle Y du bec de l'oiseau.
+	 * @param t l'instant t.
+	 * @return l'angle selon l'axe y du bec de l'oiseau.
+	 */
+	public int angleYOiseau(int t){
+		return (int) ( -g*t + VyOiseau );
 	}
 }
