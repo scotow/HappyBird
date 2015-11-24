@@ -2,6 +2,8 @@ package HappyBird.Object.Config;
 
 import java.util.List;
 
+import HappyBird.model.PlateauModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties. To change this
  * template file, choose Tools | Templates and open the template in the editor.
@@ -181,7 +183,38 @@ public class Courbe {
   public double test(double p0, double p1, double p2, double p3, double t){
 	  return 3*(((p1-p0)*Math.pow((1-t), 2)) + (2*(p2-p1)*t*(t-1)) + ((p3-p2)*Math.pow(t, 2)));
   }
-
+	
+  	/*------------------Soit la derivee est mauvaise(ce qui m'etonnerai), soit la formule qui l'est)----------*/
+	/*-----------------------------------------------------------------------------------------------------*/
+  
+  /**
+   * Calcule l'orientation du bec
+   * @param model : le plateau de jeu
+   * @return
+   */
+  public double calculerOrientation(PlateauModel model) {
+	  double oppose2 = model.getCourbe()
+				.calculerPointDerive(model.getListeDePoint(),
+						model.getT()).getY();
+		
+	  double adjacent2 =  model.getCourbe()
+				.calculerPointDerive(model.getListeDePoint(), 
+						model.getT()).getX();
+		
+	  double n = Math.atan2(oppose2,adjacent2);
+	  return n;
+	  
+  }
+  		
+  
+  
+  
+  
+  
+  
+  
+  
+  
   /**
    * Retourne la coordonnee x de la courbe
    * 
@@ -244,5 +277,7 @@ public class Courbe {
   public double getVitesseY() {
     return vitesseY;
   }
+  
+  
 
 }

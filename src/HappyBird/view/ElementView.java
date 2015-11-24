@@ -82,29 +82,9 @@ public class ElementView extends ObjectView {
 		model().setBecOiseau();
 			Graphics2D graphics2d = (Graphics2D) g.create();
 		AffineTransform old = graphics2d.getTransform();
-		/*------------------Soit la derivee est mauvaise(ce qui m'etonnerai), soit la formule qui l'est)----------*/
-		/*----------------------------------------------------------------------*/
-		
-		double oppose = model().getCourbe()
-				.calculerPointDerive(model().getListeDePoint(),
-						model().getT() /*+ model().getSpeed()*/).getY();
-		double adjacent =  model().getCourbe()
-				.calculerPointDerive(model().getListeDePoint(), 
-						model().getT() /*+ model().getSpeed()*/).getX();
-		/*-------------------------------------------------------------------------*/
-		double oppose2 = model().getCourbe()
-				.calculerPointDerive(model().getListeDePoint(),
-						model().getT()).getY();
-		
-		double adjacent2 =  model().getCourbe()
-				.calculerPointDerive(model().getListeDePoint(), 
-						model().getT()).getX();
-		
-		double n = Math.atan2(oppose2,adjacent2);
-						//.getT() + model().getSpeed()).getX()));
-		/*-----------------------------------------------------------------------------------------------------*/
+	
 		//double n = Math
-		
+		double n = model().getCourbe().calculerOrientation(model());
 		System.out.println("La tangeante a modifier : "+n);
 		System.out.println("Coordonnees X/Y:"+model().getBecOiseauPosition());
 		
