@@ -39,7 +39,7 @@ public class Mouvement {
 	
 	/** 
 	 * Méthode permettant de retrouver l'angle X du bec de l'oiseau.
-	 * @param t l(instant t.
+	 * @param t l'instant t.
 	 * @return l'angle selon l'axe x du bec de l'oiseau.
 	 */
 	public int angleXOiseau(int t){
