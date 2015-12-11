@@ -49,6 +49,7 @@ public class TimerBouger implements Observer {
       public void actionPerformed(ActionEvent e) {
         model.setT(model.getT() + model.getSpeed());
         positionControler.fixeOiseau();
+        model.setTemps(0);
         model.addRectangle(new Rectangle((int) model.getOiseauPostion().getX(), (int) model
             .getOiseauPostion().getY(), 5, 5));
         if (collisionControler.collision()) {

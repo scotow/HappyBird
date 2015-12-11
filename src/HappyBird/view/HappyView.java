@@ -34,7 +34,7 @@ public class HappyView {
     this.plateauModel = plateauModel;
     this.collisionControler = collisionControler;
     this.controler = positionControler;
-    this.elementView = new ElementView(plateauModel, collisionControler, positionControler, v);
+    this.elementView = new ElementView(plateauModel, collisionControler, positionControler);
     jFrame = new JFrame(label);
     jFrame.add(elementView);
     jFrame.setSize(Constante.X_FRAME, Constante.Y_FRAME);

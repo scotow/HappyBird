@@ -2,6 +2,8 @@ package HappyBird.view;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.List;
+import java.awt.Point;
 import java.awt.geom.AffineTransform;
 import java.util.Observable;
 
@@ -31,13 +33,14 @@ public class ElementView extends ObjectView {
 	 *            : le controler de position
 	 */
 	public ElementView(PlateauModel plateauModel, CollisionControler collisionControler,
-			PositionControler positionControler, /*A modifier*/Mouvement v) {
+			PositionControler positionControler) {
 		super(plateauModel, collisionControler, positionControler);
 		random = true;
 		positionControler.fixePointBezier();
 		
 		positionControler.fixeObstacles((random) ? 0 : clickPut().getX(), (random) ? 0 : clickPut().getY(), random);
 		bouger();
+		
 	}
 
 	@Override
@@ -92,10 +95,17 @@ public class ElementView extends ObjectView {
 		//System.out.println(model.getT());
 		System.out.println(model.getOiseauPostion().getX()+"//"+model.getOiseauPostion().getY());
 		
+		List<Point> temp = model.getOiseau().getListePointBec();
+		Point a = temp.get(0);
+		Point b = temp.get(1);
+		Point c = temp.get(2);
 		
-		//model.getOiseau().
-		
-		
+		/*int angleX = v.angleXOiseau(model.getTemps());
+		int angleY = v.angleYOiseau(model.getTemps());
+		a = model.getCourbe().rotatePoint (a,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),angleX );
+		b = model.getCourbe().rotatePoint (b,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),angleX );
+		c = model.getCourbe().rotatePoint (c,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),angleX );
+		*/
 		graphics2d.fillPolygon(model().getBecOiseauPolygon());
 		graphics2d.setTransform(old);
 		

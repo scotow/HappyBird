@@ -1,5 +1,6 @@
 package HappyBird.Object.Config;
 
+import java.awt.Point;
 import java.util.List;
 
 import HappyBird.model.PlateauModel;
@@ -192,20 +193,18 @@ public class Courbe {
    * @param model : le plateau de jeu
    * @return
    */
-  public double calculerOrientation(PlateauModel model) {
-	  double oppose2 = model.getCourbe()
-				.calculerPointDerive(model.getListeDePoint(),
-						model.getT()).getY();
-		
-	  double adjacent2 =  model.getCourbe()
-				.calculerPointDerive(model.getListeDePoint(), 
-						model.getT()).getX();
-		
-	  double n = Math.atan2(oppose2,adjacent2);
-	  return n;
-	  
-  }
-  		
+  public Point rotatePoint(Point pt, Point center, double angleDeg)
+	{
+	    double angleRad = (angleDeg/180)*Math.PI;
+	    double cosAngle = Math.cos(angleRad );
+	    double sinAngle = Math.sin(angleRad );
+	    double dx = (pt.x-center.x);
+	    double dy = (pt.y-center.y);
+
+	    pt.x = center.x + (int) (dx*cosAngle-dy*sinAngle);
+	    pt.y = center.y + (int) (dx*sinAngle+dy*cosAngle);
+	    return pt;
+	}
   
   
   

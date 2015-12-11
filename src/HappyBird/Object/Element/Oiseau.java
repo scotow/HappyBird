@@ -1,7 +1,9 @@
 package HappyBird.Object.Element;
 
 import java.awt.Color;
+import java.awt.Point;
 import java.awt.Polygon;
+import java.util.List;
 
 import HappyBird.Object.Bounds.CercleBounds;
 import HappyBird.Object.Config.Constante;
@@ -72,6 +74,10 @@ public class Oiseau extends CercleBounds{
 	  return this.bec.getListePoint();
   }
 
+  public void setListePointBec(List<Point> nouvelleListe) {
+	  this.bec.setListePoint(nouvelleListe);
+  }
+  
   public Polygon getBecPolygon() {
     return bec.getBec();
   }

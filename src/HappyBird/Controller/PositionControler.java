@@ -193,7 +193,7 @@ public class PositionControler {
 	  	
 	  	//plateauModel.setOiseauPosition(75+v.posXOiseau(plateauModel.getTemps()), 350+v.posYOiseau(plateauModel.getTemps()));
 	  System.out.println(plateauModel.getTemps());
-	  //plateauModel.setTemps(plateauModel.getTemps()+1);
+	 
 	  
   }
 

@@ -15,6 +15,7 @@ import HappyBird.Controller.CollisionControler;
 import HappyBird.Controller.PositionControler;
 import HappyBird.Object.Config.Coordonnee;
 import HappyBird.model.PlateauModel;
+import HappyBird.view.Move.Mouvement;
 import HappyBird.view.Move.TimerBouger;
 
 public class ObjectView extends JPanel implements Observer {
@@ -28,6 +29,7 @@ public class ObjectView extends JPanel implements Observer {
 	protected PositionControler positionControler;
 	protected TimerBouger bouger;
 	protected boolean random = false;
+	protected Mouvement v;
 
 	/**
 	 * Cree la vue objectif
@@ -42,6 +44,8 @@ public class ObjectView extends JPanel implements Observer {
 	public ObjectView(PlateauModel plateauModel, CollisionControler collisionControler,
 			PositionControler positionControler) {
 		this.model = plateauModel;
+		this.v = new Mouvement ((int)(plateauModel.getOiseauPostion().getX()), (int)(plateauModel.getOiseauPostion().getY()),
+	    		25,50);
 		this.collisionControler = collisionControler;
 		this.positionControler = positionControler;
 		this.bouger = new TimerBouger(ObjectView.this, plateauModel, collisionControler, positionControler);
@@ -77,15 +81,16 @@ public class ObjectView extends JPanel implements Observer {
 		
 		
 		//positionControler.fixePointBezier();
-		//positionControler.fixeCourbe();
+		positionControler.fixeCourbe();
 		
 		
-		model.setOiseauPosition(model.getPoint(0).getX(), model.getPoint(0).getY());
+		//model.setOiseauPosition(model.getPoint(0).getX(), model.getPoint(0).getY());
 		
-		model.setTemps(0);
-		
-		
+		model.setTemps(0);	
 		model.setT(0);
+		
+		
+		positionControler.fixeOiseau();
 		if (model.getFlyTimer() != null)
 			if (model.getFlyTimer().isRunning())
 				model.stopFly();
