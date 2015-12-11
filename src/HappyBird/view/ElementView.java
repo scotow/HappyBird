@@ -10,6 +10,7 @@ import HappyBird.Controller.PositionControler;
 import HappyBird.Object.Bounds.RectangleBounds;
 import HappyBird.Object.Config.Constante;
 import HappyBird.model.PlateauModel;
+import HappyBird.view.Move.Mouvement;
 
 public class ElementView extends ObjectView {
 
@@ -30,10 +31,11 @@ public class ElementView extends ObjectView {
 	 *            : le controler de position
 	 */
 	public ElementView(PlateauModel plateauModel, CollisionControler collisionControler,
-			PositionControler positionControler) {
+			PositionControler positionControler, /*A modifier*/Mouvement v) {
 		super(plateauModel, collisionControler, positionControler);
 		random = true;
 		positionControler.fixePointBezier();
+		
 		positionControler.fixeObstacles((random) ? 0 : clickPut().getX(), (random) ? 0 : clickPut().getY(), random);
 		bouger();
 	}
@@ -85,7 +87,7 @@ public class ElementView extends ObjectView {
 	
 		//double n = Math
 		double n = model().getCourbe().calculerOrientation(model());
-		System.out.println("La tangeante a modifier : "+n);
+		System.out.println("La tangente a modifier : "+n);
 		System.out.println("Coordonnees X/Y:"+model().getBecOiseauPosition());
 		
 		graphics2d.rotate(n, model().getBecOiseauPosition().getX()

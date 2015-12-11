@@ -1,7 +1,10 @@
 package HappyBird.Object.Element;
 
 import java.awt.Color;
+import java.awt.Point;
 import java.awt.Polygon;
+import java.util.ArrayList;
+import java.util.List;
 
 import HappyBird.Object.Config.Constante;
 import HappyBird.Object.Config.Coordonnee;
@@ -14,10 +17,16 @@ public class Bec {
 	private Coordonnee coordonnee;
 	private Color color = Color.BLACK;
 	private Polygon bec;
+	private List<Point>becPoint = new ArrayList <Point>();
+	
 
 	public Bec(Coordonnee coordonnee) {
 		this.coordonnee = coordonnee;
 		this.bec = new Polygon();
+		becPoint.add(new Point ((int) (coordonnee.getX() + 1), (int) (coordonnee.getY() + Constante.BIRD_BODY_RADIUS / 2 * Math.sin(55))));
+		becPoint.add(new Point ((int) (coordonnee.getX() + Constante.BIRD_BODY_RADIUS / 2 + 15), (int) coordonnee.getY()));
+		becPoint.add(new Point ((int) (coordonnee.getX() - Constante.BIRD_BODY_RADIUS / 2 * Math.cos(22)), 
+				(int) (coordonnee.getY() - Constante.BIRD_BODY_RADIUS / 2 * Math.sin(35))));
 	}
 
 	/**
@@ -53,5 +62,13 @@ public class Bec {
 
 	public Color getColor() {
 		return color;
+	}
+	
+	public List<Point> getListePoint() {
+		return this.becPoint;
+	}
+	
+	public void setListePoint(List<Point> nouvelleListe) {
+		this.becPoint = nouvelleListe;
 	}
 }
