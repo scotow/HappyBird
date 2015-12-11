@@ -86,12 +86,14 @@ public class ElementView extends ObjectView {
 		AffineTransform old = graphics2d.getTransform();
 	
 		//double n = Math
-		double n = model().getCourbe().calculerOrientation(model());
-		System.out.println("La tangente a modifier : "+n);
-		System.out.println("Coordonnees X/Y:"+model().getBecOiseauPosition());
+		//double n = model().getCourbe().calculerOrientation(model());
+		//System.out.println("La tangente a modifier : "+n);
+		//System.out.println("Coordonnees X/Y:"+model().getBecOiseauPosition());
+		//System.out.println(model.getT());
+		System.out.println(model.getOiseauPostion().getX()+"//"+model.getOiseauPostion().getY());
 		
-		graphics2d.rotate(n, model().getBecOiseauPosition().getX()
-						   ,model().getBecOiseauPosition().getY());
+		
+		//model.getOiseau().
 		
 		
 		graphics2d.fillPolygon(model().getBecOiseauPolygon());

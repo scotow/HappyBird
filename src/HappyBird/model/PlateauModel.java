@@ -40,6 +40,8 @@ public class PlateauModel extends Observable {
   private Timer flyTimer;
   private List<Rectangle> rectangles = new ArrayList<>();
   private List<Coordonnee> coordDeriver = new ArrayList<>();
+  
+  private int temps;
 
   /**
    * Retourne la liste d'obstacle du plateau
@@ -85,6 +87,16 @@ public class PlateauModel extends Observable {
   public int getCompteurListe() {
     return compteurListe;
   }
+  
+  public int getTemps() {
+	  return temps;
+  }
+  
+  public void setTemps(int temps) {
+	  this.temps = temps;
+  }
+  
+  
 
   /**
    * Retourne la liste de rectangle du plateau

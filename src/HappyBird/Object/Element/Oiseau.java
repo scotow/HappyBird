@@ -67,6 +67,10 @@ public class Oiseau extends CercleBounds{
   public void setBecPolygon() {
     bec.setPolygon();
   }
+  
+  public List<Point> getListePointBec() {
+	  return this.bec.getListePoint();
+  }
 
   public Polygon getBecPolygon() {
     return bec.getBec();

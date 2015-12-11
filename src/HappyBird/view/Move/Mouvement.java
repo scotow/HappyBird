@@ -17,6 +17,14 @@ public class Mouvement {
 	// Constante de gravitation Happyverselle (et non universelle car la constante n'est pas celle que l'on connaît).
 	private double g = 9.81;
 	
+	
+	
+	public Mouvement (int x0 , int y0, double Vx, double Vy) {
+		this.x0Oiseau = x0;
+		this.y0Oiseau = y0;
+		this.VxOiseau = Vx;
+		this.VyOiseau = Vy;
+	}
 	/**
 	 * Méthode permettant de retrouver la position en x de l'oiseau sur la trajectoire de la courbe en x.
 	 * (On suppose que l'oiseau ne rencontre pas de résistance (ex: Air), donc sa vitesse est constante)
@@ -34,7 +42,7 @@ public class Mouvement {
 	 * @return la position sur l'axe y de l'oiseau
 	 */
 	public int posYOiseau(int t){
-		return (int) ( (-(t*t*g)/2) + VyOiseau*t + y0Oiseau );
+		return (int) -( (-(t*t*g)/2) + VyOiseau*t + y0Oiseau );
 	}
 	
 	/** 

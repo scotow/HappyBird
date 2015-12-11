@@ -74,8 +74,17 @@ public class ObjectView extends JPanel implements Observer {
 		if (model.getCompteurListe() > 10)
 			System.exit(0);
 		model.clearRectangles();
-		positionControler.fixePointBezier();
+		
+		
+		//positionControler.fixePointBezier();
+		//positionControler.fixeCourbe();
+		
+		
 		model.setOiseauPosition(model.getPoint(0).getX(), model.getPoint(0).getY());
+		
+		model.setTemps(0);
+		
+		
 		model.setT(0);
 		if (model.getFlyTimer() != null)
 			if (model.getFlyTimer().isRunning())

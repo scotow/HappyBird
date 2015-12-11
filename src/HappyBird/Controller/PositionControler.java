@@ -7,6 +7,7 @@ import HappyBird.Object.Config.Coordonnee;
 import HappyBird.Object.Element.Obstacle;
 import HappyBird.model.PlateauModel;
 import HappyBird.view.HappyView;
+import HappyBird.view.Move.Mouvement;
 
 public class PositionControler {
 
@@ -15,6 +16,7 @@ public class PositionControler {
    */
 
   private PlateauModel plateauModel;
+  private Mouvement v;
   private HappyView happyView = null;
 
 
@@ -25,6 +27,9 @@ public class PositionControler {
    */
   public PositionControler(PlateauModel plateauModel) {
     this.plateauModel = plateauModel;
+    this.v = new Mouvement ((int)(plateauModel.getOiseauPostion().getX()), (int)(plateauModel.getOiseauPostion().getY()),
+    		25,50);
+    
   }
 
   /**
@@ -35,11 +40,16 @@ public class PositionControler {
     if (!controlPoint(plateauModel.getCompteurListe())) {
       switch (plateauModel.getCompteurListe()) {
         case 0:
-          plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS * 2, Constante.Y_FRAME
+          /*plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS * 2, Constante.Y_FRAME
               - (Constante.BIRD_BODY_RADIUS * 3)));
-          plateauModel.addPoint(new Coordonnee(100, 100));
-          plateauModel.addPoint(new Coordonnee(300, 100));
-          plateauModel.addPoint(new Coordonnee(Constante.X_FRAME + 50, 200));
+          plateauModel.addPoint(new Coordonnee(0, 0));
+          plateauModel.addPoint(new Coordonnee(0, 0));
+          plateauModel.addPoint(new Coordonnee(Constante.X_FRAME + 50, 200));*/
+        	
+        	plateauModel.addPoint(new Coordonnee(v.posXOiseau(0),v.posYOiseau(0) ));
+  		  plateauModel.addPoint(new Coordonnee(v.posXOiseau(1),v.posYOiseau(1) ));
+  		  plateauModel.addPoint(new Coordonnee(v.posXOiseau(2),v.posYOiseau(2) ));
+  		  plateauModel.addPoint(new Coordonnee(v.posXOiseau(3),v.posYOiseau(3) ));
           break;
         case 1:
           plateauModel.addPoint(new Coordonnee(Constante.BIRD_BODY_RADIUS * 2, Constante.Y_FRAME
@@ -121,7 +131,16 @@ public class PositionControler {
       }
     }
   }
-
+  public void fixeCourbe() {
+	  if (!controlPoint(plateauModel.getCompteurListe())) {
+		  plateauModel.addPoint(new Coordonnee(v.posXOiseau(0),v.posYOiseau(0) ));
+		  plateauModel.addPoint(new Coordonnee(v.posXOiseau(1),v.posYOiseau(1) ));
+		  plateauModel.addPoint(new Coordonnee(v.posXOiseau(2),v.posYOiseau(2) ));
+		  plateauModel.addPoint(new Coordonnee(v.posXOiseau(3),v.posYOiseau(3) ));
+	  }
+  }
+  
+  
   /**
    * Permet de placer les obstacles, de facon aleatoire ou non
    * 
@@ -162,13 +181,20 @@ public class PositionControler {
   }
 
   /**
-   * Permet changer la position de l'oiseau
+   * Permet fixer la position de l'oiseau
    */
   public void fixeOiseau() {
     Coordonnee tmp =
         plateauModel.getCourbe().calculerPoint(plateauModel.getListeDePoint(), plateauModel.getT());
-    // System.out.println("Obstacle placer  "+ tmp.toString() +".");
-    plateauModel.setOiseauPosition(tmp.getX(), tmp.getY() + Constante.BIRD_BODY_RADIUS / 2 - 3);
+    Coordonnee tmp2 = plateauModel.getListeDePoint().get(plateauModel.getTemps());
+	  
+    System.out.println("plateauModel  "+ plateauModel.getListeDePoint().get(1).toString() +". "+plateauModel.getTemps());
+	  plateauModel.setOiseauPosition(tmp.getX()+25, tmp.getY() + 250);
+	  	
+	  	//plateauModel.setOiseauPosition(75+v.posXOiseau(plateauModel.getTemps()), 350+v.posYOiseau(plateauModel.getTemps()));
+	  System.out.println(plateauModel.getTemps());
+	  //plateauModel.setTemps(plateauModel.getTemps()+1);
+	  
   }
 
   /**
