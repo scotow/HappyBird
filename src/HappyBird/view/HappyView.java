@@ -1,10 +1,12 @@
 package HappyBird.view;
 
 import javax.swing.JFrame;
+
 import HappyBird.Controller.CollisionControler;
 import HappyBird.Controller.PositionControler;
 import HappyBird.Object.Config.Constante;
 import HappyBird.model.PlateauModel;
+import HappyBird.view.Move.GestionDeplacement;
 import HappyBird.view.Move.Mouvement;
 
 /**
@@ -42,6 +44,9 @@ public class HappyView {
     jFrame.setLocationRelativeTo(null);
     jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     jFrame.setVisible(true);
+    
+    GestionDeplacement dragDrop = new GestionDeplacement();
+    dragDrop.addOiseau(plateauModel.getOiseau(), jFrame, elementView);
   }
 
 

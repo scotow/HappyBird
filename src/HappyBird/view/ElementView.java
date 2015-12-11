@@ -2,6 +2,7 @@ package HappyBird.view;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.ArrayList;
 import java.util.List;
 import java.awt.Point;
 import java.awt.geom.AffineTransform;
@@ -88,24 +89,35 @@ public class ElementView extends ObjectView {
 			Graphics2D graphics2d = (Graphics2D) g.create();
 		AffineTransform old = graphics2d.getTransform();
 	
+		/********************Ancien calcul de l'orientation*****************************/
 		//double n = Math
 		//double n = model().getCourbe().calculerOrientation(model());
 		//System.out.println("La tangente a modifier : "+n);
 		//System.out.println("Coordonnees X/Y:"+model().getBecOiseauPosition());
 		//System.out.println(model.getT());
+		
+		
 		System.out.println(model.getOiseauPostion().getX()+"//"+model.getOiseauPostion().getY());
 		
+		/**************************Autre calcul de l'orientation***************************/
 		List<Point> temp = model.getOiseau().getListePointBec();
 		Point a = temp.get(0);
 		Point b = temp.get(1);
 		Point c = temp.get(2);
 		
-		/*int angleX = v.angleXOiseau(model.getTemps());
-		int angleY = v.angleYOiseau(model.getTemps());
+		int angleX = v.angleXOiseau(1);
+		int angleY = v.angleYOiseau(1);
 		a = model.getCourbe().rotatePoint (a,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),angleX );
 		b = model.getCourbe().rotatePoint (b,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),angleX );
 		c = model.getCourbe().rotatePoint (c,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),angleX );
-		*/
+		
+		temp = new ArrayList<Point>();
+		temp.add(a);
+		temp.add(b);
+		temp.add(c);
+		model.getOiseau().setListePointBec(temp);
+		/*------------------------------------------------------------------------------------*/
+		
 		graphics2d.fillPolygon(model().getBecOiseauPolygon());
 		graphics2d.setTransform(old);
 		

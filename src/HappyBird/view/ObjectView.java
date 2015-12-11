@@ -80,7 +80,7 @@ public class ObjectView extends JPanel implements Observer {
 		model.clearRectangles();
 		
 		
-		//positionControler.fixePointBezier();
+		
 		positionControler.fixeCourbe();
 		
 		
