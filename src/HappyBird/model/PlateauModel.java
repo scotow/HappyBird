@@ -526,8 +526,10 @@ public class PlateauModel extends Observable {
    */
   public void startFly() {
     this.flyTimer.start();
+    
     setChanged();
     notifyObservers();
+    
   }
 
   /**

@@ -59,7 +59,11 @@ public class TimerBouger implements Observer {
         objectView.repaint();
       }
     }));
+    
+    /*Ici ça n'affiche pas*/
+    
     model.startFly();
+    
   }
 
   @Override

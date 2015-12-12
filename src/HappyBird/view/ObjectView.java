@@ -61,6 +61,8 @@ public class ObjectView extends JPanel implements Observer {
 	 * Permet le deplacement
 	 */
 	public void bouger() {
+		model.getOiseau().setPosition(50.0, 350.0);
+	    try {Thread.sleep(1000);}catch(InterruptedException e2){}
 		bouger.bouger();
 	}
 
@@ -101,6 +103,7 @@ public class ObjectView extends JPanel implements Observer {
 	 * Boucle de jeu, tant que la simulation != 0 le jeu continue
 	 */
 	public void simulationDeVol() {
+		
 		Timer waitingTimer = new Timer();
 		waitingTimer.schedule(new TimerTask() {
 			@Override
