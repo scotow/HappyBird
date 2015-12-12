@@ -83,7 +83,7 @@ public class ObjectView extends JPanel implements Observer {
 		
 		
 		
-		positionControler.fixeCourbe();
+	
 		
 		
 		//model.setOiseauPosition(model.getPoint(0).getX(), model.getPoint(0).getY());
@@ -91,8 +91,9 @@ public class ObjectView extends JPanel implements Observer {
 		model.setTemps(0);	
 		model.setT(0);
 		
+		model.setOiseauPosition(50.0, 350.0);
 		
-		positionControler.fixeOiseau();
+		
 		if (model.getFlyTimer() != null)
 			if (model.getFlyTimer().isRunning())
 				model.stopFly();
@@ -144,6 +145,14 @@ public class ObjectView extends JPanel implements Observer {
 	 */
 	public PlateauModel model() {
 		return model;
+	}
+	
+	public Mouvement getMouvement() {
+		return v;
+	}
+	
+	public PositionControler getPC() {
+		return this.positionControler;
 	}
 
 }

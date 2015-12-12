@@ -45,7 +45,7 @@ public class PositionControler {
           plateauModel.addPoint(new Coordonnee(0, 0));
           plateauModel.addPoint(new Coordonnee(0, 0));
           plateauModel.addPoint(new Coordonnee(Constante.X_FRAME + 50, 200));*/
-        	
+        	System.out.println(v.posXOiseau(1)+" Bonjour "+v.posYOiseau(1));
         	plateauModel.addPoint(new Coordonnee(v.posXOiseau(0),v.posYOiseau(0) ));
   		  plateauModel.addPoint(new Coordonnee(v.posXOiseau(1),v.posYOiseau(1) ));
   		  plateauModel.addPoint(new Coordonnee(v.posXOiseau(2),v.posYOiseau(2) ));
@@ -133,10 +133,12 @@ public class PositionControler {
   }
   public void fixeCourbe() {
 	  if (!controlPoint(plateauModel.getCompteurListe())) {
-		  plateauModel.addPoint(new Coordonnee(v.posXOiseau(0),v.posYOiseau(0) ));
-		  plateauModel.addPoint(new Coordonnee(v.posXOiseau(1),v.posYOiseau(1) ));
-		  plateauModel.addPoint(new Coordonnee(v.posXOiseau(2),v.posYOiseau(2) ));
-		  plateauModel.addPoint(new Coordonnee(v.posXOiseau(3),v.posYOiseau(3) ));
+		  System.out.println(v.posXOiseau(0)+" Bonjour "+v.posYOiseau(0));
+		  System.out.println(v.posXOiseau(1)+" Bonsoir "+v.posYOiseau(1));
+		 
+		  for(int i = 0 ; i< 4 ;i++) {
+			  plateauModel.addPoint(new Coordonnee(v.posXOiseau(i),v.posYOiseau(i) ));
+		  }
 	  }
   }
   
@@ -192,7 +194,7 @@ public class PositionControler {
 	  plateauModel.setOiseauPosition(tmp.getX()+25, tmp.getY() + 250);
 	  	
 	  	//plateauModel.setOiseauPosition(75+v.posXOiseau(plateauModel.getTemps()), 350+v.posYOiseau(plateauModel.getTemps()));
-	  //System.out.println(plateauModel.getTemps());
+	  //System.out.println(plateauModel.getT());
 	 
 	  
   }
@@ -258,5 +260,9 @@ public class PositionControler {
    */
   public void addView(HappyView happyView) {
     this.happyView = happyView;
+  }
+  
+  public Mouvement getMouvement() {
+	  return v;
   }
 }

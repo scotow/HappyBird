@@ -29,6 +29,9 @@ public class GestionDeplacement extends JComponent implements MouseMotionListene
 	JFrame frame;
 	ElementView view;
 	
+	
+	private int deplX;
+	private int deplY;
 	/**
 	 * Ajoute les elements necessaire a la construction du drag n drop
 	 * @param oi : l'oiseau
@@ -52,6 +55,9 @@ public class GestionDeplacement extends JComponent implements MouseMotionListene
 		// TODO Auto-generated method stub
 		model.getOiseau().setX(e.getPoint().getX());
 		model.getOiseau().setY(e.getPoint().getY());
+		deplX = (int) e.getPoint().getX();
+		deplY = (int) e.getPoint().getY();
+		
 		view.repaint();
 		
 		
@@ -90,10 +96,17 @@ public class GestionDeplacement extends JComponent implements MouseMotionListene
 
 
 	public void mouseReleased(MouseEvent e) {
-		//try {Thread.sleep(200);}catch(InterruptedException e2){}
+		System.out.println(deplX+"()()"+deplY);
 		model.repaint();
-		//System.out.println("AHAHAHAHHAHAHAHAHHAAHAHAHAHAHHAA");
+		
+		
+		view.getPC().getMouvement().setMouvement(0, 0, 50-deplX, -350+deplY);
+		
+		view.getPC().fixeCourbe();
+		//view.getPC().fixeOiseau();
 		model.setOiseauPosition(50.0, 350.0);
+		
+		
 		view.bouger();
 	
 		

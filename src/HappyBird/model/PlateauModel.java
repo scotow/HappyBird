@@ -554,6 +554,7 @@ public class PlateauModel extends Observable {
   }
 
   public void repaint(){
+	
     setChanged();
     notifyObservers();
   }

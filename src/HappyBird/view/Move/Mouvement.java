@@ -25,6 +25,13 @@ public class Mouvement {
 		this.VxOiseau = Vx;
 		this.VyOiseau = Vy;
 	}
+	
+	public void setMouvement (int x0, int y0, double Vx, double Vy) {
+		this.x0Oiseau = x0;
+		this.y0Oiseau = y0;
+		this.VxOiseau = Vx;
+		this.VyOiseau = Vy;
+	}
 	/**
 	 * Méthode permettant de retrouver la position en x de l'oiseau sur la trajectoire de la courbe en x.
 	 * (On suppose que l'oiseau ne rencontre pas de résistance (ex: Air), donc sa vitesse est constante)
@@ -32,6 +39,7 @@ public class Mouvement {
 	 * @return la position sur l'axe x de l'oiseau.
 	 */
 	public int posXOiseau(int t){
+		System.out.println("Condition initiales (t,x,y) : "+t+"||"+x0Oiseau+"||"+y0Oiseau);
 		return (int) (VxOiseau*t+this.x0Oiseau);
 	}
 	
