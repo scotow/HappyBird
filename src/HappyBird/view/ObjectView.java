@@ -61,8 +61,7 @@ public class ObjectView extends JPanel implements Observer {
 	 * Permet le deplacement
 	 */
 	public void bouger() {
-		model.getOiseau().setPosition(50.0, 350.0);
-	    try {Thread.sleep(1000);}catch(InterruptedException e2){}
+		
 		bouger.bouger();
 	}
 
@@ -75,6 +74,7 @@ public class ObjectView extends JPanel implements Observer {
 	 * Reset tout les elements.
 	 */
 	public void resetPlateau() {
+		
 		model.clearPoint();
 		model.setCompteurListe(model.getCompteurListe() + 1);
 		if (model.getCompteurListe() > 10)
@@ -96,7 +96,9 @@ public class ObjectView extends JPanel implements Observer {
 		if (model.getFlyTimer() != null)
 			if (model.getFlyTimer().isRunning())
 				model.stopFly();
-		bouger();
+		
+		
+		//bouger();
 	}
 
 	/**

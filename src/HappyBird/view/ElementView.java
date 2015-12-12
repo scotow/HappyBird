@@ -97,7 +97,7 @@ public class ElementView extends ObjectView {
 		//System.out.println(model.getT());
 		
 		
-		System.out.println(model.getOiseauPostion().getX()+"//"+model.getOiseauPostion().getY());
+		//System.out.println(model.getOiseauPostion().getX()+"//"+model.getOiseauPostion().getY());
 		
 		/**************************Autre calcul de l'orientation***************************/
 		List<Point> temp = model.getOiseau().getListePointBec();

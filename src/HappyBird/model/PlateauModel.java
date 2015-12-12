@@ -525,6 +525,9 @@ public class PlateauModel extends Observable {
    * Fait animer les objetcs.
    */
   public void startFly() {
+	  
+	  
+	  
     this.flyTimer.start();
     
     setChanged();
@@ -553,6 +556,25 @@ public class PlateauModel extends Observable {
   public void repaint(){
     setChanged();
     notifyObservers();
+  }
+  
+
+  /**
+   * Lance l'oiseau (en statut)
+   */
+  public void LancerOiseau() {
+	  this.getOiseau().LancerOiseau();
+	  setChanged();
+	  notifyObservers();
+  }
+  
+  /**
+   * Remet le statut de l'oiseau en false;
+   */
+  public void reinitOiseau() {
+	  this.getOiseau().reinitOiseau();
+	  setChanged();
+	  notifyObservers();
   }
 
 }

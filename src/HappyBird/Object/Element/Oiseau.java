@@ -15,7 +15,7 @@ public class Oiseau extends CercleBounds{
    * L'objet oiseau, element principal du jeu
    */
   private Bec bec;
-
+  private boolean lancer;
   private Color OiseauColor = Constante.BIRD_BODY_COLOR;
 
   /**
@@ -44,7 +44,31 @@ public class Oiseau extends CercleBounds{
   public void setBecCoordonnee(double x, double y) {
     this.bec.setPosition(x,y);
   }
-
+  
+  /**
+   * Verifie si l'oiseau est lance;
+   * @return le statut de l'oiseau
+   */
+  public boolean estLance() {
+	  return this.lancer;
+  }
+  
+  /**
+   * Lance l'oiseau (en statut)
+   */
+  public void LancerOiseau() {
+	  this.lancer = true;
+  }
+  
+  /**
+   * Remet le statut de l'oiseau en false;
+   */
+  public void reinitOiseau() {
+	  this.lancer = false;
+  }
+  
+  
+  
   public void setBecColor(Color color) {
     this.bec.setColor(color);
   }

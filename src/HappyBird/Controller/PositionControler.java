@@ -188,11 +188,11 @@ public class PositionControler {
         plateauModel.getCourbe().calculerPoint(plateauModel.getListeDePoint(), plateauModel.getT());
     Coordonnee tmp2 = plateauModel.getListeDePoint().get(plateauModel.getTemps());
 	  
-    System.out.println("plateauModel  "+ plateauModel.getListeDePoint().get(1).toString() +". "+plateauModel.getTemps());
+   // System.out.println("plateauModel  "+ plateauModel.getListeDePoint().get(1).toString() +". "+plateauModel.getTemps());
 	  plateauModel.setOiseauPosition(tmp.getX()+25, tmp.getY() + 250);
 	  	
 	  	//plateauModel.setOiseauPosition(75+v.posXOiseau(plateauModel.getTemps()), 350+v.posYOiseau(plateauModel.getTemps()));
-	  System.out.println(plateauModel.getTemps());
+	  //System.out.println(plateauModel.getTemps());
 	 
 	  
   }

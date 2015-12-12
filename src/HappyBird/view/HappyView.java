@@ -46,7 +46,7 @@ public class HappyView {
     jFrame.setVisible(true);
     
     GestionDeplacement dragDrop = new GestionDeplacement();
-    dragDrop.addOiseau(plateauModel.getOiseau(), jFrame, elementView);
+    dragDrop.addOiseau(plateauModel, jFrame, elementView);
   }
 
 

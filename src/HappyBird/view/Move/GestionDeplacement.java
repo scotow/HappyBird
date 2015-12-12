@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import HappyBird.Object.Element.Oiseau;
+import HappyBird.model.PlateauModel;
 import HappyBird.view.ElementView;
 
 /**
@@ -24,7 +25,7 @@ public class GestionDeplacement extends JComponent implements MouseMotionListene
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	Oiseau oi;
+	PlateauModel model;
 	JFrame frame;
 	ElementView view;
 	
@@ -34,8 +35,8 @@ public class GestionDeplacement extends JComponent implements MouseMotionListene
 	 * @param frame : la frame
 	 * @param view : la vue
 	 */
-	public void addOiseau(Oiseau oi, JFrame frame, ElementView view) {
-		this.oi = oi;
+	public void addOiseau(PlateauModel model, JFrame frame, ElementView view) {
+		this.model = model;
 		this.frame = frame;
 		this.view = view;
 		frame.addMouseMotionListener(this);
@@ -49,8 +50,8 @@ public class GestionDeplacement extends JComponent implements MouseMotionListene
 	public void mouseDragged(MouseEvent e) {
 		//oi.bonjour = true;
 		// TODO Auto-generated method stub
-		oi.setX(e.getPoint().getX());
-		oi.setY(e.getPoint().getY());
+		model.getOiseau().setX(e.getPoint().getX());
+		model.getOiseau().setY(e.getPoint().getY());
 		view.repaint();
 		
 		
@@ -90,8 +91,11 @@ public class GestionDeplacement extends JComponent implements MouseMotionListene
 
 	public void mouseReleased(MouseEvent e) {
 		//try {Thread.sleep(200);}catch(InterruptedException e2){}
-		view.repaint();
-		
+		model.repaint();
+		//System.out.println("AHAHAHAHHAHAHAHAHHAAHAHAHAHAHHAA");
+		model.setOiseauPosition(50.0, 350.0);
+		view.bouger();
+	
 		
 		
 		
