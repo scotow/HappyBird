@@ -83,8 +83,10 @@ public class ObjectView extends JPanel implements Observer {
 		model.clearPoint();
 		System.out.println(model.getCompteurListe());
 		model.setCompteurListe(model.getCompteurListe() + 1);
-		if (model.getCompteurListe() == 10)
-			System.exit(0);
+		if (model.getCompteurListe() == 10) {
+			simulationDeVol();
+			//System.exit(0);
+		}
 		model.clearRectangles();
 		
 		
