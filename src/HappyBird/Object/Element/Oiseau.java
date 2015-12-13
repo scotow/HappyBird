@@ -38,6 +38,7 @@ public class Oiseau extends CercleBounds{
   public void setPosition(double positionX, double positionY) {
     this.setX(positionX);
     this.setY(positionY);
+    this.setBecCoordonnee(positionX, positionY);
   }
 
 

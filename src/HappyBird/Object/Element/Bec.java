@@ -34,14 +34,16 @@ public class Bec {
 	 * 
 	 */
 	public void setPolygon() {
-		bec = new Polygon(
+		/*bec = new Polygon(
 				new int[] { (int) (coordonnee.getX() - Constante.BIRD_BODY_RADIUS / 2 * Math.cos(22)),
 						(int) coordonnee.getX() + Constante.BIRD_BODY_RADIUS / 2 + 15,
 						(int) (coordonnee.getX() - Constante.BIRD_BODY_RADIUS / 2 * Math.cos(22)) },
 				new int[] { (int) (coordonnee.getY() + Constante.BIRD_BODY_RADIUS / 2 * Math.sin(35)),
-						(int) coordonnee.getY() /*+ Constante.BIRD_BODY_RADIUS /2 + 10*/,
+						(int) coordonnee.getY(),
 						(int) (coordonnee.getY() - Constante.BIRD_BODY_RADIUS / 2 * Math.sin(35)) },
-				3);
+				3);*/
+		
+		
 	}
 
 	public Polygon getBec() {

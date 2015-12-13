@@ -102,7 +102,7 @@ public class ElementView extends ObjectView {
 		//System.out.println(model.getOiseauPostion().getX()+"//"+model.getOiseauPostion().getY());
 		
 		/**************************Autre calcul de l'orientation***************************/
-		List<Point> temp = model.getOiseau().getListePointBec();
+		/*List<Point> temp = model.getOiseau().getListePointBec();
 		Point a = temp.get(0);
 		Point b = temp.get(1);
 		Point c = temp.get(2);
@@ -117,12 +117,13 @@ public class ElementView extends ObjectView {
 		temp.add(a);
 		temp.add(b);
 		temp.add(c);
-		model.getOiseau().setListePointBec(temp);
+		model.getOiseau().setListePointBec(temp);*/
 		/*------------------------------------------------------------------------------------*/
 		
-		graphics2d.fillPolygon(model().getBecOiseauPolygon());
-		graphics2d.setTransform(old);
+		//graphics2d.fillPolygon(model().getBecOiseauPolygon());
+		//graphics2d.setTransform(old);
 		
+		g.fillPolygon(model.getBecOiseauPolygon());
 		/*g.setColor(model().getBecOiseauColor());
 		model().setBecOiseau();
 			Graphics2D graphics2d = (Graphics2D) g.create();
