@@ -124,7 +124,9 @@ public class ElementView extends ObjectView {
 			model.getOiseau().setListePointBec(temp);
 			//model.getOiseau().neBougePlus();
 			
-			g.fillPolygon(model.getBecOiseauPolygon());
+			/** Suite à une volonté estétique et un défaut de temps, le bec ne sera pas visible lors du drag n drop
+			 * g.fillPolygon(model.getBecOiseauPolygon());
+			 */
 		} else {
 			
 			
@@ -134,6 +136,8 @@ public class ElementView extends ObjectView {
 			Point c = temp.get(2);
 			double angle = model.getCourbe().donnerAngle((int)model.getOiseauPostion().getX(), (int)model.getOiseauPostion().getY(),
 					50,350);
+			if (a.x-68 <0 )
+				angle+=180;
 			//System.out.println(angle);
 			a = model.getCourbe().rotatePoint (a,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),angle);
 			b = model.getCourbe().rotatePoint (b,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),angle );
