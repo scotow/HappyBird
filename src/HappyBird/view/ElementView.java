@@ -37,10 +37,12 @@ public class ElementView extends ObjectView {
 			PositionControler positionControler) {
 		super(plateauModel, collisionControler, positionControler);
 		random = true;
-		positionControler.fixePointBezier();
-		
+		//positionControler.fixeCourbe();
+		//positionControler.fixeOiseau();
 		positionControler.fixeObstacles((random) ? 0 : clickPut().getX(), (random) ? 0 : clickPut().getY(), random);
-		bouger();
+		this.resetPlateau();
+		
+		//bouger();
 		
 	}
 
@@ -79,7 +81,7 @@ public class ElementView extends ObjectView {
 		 */
 
 		for (int i = 0; i < model().getRectangles().size(); i++) {
-			if (i % 80 == 0) {
+			if (i % 150 == 0) {
 				g.fillRect(model().getRectangleByIndex(i).x, model().getRectangleByIndex(i).y,
 						model().getRectangleByIndex(i).width, model().getRectangleByIndex(i).height);
 			}

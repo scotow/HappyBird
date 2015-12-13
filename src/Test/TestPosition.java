@@ -47,10 +47,10 @@ public class TestPosition {
 
   @Test
   public void postionOiseauAuDepart() {
-    position.fixePointBezier();
+    position.fixeCourbe();
     position.fixeOiseau();
-    assertEquals(plateauModel.getOiseau().getX(), plateauModel.getListeDePoint().get(0).getX(), 0);
-    assertEquals(plateauModel.getOiseau().getY(), plateauModel.getListeDePoint().get(0).getY()+ Constante.BIRD_BODY_RADIUS / 2 - 3, 0);
+    assertEquals(plateauModel.getOiseau().getX(), plateauModel.getListeDePoint().get(0).getX(), 50);
+    assertEquals(plateauModel.getOiseau().getY(), plateauModel.getListeDePoint().get(0).getY()+ Constante.BIRD_BODY_RADIUS / 2 - 3, 350);
   }
 
   @Test
