@@ -26,7 +26,7 @@ public class Bec {
 		
 		this.becPoint = new ArrayList();
 		becPoint.add(new Point ((int) (coordonnee.getX() - Constante.BIRD_BODY_RADIUS / 2 * Math.cos(22)), 
-				(int) (coordonnee.getY() + Constante.BIRD_BODY_RADIUS / 2 * Math.sin(55))));
+				(int) (coordonnee.getY() + Constante.BIRD_BODY_RADIUS / 2 * Math.sin(35))));
 		becPoint.add(new Point ((int) (coordonnee.getX() + Constante.BIRD_BODY_RADIUS / 2 + 15), 
 				(int) coordonnee.getY()));
 		becPoint.add(new Point ((int) (coordonnee.getX() - Constante.BIRD_BODY_RADIUS / 2 * Math.cos(22)), 
@@ -62,7 +62,7 @@ public class Bec {
 		this.coordonnee = new Coordonnee(x, y);
 		this.becPoint = new ArrayList();
 		becPoint.add(new Point ((int) (coordonnee.getX() - Constante.BIRD_BODY_RADIUS / 2 * Math.cos(22)), 
-				(int) (coordonnee.getY() + Constante.BIRD_BODY_RADIUS / 2 * Math.sin(55))));
+				(int) (coordonnee.getY() + Constante.BIRD_BODY_RADIUS / 2 * Math.sin(35))));
 		becPoint.add(new Point ((int) (coordonnee.getX() + Constante.BIRD_BODY_RADIUS / 2 + 15), 
 				(int) coordonnee.getY()));
 		becPoint.add(new Point ((int) (coordonnee.getX() - Constante.BIRD_BODY_RADIUS / 2 * Math.cos(22)), 
