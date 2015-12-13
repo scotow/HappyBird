@@ -81,8 +81,9 @@ public class ObjectView extends JPanel implements Observer {
 		
 		
 		model.clearPoint();
+		System.out.println(model.getCompteurListe());
 		model.setCompteurListe(model.getCompteurListe() + 1);
-		if (model.getCompteurListe() > 10)
+		if (model.getCompteurListe() == 10)
 			System.exit(0);
 		model.clearRectangles();
 		
@@ -93,10 +94,10 @@ public class ObjectView extends JPanel implements Observer {
 		
 		//model.setOiseauPosition(model.getPoint(0).getX(), model.getPoint(0).getY());
 		
-		model.setTemps(0);	
+		//model.setTemps(0);	
 		model.setT(0);
 		
-		model.setOiseauPosition(50.0, 350.0);
+		positionControler.fixeOiseau();
 		
 		
 		if (model.getFlyTimer() != null)

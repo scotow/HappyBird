@@ -28,7 +28,7 @@ public class PlateauModel extends Observable {
    * Le plateau de jeu (qui est un observable appelant chaque observeur apres une modification)
    */
 
-  private int compteurListe = 0;
+  private int compteurListe = -1;
   private List<Coordonnee> ListeDePoint = new ArrayList<>(Constante.POINT_LIST_CAPACITY);
   private ArrayList<Obstacle> ListeDObstacles = new ArrayList<>(Constante.OBSTACLES_LIST_CAPACITY);
   private Oiseau oiseau = new Oiseau(0, 0);

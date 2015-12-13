@@ -10,6 +10,7 @@ import HappyBird.Object.Config.Constante;
 import HappyBird.Object.Element.Obstacle;
 import HappyBird.Object.Element.Oiseau;
 import HappyBird.model.PlateauModel;
+import HappyBird.view.Move.Mouvement;
 
 public class TestDeplacement {
 
@@ -97,4 +98,21 @@ public class TestDeplacement {
    * Obstacle o2 = new Obstacle(80,80); //assertFalse(o1.getCoord().collisionCercle(o2.getCoord()));
    * }
    */
+  
+  @Test
+  public void testPositionCourbe() {
+	  Mouvement v = new Mouvement(50,350,50,50);
+	  assertEquals(v.posXOiseau(0), 50);
+	  assertEquals(v.posXOiseau(1), 100);
+	  assertEquals(v.posXOiseau(2), 150);
+	  assertEquals(v.posXOiseau(3), 200);
+	  
+	  assertEquals(v.posYOiseau(0), -350);
+	  assertEquals(v.posYOiseau(1), -395);
+	  assertEquals(v.posYOiseau(2), -430);
+	  assertEquals(v.posYOiseau(3), -455);
+	  
+  }
+  
+  
 }

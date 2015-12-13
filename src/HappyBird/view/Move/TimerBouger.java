@@ -61,7 +61,7 @@ public class TimerBouger implements Observer {
       }
     }));
     
-    /*Ici ça n'affiche pas*/
+    
     
     model.startFly();
     

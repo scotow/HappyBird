@@ -94,7 +94,7 @@ public class PositionControler {
   public void fixeOiseau() {
     Coordonnee tmp =
         plateauModel.getCourbe().calculerPoint(plateauModel.getListeDePoint(), plateauModel.getT());
-    Coordonnee tmp2 = plateauModel.getListeDePoint().get(plateauModel.getTemps());
+    //Coordonnee tmp2 = plateauModel.getListeDePoint().get(plateauModel.getTemps());
 	  
    // System.out.println("plateauModel  "+ plateauModel.getListeDePoint().get(1).toString() +". "+plateauModel.getTemps());
 	  plateauModel.setOiseauPosition(tmp.getX()+50, tmp.getY() + 350);

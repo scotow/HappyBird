@@ -98,25 +98,25 @@ public class ElementView extends ObjectView {
 			Point a = temp.get(0);
 			Point b = temp.get(1);
 			Point c = temp.get(2);
-			System.out.println("Point a : "+a.x+"@@"+a.y);
+			/*System.out.println("Point a : "+a.x+"@@"+a.y);
 			System.out.println("Point b : "+b.x+"@@"+b.y);
 			System.out.println("Point c : "+c.x+"@@"+c.y);
 			System.out.println("Oiseau : "+model.getOiseauPostion().getX()+"@@"+model.getOiseauPostion().getY());
-			System.out.println("Bec : "+model.getBecOiseauPosition().getX()+"@@"+model.getBecOiseauPosition().getY());
+			System.out.println("Bec : "+model.getBecOiseauPosition().getX()+"@@"+model.getBecOiseauPosition().getY());*/
 			
 			double angle = model.getCourbe().donnerAngle((int)model.getOiseauPostion().getX(), (int)model.getOiseauPostion().getY(),
 					50,350);
-			System.out.println("************************************************");
+			//System.out.println("************************************************");
 			//System.out.println(angle);
 			a = model.getCourbe().rotatePoint (a,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),0);
 			b = model.getCourbe().rotatePoint (b,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),0 );
 			c = model.getCourbe().rotatePoint (c,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),0 );
 			
 			
-			System.out.println("New Point a : "+a.x+"@@"+a.y);
+			/*System.out.println("New Point a : "+a.x+"@@"+a.y);
 			System.out.println("New Point b : "+b.x+"@@"+b.y);
 			System.out.println("New Point c : "+c.x+"@@"+c.y);
-			System.out.println("************************************************");
+			System.out.println("************************************************");*/
 			temp = new ArrayList();
 			temp.add(a);
 			temp.add(b);
