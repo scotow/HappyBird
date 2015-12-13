@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 
 import HappyBird.Controller.CollisionControler;
 import HappyBird.Controller.PositionControler;
+import HappyBird.Object.Config.Constante;
 import HappyBird.Object.Config.Coordonnee;
 import HappyBird.model.PlateauModel;
 import HappyBird.view.Move.Mouvement;
@@ -76,6 +77,9 @@ public class ObjectView extends JPanel implements Observer {
 	public void resetPlateau() {
 		model.getOiseau().reinitOiseau();
 		model.getOiseau().detacheoiseau();
+		model.getOiseau().setOiseauColor(Constante.BIRD_BODY_COLOR);
+		
+		
 		model.clearPoint();
 		model.setCompteurListe(model.getCompteurListe() + 1);
 		if (model.getCompteurListe() > 10)
