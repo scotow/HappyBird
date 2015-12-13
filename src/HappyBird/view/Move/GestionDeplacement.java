@@ -52,10 +52,13 @@ public class GestionDeplacement extends JComponent implements MouseMotionListene
 
 	public void mouseDragged(MouseEvent e) {
 		
+		model.getOiseau().detacheoiseau();
 		model.getOiseau().setPosition(e.getPoint().getX(), e.getPoint().getY());
 		deplX = (int) e.getPoint().getX();
 		deplY = (int) e.getPoint().getY();
 		view.repaint();
+		
+		
 		
 		
 		
@@ -98,7 +101,7 @@ public class GestionDeplacement extends JComponent implements MouseMotionListene
 		
 		
 		view.getPC().getMouvement().setMouvement(0, 0, 50-deplX, -350+deplY);
-		
+		model.getOiseau().LancerOiseau();
 		view.getPC().fixeCourbe();
 		//view.getPC().fixeOiseau();
 		model.setOiseauPosition(50.0, 350.0);

@@ -74,7 +74,8 @@ public class ObjectView extends JPanel implements Observer {
 	 * Reset tout les elements.
 	 */
 	public void resetPlateau() {
-		
+		model.getOiseau().reinitOiseau();
+		model.getOiseau().detacheoiseau();
 		model.clearPoint();
 		model.setCompteurListe(model.getCompteurListe() + 1);
 		if (model.getCompteurListe() > 10)

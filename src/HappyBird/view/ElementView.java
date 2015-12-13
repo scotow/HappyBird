@@ -90,45 +90,97 @@ public class ElementView extends ObjectView {
 		model().setBecOiseau();
 			Graphics2D graphics2d = (Graphics2D) g.create();
 		AffineTransform old = graphics2d.getTransform();
-	
-		/********************Ancien calcul de l'orientation*****************************/
-		//double n = Math
-		//double n = model().getCourbe().calculerOrientation(model());
-		//System.out.println("La tangente a modifier : "+n);
-		//System.out.println("Coordonnees X/Y:"+model().getBecOiseauPosition());
-		//System.out.println(model.getT());
 		
+		if (!model.getOiseau().estLance()) {
+			
 		
-		//System.out.println(model.getOiseauPostion().getX()+"//"+model.getOiseauPostion().getY());
+			List<Point> temp = model.getOiseau().getListePointBec();
+			Point a = temp.get(0);
+			Point b = temp.get(1);
+			Point c = temp.get(2);
+			System.out.println("Point a : "+a.x+"@@"+a.y);
+			System.out.println("Point b : "+b.x+"@@"+b.y);
+			System.out.println("Point c : "+c.x+"@@"+c.y);
+			System.out.println("Oiseau : "+model.getOiseauPostion().getX()+"@@"+model.getOiseauPostion().getY());
+			System.out.println("Bec : "+model.getBecOiseauPosition().getX()+"@@"+model.getBecOiseauPosition().getY());
+			
+			double angle = model.getCourbe().donnerAngle((int)model.getOiseauPostion().getX(), (int)model.getOiseauPostion().getY(),
+					50,350);
+			System.out.println("************************************************");
+			//System.out.println(angle);
+			a = model.getCourbe().rotatePoint (a,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),0);
+			b = model.getCourbe().rotatePoint (b,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),0 );
+			c = model.getCourbe().rotatePoint (c,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),0 );
+			
+			
+			System.out.println("New Point a : "+a.x+"@@"+a.y);
+			System.out.println("New Point b : "+b.x+"@@"+b.y);
+			System.out.println("New Point c : "+c.x+"@@"+c.y);
+			System.out.println("************************************************");
+			temp = new ArrayList();
+			temp.add(a);
+			temp.add(b);
+			temp.add(c);
+			model.getOiseau().setListePointBec(temp);
+			//model.getOiseau().neBougePlus();
+			
+			g.fillPolygon(model.getBecOiseauPolygon());
+		} else {
+			
+			
+			List<Point> temp = model.getOiseau().getListePointBec();
+			Point a = temp.get(0);
+			Point b = temp.get(1);
+			Point c = temp.get(2);
+			double angle = model.getCourbe().donnerAngle((int)model.getOiseauPostion().getX(), (int)model.getOiseauPostion().getY(),
+					50,350);
+			//System.out.println(angle);
+			a = model.getCourbe().rotatePoint (a,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),angle);
+			b = model.getCourbe().rotatePoint (b,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),angle );
+			c = model.getCourbe().rotatePoint (c,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),angle );
+			
+			temp = new ArrayList();
+			temp.add(a);
+			temp.add(b);
+			temp.add(c);
+			model.getOiseau().setListePointBec(temp);
+			
+			g.fillPolygon(model.getBecOiseauPolygon());
+			
+		
+		}
+			
+			
+		
+
 		
 		/**************************Autre calcul de l'orientation***************************/
 		/*List<Point> temp = model.getOiseau().getListePointBec();
-		Point a = temp.get(0);
-		Point b = temp.get(1);
-		Point c = temp.get(2);
+		Point a = temp.remove(0);
+		Point b = temp.remove(0);
+		Point c = temp.remove(0);
+		
 		
 		int angleX = v.angleXOiseau(1);
 		int angleY = v.angleYOiseau(1);
-		a = model.getCourbe().rotatePoint (a,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),angleX );
-		b = model.getCourbe().rotatePoint (b,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),angleX );
-		c = model.getCourbe().rotatePoint (c,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),angleX );
+		System.out.println("Avant");
+		a = model.getCourbe().rotatePoint (a,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),0 );
+		b = model.getCourbe().rotatePoint (b,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),0 );
+		c = model.getCourbe().rotatePoint (c,new Point ((int)model.getOiseauPostion().getX(),(int) model.getOiseauPostion().getY()),0 );
 		
-		temp = new ArrayList<Point>();
-		temp.add(a);
-		temp.add(b);
-		temp.add(c);
-		model.getOiseau().setListePointBec(temp);*/
+		
+		g.fillPolygon(model.getBecOiseauPolygon());*/
 		/*------------------------------------------------------------------------------------*/
 		
 		//graphics2d.fillPolygon(model().getBecOiseauPolygon());
 		//graphics2d.setTransform(old);
 		
-		g.fillPolygon(model.getBecOiseauPolygon());
+		
 		/*g.setColor(model().getBecOiseauColor());
 		model().setBecOiseau();
 			Graphics2D graphics2d = (Graphics2D) g.create();
 		AffineTransform old = graphics2d.getTransform();
-		graphics2d.rotate(180);
+		graphics2d.rotate(n);
 		graphics2d.fillPolygon(model().getBecOiseauPolygon());
 		graphics2d.setTransform(old);*/
 		

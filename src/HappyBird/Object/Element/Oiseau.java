@@ -16,6 +16,7 @@ public class Oiseau extends CercleBounds{
    */
   private Bec bec;
   private boolean lancer;
+  private boolean fige;
   private Color OiseauColor = Constante.BIRD_BODY_COLOR;
 
   /**
@@ -39,6 +40,7 @@ public class Oiseau extends CercleBounds{
     this.setX(positionX);
     this.setY(positionY);
     this.setBecCoordonnee(positionX, positionY);
+    
   }
 
 
@@ -68,7 +70,26 @@ public class Oiseau extends CercleBounds{
 	  this.lancer = false;
   }
   
+  /**
+   * Verifie si l'oiseau peut tourner
+   * @return le statut de l'oiseau
+   */
+  public boolean estFixe() {
+	  return fige;
+  }
   
+  /**
+   * Fixe la rotation de l'oiseau
+   */
+  public void neBougePlus() {
+	  fige = true;
+  }
+  /**
+   * Permet la rotation de l'oiseau 
+   */
+  public void detacheoiseau() {
+	  fige = false;
+  }
   
   public void setBecColor(Color color) {
     this.bec.setColor(color);

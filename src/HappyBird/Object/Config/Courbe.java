@@ -205,13 +205,27 @@ public class Courbe {
 	    pt.y = center.y + (int) (dx*sinAngle+dy*cosAngle);
 	    return pt;
 	}
-  
-  
-  
-  
-  
-  
-  
+   
+  /**
+   * Donne l'angle voulu du bec en fonction d'un point d'origine
+   * @param mX : le centre X de l'oiseau
+   * @param mY : le centre Y de l'oiseau
+   * @param aX : le centre X de rotation
+   * @param aY : le centre Y de rotation
+   * @return : l'angle en degree
+   */
+  public double donnerAngle (int mX, int mY, int aX, int aY) {
+		double rep = 0.0;
+		
+		double coteX = mX-aX;
+		double coteY = mY-aY;
+		
+		//rep = Math.tan(coteY/coteX);
+		rep = Math.toDegrees(Math.atan(coteY/coteX));
+				//Math.atan2(coteY,coteX);
+		//System.out.println("X : "+coteX+" Y : "+coteY+" Angle : "+rep);
+		return rep;
+	}
   
   
   /**
