@@ -154,10 +154,10 @@ public class ElementView extends ObjectView {
 			temp.add(c);
 			model.getOiseau().setListePointBec(temp);
 			
-			g.fillPolygon(model.getBecOiseauPolygon());
-			
-		
+			g.fillPolygon(model.getBecOiseauPolygon());	
 		}
+		//si loiseau est lance go afficher droitebuiczb
+	
 			
 			
 		
@@ -198,5 +198,7 @@ public class ElementView extends ObjectView {
 				(int) model().getOiseauPostion().getY() - model().getOiseauTaille()[1] / 2,
 				model().getOiseauTaille()[0], model().getOiseauTaille()[1]);
 	}
+	
+	
 
 }
