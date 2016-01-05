@@ -59,4 +59,14 @@ public class CercleBounds extends Bounds {
 		return !(d2 > Math.pow(this.getWidth() / 2 + o2.getWidth() / 2, 2));
 	}
 
+	@Override
+	public double getPoids() {
+		return poids;
+	}
+
+	@Override
+	public void setPoids(double p) {
+		this.poids = p;
+	}
+
 }

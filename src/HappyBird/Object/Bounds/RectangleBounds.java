@@ -61,5 +61,15 @@ public class RectangleBounds extends Bounds {
 				&& this.getHeight() + this.getY() > o2.getY();
 		
 	}
+	
+	@Override
+	public double getPoids() {
+		return poids;
+	}
+
+	@Override
+	public void setPoids(double p) {
+		this.poids = p;
+	}
 
 }

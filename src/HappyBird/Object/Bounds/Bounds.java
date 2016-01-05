@@ -14,6 +14,7 @@ public abstract class Bounds {
 	protected double y;
 	protected int width;
 	protected int height;
+	protected double poids;
 
 	public abstract double getX();
 
@@ -32,5 +33,9 @@ public abstract class Bounds {
 	public abstract void setHeight(int height);
 
 	public abstract boolean collision(Oiseau o2);
+	
+	public abstract double getPoids ();
+	
+	public abstract void setPoids (double p);
 
 }

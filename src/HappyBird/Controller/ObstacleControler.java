@@ -16,18 +16,18 @@ public class ObstacleControler {
 
     private final PlateauModel plateauModel;
 
-    private final Timer movingTimer;
-    private final ArrayList<Line2D> pathes;
+    /*private final Timer movingTimer;
+    private final ArrayList<Line2D> pathes;*/
 
     public ObstacleControler(PlateauModel plateauModel) {
         this.plateauModel = plateauModel;
-        pathes = new ArrayList<>();
+        /*pathes = new ArrayList<>();
         movingTimer = new Timer();
         generatePathes(plateauModel.getListeDObstacles());
-        startMoving();
+        startMoving();*/
     }
 
-    private void generatePathes(ArrayList<Obstacle> obstacles){
+   /* private void generatePathes(ArrayList<Obstacle> obstacles){
         Random rand = new Random();
         for(Obstacle o : obstacles){
             pathes.add(new Line2D.Double(o.getPositionX(), o.getPositionY(), o.getPositionX()-50+100*rand.nextDouble(), o.getPositionY()-50+100*rand.nextDouble()));
@@ -59,7 +59,7 @@ public class ObstacleControler {
         double m = (path.getY2() - path.getY1()) / (path.getX2()-path.getX1());
         double c = path.getY1() - path.getX1() * m;
         return m * x + c;
-    }
+    }*/
 
 
 
