@@ -25,9 +25,9 @@ public class GestionDeplacement extends JComponent implements MouseMotionListene
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	PlateauModel model;
-	JFrame frame;
-	ElementView view;
+	public PlateauModel model;
+	public JFrame frame;
+	public ElementView view;
 	
 	
 	private int deplX;
@@ -108,12 +108,7 @@ public class GestionDeplacement extends JComponent implements MouseMotionListene
 		
 		
 		view.bouger();
-	
-		
-		
-		
-		
-		
+	 
 		
 	}
 
