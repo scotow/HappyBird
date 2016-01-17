@@ -24,12 +24,26 @@ public class ObstacleController {
 
     private TimerTask flyTask;
 
+
+    /**
+     *
+     * @param boardController Le controlleur du plateau.
+     * @param obstacles Les obstacles acutelles du plateau.
+     */
+
     public ObstacleController(BoardController boardController, ArrayList<Obstacle> obstacles){
         this.boardController = boardController;
         this.obstacles = obstacles;
         flyings = new ArrayList<>();
         generateObstacles();
     }
+
+
+    /**
+     * Gère la collision d'un obstacle, percuté par une vitesse.
+     * @param obstacle L'obstacle percuté.
+     * @param inSpeed La vitesse de percution.
+     */
 
     public void collide(Obstacle obstacle, Vector inSpeed){
         int damage = Math.abs(inSpeed.getX()) + Math.abs(inSpeed.getY());
@@ -68,16 +82,25 @@ public class ObstacleController {
         flyTimer.schedule(flyTask, 10, 10);
     }
 
+
+    /**
+     * Stop le déplacement d'un obstacle et arrete le timer si il n'est plus utilisé.
+     * @param o L'obstacle qui s'arrete.
+     */
+
     private void stopFly(Obstacle o){
         if(flyings.contains(o)){
             o.setFlying(false);
             flyings.remove(o);
-            if(flyings.isEmpty()) {
+            if(flyings.isEmpty())
                 flyTask.cancel();
-            }
         }
-
     }
+
+
+    /**
+     * Génére les obstacles aléatoirement avec une vérification de non supperposition.
+     */
 
     public void generateObstacles(){
         obstacles.clear();
@@ -104,17 +127,27 @@ public class ObstacleController {
         }
     }
 
+
+    /**
+     * Vérifie la collistion avec les autres obstacles.
+     * @param obstacle L'obstacle qui bouge.
+     */
+
     private void checkForColision(Obstacle obstacle){
         for(int i = 0 ; i < obstacles.size() ; i++){
             Obstacle o = obstacles.get(i);
             if(o == obstacle)
                 continue;
-            if(o instanceof Circle ? obstacle.collideWithCircle(o.getCoordinates(), Obstacle.RADIUS) : obstacle.collideWithRectangle(o.getCoordinates(), Obstacle.RADIUS)){
-                o.setTouched(true);
+            if(o instanceof Circle ? obstacle.collideWithCircle(o.getCoordinates(), Obstacle.RADIUS) : obstacle.collideWithRectangle(o.getCoordinates(), Obstacle.RADIUS))
                 collide(o, obstacle.getForces().getSpeed());
-            }
         }
     }
+
+
+    /**
+     * Vérifie la collistion avec le sol et les murs.
+     * @param o L'obstacle qui bouge.
+     */
 
     private void checkForGroundWall(Obstacle o){
         Coordinates c = o.getCoordinates();

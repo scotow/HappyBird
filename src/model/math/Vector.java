@@ -9,10 +9,23 @@ public class Vector {
 
     private int x, y;
 
+    /**
+     * Créer un vecteur avec des valleurs directes.
+     * @param x
+     * @param y
+     */
+
     public Vector(int x, int y){
         this.x = x;
         this.y = y;
     }
+
+
+    /**
+     * Créer un vecteur avec des coordonnées de départs et d'arrivées.
+     * @param start Les coordonnées de départs.
+     * @param end coordonnées d'arrivées.
+     */
 
     public Vector(Coordinates start, Coordinates end){
         x = end.getX() - start.getX();
@@ -23,27 +36,61 @@ public class Vector {
         return new Vector(y, x);
     }
 
+
+    /**
+     * Redirige le vecteur vers le haut.
+     */
+
     public void redirectUp(){
         y = (y < 0 ? -y : y);
     }
+
+
+    /**
+     * Redirige de le vecteur vers le bas.
+     */
 
     public void redirectDown(){
         y = (y > 0 ? -y : y);
     }
 
+
+    /**
+     * Redirige le veteur vers son opposé par rapport à l'axe des abscisses.
+     */
+
     public void reverse(){
         x = -x;
     }
+
+
+    /**
+     * Ajoute un vecteur au vecteur actuel.
+     * @param add Le vecteur à ajouter.
+     */
 
     public void add(Vector add){
         x += add.getX();
         y += add.getY();
     }
 
+
+    /**
+     * Modifie les deux valeurs du vecteur.
+     * @param x
+     * @param y
+     */
+
     public void set(int x, int y){
         this.x = x;
         this.y = y;
     }
+
+
+    /**
+     * Multiplie le vecteur par un valeur décimale.
+     * @param by Le multiplicateur.
+     */
 
     public void multiply(double by){
         x *= by;
@@ -57,6 +104,12 @@ public class Vector {
     public int getY(){
         return y;
     }
+
+
+    /**
+     * Renvoie la norme du vecteur.
+     * @return La norme.
+     */
 
     public double getNorme(){
         return Math.sqrt(Math.pow(x,2) + Math.pow(y, 2));

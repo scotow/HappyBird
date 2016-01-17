@@ -8,6 +8,7 @@ import model.bird.Bird;
 import model.Board;
 import model.bird.Power;
 import model.math.Forces;
+import model.math.Path;
 import model.math.Vector;
 import model.obstacle.*;
 import model.obstacle.Rectangle;
@@ -43,6 +44,14 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
     private Coordinates drag_start;
     private Vector elastic;
 
+
+    /**
+     * Créer un JPanel de jeu avec un decteur de "dragging", de clics et de touches.
+     * @param board Le plateau de jeu.
+     * @param boardController Le controlleur du plateau.
+     * @param birdController Le controlleur de l'oiseau.
+     */
+
     public GamePanel(Board board,BoardController boardController, BirdController birdController){
         this.board = board;
         this.boardController = boardController;
@@ -60,6 +69,12 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
         background = new ImageIcon(getClass().getResource("images/background.png")).getImage();
     }
 
+
+    /**
+     * Raffiche tout les élléments du plateau.
+     * @param g Le graphique du JPanel.
+     */
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -71,6 +86,12 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
         repaintBird(g);
         repaintScore(g);
     }
+
+
+    /**
+     * Raffiche l'oiseau actuelle.
+     * @param g
+     */
 
     private void repaintBird(Graphics g){
         repaintShadow(g);
@@ -84,6 +105,12 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
         repaintEyes(g);
     }
 
+
+    /**
+     * Raffiche l'ombre de l'oiseau actuelle.
+     * @param g Le graphique du JPanel.
+     */
+
     private void repaintShadow(Graphics g){
         g.setColor(SHADOW_COLOR);
         Coordinates c = board.getActualBird().getCoordinates();
@@ -91,6 +118,12 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
         if(c.getY() >= Board.GROUND + Board.GROUND/2 + Bird.BODY_RADIUS)
             g.fillOval(c.getX()-(int)(Bird.BODY_RADIUS*size), getHeight() - Board.GROUND - Board.GROUND/2 - Bird.BODY_RADIUS, (int)(Bird.BODY_RADIUS*2*size), (int)(Bird.BODY_RADIUS*size));
     }
+
+
+    /**
+     * Raffiche le beak de l'oiseau.
+     * @param g Le graphique du JPanel.
+     */
 
     private void repaintBeak(Graphics g){
         g.setColor(BEAK_COLOR);
@@ -110,11 +143,23 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
                         getHeight() - (int)(c.getY()+direction.getY()/coefLenght)}, 3);
     }
 
+
+    /**
+     * Raffiche les yeux de l'oiseau actuel.
+     * @param g Le graphique du JPanel.
+     */
+
     private void repaintEyes(Graphics g){
         g.setColor(EYES_COLOR);
         Coordinates c = board.getActualBird().getBeak().getCoordinates();
         g.fillOval(c.getX()-Bird.EYES_RADIUS, getHeight()-c.getY()-Bird.EYES_RADIUS, Bird.EYES_RADIUS*2, Bird.EYES_RADIUS*2);
     }
+
+
+    /**
+     * Raffiche les obstacles.
+     * @param g Le graphique du JPanel.
+     */
 
     private void repaintObstacle(Graphics g) {
         for(Obstacle o : board.getObstacles()){
@@ -127,21 +172,37 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
         }
     }
 
+    /**
+     * Raffiche l'elastique de "dragging" si il existe.
+     * @param g Le graphique du JPanel.
+     */
+
     private void repaintElastic(Graphics g){
         if(elastic == null)
             return;
         g.setColor(ELASTIC_COLOR);
         Coordinates c = board.getActualBird().getCoordinates();
         g.drawLine(c.getX(), getHeight()-c.getY(), c.getX()+elastic.getX(), getHeight()-(c.getY()+elastic.getY()));
-
     }
+
+
+    /**
+     * Raffiche les points de déplacements.
+     * @param g Le graphique du JPanel.
+     */
 
     private void repaintPath(Graphics g){
         g.setColor(CURVE_COLOR);
         ArrayList<Coordinates> points = board.getActualBird().getPath().getPoints();
         for (int i = 0 ; i < points.size() ; i++)
-            g.fillOval(points.get(i).getX() - Forces.POINTS_RADIUS, getHeight() - points.get(i).getY() - Forces.POINTS_RADIUS, Forces.POINTS_RADIUS * 2, Forces.POINTS_RADIUS * 2);
+            g.fillOval(points.get(i).getX() - Path.POINTS_RADIUS, getHeight() - points.get(i).getY() - Path.POINTS_RADIUS, Path.POINTS_RADIUS * 2, Path.POINTS_RADIUS * 2);
     }
+
+
+    /**
+     * Affiche les oiseaux suivants celui actuel.
+     * @param g Le graphique du JPanel.
+     */
 
     private void repaintRemainingBird(Graphics g){
         for(int i = 0 ; i < board.getBirds().size() ; i++){
@@ -155,6 +216,12 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
         }
     }
 
+
+    /**
+     * Raffiche le score dans la partie infferieur droite.
+     * @param g Le graphique du JPanel.
+     */
+
     private void repaintScore(Graphics g){
         g.setColor(SCORE_COLOR);
         g.setFont(new Font("ARIAL", Font.BOLD, 22));
@@ -165,6 +232,12 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
     public void update(Observable o, Object arg) {
         repaint();
     }
+
+
+    /**
+     * Calcul le vecteur vittesse pour l'elastique et l'oiseau en cas de lachement.
+     * @param e
+     */
 
     @Override
     public void mouseDragged(MouseEvent e) {
@@ -192,6 +265,12 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
     @Override
     public void mousePressed(MouseEvent e) {}
 
+
+    /**
+     * Demande le vol de l'oiseau quand l'elastique est laché.
+     * @param e
+     */
+
     @Override
     public void mouseReleased(MouseEvent e) {
         if(drag_start != null){
@@ -211,6 +290,12 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
 
     @Override
     public void keyTyped(KeyEvent e) {}
+
+
+    /**
+     * Informe le controlleur de la demande de l'activation du pouvoir de l'oiseau actuelle.
+     * @param e
+     */
 
     @Override
     public void keyPressed(KeyEvent e) {

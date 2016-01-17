@@ -9,13 +9,24 @@ import view.MainFrame;
  */
 public class HappyBird {
 
+
+    /**
+     * Lance l'inialisation des controlleurs et des vues.
+     */
+
     public HappyBird(){
         Board board = new Board();
         BoardController boardController = new BoardController(board);
         ObstacleController obstacleController = new ObstacleController(boardController, board.getObstacles());
         BirdController birdController = new BirdController(board.getActualBird(), board.getObstacles(), boardController, obstacleController);
-        MainFrame mainFrame = new MainFrame(board, boardController, birdController);
+        new MainFrame(board, boardController, birdController);
     }
+
+
+    /**
+     * Le commencemant.
+     * @param args
+     */
 
     public static void main(String[] args) {
         new HappyBird();

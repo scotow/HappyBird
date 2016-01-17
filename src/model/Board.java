@@ -23,6 +23,11 @@ public class Board {
     private ArrayList<Obstacle> obstacles;
     private int score = 0;
 
+
+    /**
+     * Créer un plateau vide avec 0 points.
+     */
+
     public Board(){
         birds = new ArrayList<>();
         obstacles = new ArrayList<>();

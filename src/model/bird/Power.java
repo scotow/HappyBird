@@ -5,6 +5,10 @@ package model.bird;
  */
 public enum Power {
 
+    /**
+     * Les différents pouvoirs disponible.
+     */
+
     NONE, SPRINT
 
 }

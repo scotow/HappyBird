@@ -8,9 +8,23 @@ import model.bird.Bird;
  */
 public class Rectangle extends Obstacle {
 
+
+    /**
+     * Un obstacle de forme rectangle.
+     * @param coordinates Le centre du rectangle.
+     */
+
     public Rectangle(Coordinates coordinates) {
         super(coordinates);
     }
+
+
+    /**
+     * Renvoie si il y a eu collision avec ce rectangle et une forme de forme ronde.
+     * @param c Les coordonnées de l'objet mouvant.
+     * @param radius Le rayon de l'objet mouvant.
+     * @return Si il y a eu collision.
+     */
 
     @Override
     public boolean collideWithCircle(Coordinates c, int radius) {
@@ -22,6 +36,14 @@ public class Rectangle extends Obstacle {
         if (yDiff <= (Obstacle.RADIUS)) { return true; }
         return Math.pow(xDiff - Obstacle.RADIUS, 2) + Math.pow(yDiff - Obstacle.RADIUS, 2) <= (Math.pow(radius,2));
     }
+
+
+    /**
+     * Renvoie si il y a eu collision avec ce rectangle et une forme de forme rectangle..
+     * @param c Les coordonnées de l'objet mouvant.
+     * @param radius Le rayon de l'objet mouvant.
+     * @return Si il y a eu collision.
+     */
 
     @Override
     public boolean collideWithRectangle(Coordinates c, int radius) {

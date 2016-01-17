@@ -14,9 +14,21 @@ public abstract class Movable extends Observable{
     protected Forces forces;
     private boolean flying;
 
+
+    /**
+     * Un objet mouvable abstrait.
+     * @param coordinates Les coordonnées centrales.
+     */
+
     public Movable(Coordinates coordinates){
         this.coordinates = coordinates;
     }
+
+
+    /**
+     * Déterminne si l'objet est trop lent et doit donc s'arreter.
+     * @return L'objet est trop lent.
+     */
 
     public boolean isTooSlow(){
         Vector speed = forces.getSpeed();
@@ -36,6 +48,12 @@ public abstract class Movable extends Observable{
     public Coordinates getCoordinates() {
         return coordinates;
     }
+
+
+    /**
+     * Modifie les coordonnées de l'objet et notifie les observers.
+     * @param c Les coordonnées à changer.
+     */
 
     public void setCoordinates(Coordinates c){
         coordinates.set(c);

@@ -8,6 +8,13 @@ package model;
 public class Coordinates {
     
     private int x,y;
+
+
+    /**
+     *  Créer un points de coordonnées.
+     * @param x
+     * @param y
+     */
     
     public Coordinates(int x, int y){
         this.x = x;
@@ -41,15 +48,6 @@ public class Coordinates {
     }
 
     public void add(int x, int y){this.x+=x; this.y+=y;}
-
-    public boolean equals(Coordinates c){
-        return this.x == c.x && this.y == c.y;
-    }
-    
-    public boolean equals(int x, int y){
-        return this.x == x && this.y == y;
-    }
-
 
     @Override
     public String toString() {

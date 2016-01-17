@@ -18,6 +18,13 @@ public class Bird extends Movable {
 
     private boolean powerUsed;
 
+
+    /**
+     * Créer un oiseau avec un bec et un chemin de positions vide.
+     * @param coordinates La position initiale.
+     * @param power Le pouvoir (touche espace) qu'il possède.
+     */
+
     public Bird(Coordinates coordinates, Power power){
         super(coordinates);
         beak = new Beak(new Coordinates(coordinates.getX()+Beak.FROM_BIRD_CENTER, coordinates.getY()));
@@ -37,9 +44,20 @@ public class Bird extends Movable {
         return path;
     }
 
+
+    /**
+     * Demande si le pouvoir a déja était utilisé.
+     * @return La disponibilité du pouvoir.
+     */
+
     public boolean hasUsePower() {
         return powerUsed;
     }
+
+
+    /**
+     * Change l'état du pouvoir à déja utilisé.
+     */
 
     public void powerActivated(){
         powerUsed = true;

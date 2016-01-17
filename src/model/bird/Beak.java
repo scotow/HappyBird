@@ -15,6 +15,12 @@ public class Beak {
     private Coordinates coordinates;
     private Vector direction;
 
+
+    /**
+     * Creer un bec avec un vecteur de direction horizontal.
+     * @param coordinates Les coordonnées initial du bec.
+     */
+
     public Beak(Coordinates coordinates){
         this.coordinates = coordinates;
         direction = new Vector(LENGTH, 0);

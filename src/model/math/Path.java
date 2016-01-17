@@ -10,11 +10,25 @@ import java.util.ArrayList;
  */
 public class Path {
 
+    public final static int POINTS_RADIUS = 2;
+
     private final ArrayList<Coordinates> points;
+
+
+    /**
+     * Les coordonnées parcourus par un objet déplacable.
+     */
 
     public Path() {
         points = new ArrayList<>();
     }
+
+
+    /**
+     * Génére l'intégralité des points d'un courbe jusqu'a sortir du plateau par les côtés.
+     * @param start Les coordonnées de départ.
+     * @param forces Les forces appliquées.
+     */
 
     public void generateFullPath(Coordinates start, Forces forces){
         resetPoints();
@@ -33,6 +47,11 @@ public class Path {
     public ArrayList<Coordinates> getPoints() {
         return points;
     }
+
+
+    /**
+     * Rétianilise les points de la courbe.
+     */
 
     public void resetPoints(){
         points.clear();

@@ -14,23 +14,35 @@ public abstract class Obstacle extends Movable {
     private int health = MAX_HEALTH;
     private boolean touched;
 
+    /**
+     * Classe abstraite d'un obstacle.
+     * @param coordinates Le centre de l'obstacle.
+     */
+
     public Obstacle(Coordinates coordinates) {
         super(coordinates);
     }
 
-    public void setTouched(boolean touched){
-        this.touched = touched;
-    }
-
-    public boolean isTouched(){
-        return touched;
-    }
-
     public abstract boolean collideWithCircle(Coordinates c, int radius);
+
+    public abstract boolean collideWithRectangle(Coordinates c, int radius);
+
+
+    /**
+     * Retourne les points de vie restant de l'obstacle.
+     * @return Les points de vie restant de l'obstacle.
+     */
 
     public int getHealth(){
         return health;
     }
+
+
+    /**
+     * Reduit la vie d'un obstacle.
+     * @param amount Le montant de points de vie a rettirer.
+     * @return Si l'objet est mort.
+     */
 
     public boolean reduceHealth(int amount){
         health -= amount;
@@ -39,6 +51,5 @@ public abstract class Obstacle extends Movable {
         return false;
     }
 
-    public abstract boolean collideWithRectangle(Coordinates c, int radius);
 
 }

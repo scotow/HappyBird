@@ -8,11 +8,16 @@ import model.Coordinates;
  */
 public class Forces {
 
-    public final static int POINTS_RADIUS = 2;
-
     private final Vector speed;
     private final Vector acceleration;
     private boolean gravity;
+
+
+    /**
+     * Les forces de déplacements et de gravité.
+     * @param v0 Le vecteur vitesse initial.
+     * @param gravity Subbit la gravité ou pas.
+     */
 
     public Forces(Vector v0, boolean gravity) {
         this.speed = v0;
@@ -24,6 +29,13 @@ public class Forces {
         return speed;
     }
 
+
+    /**
+     * Calcule le prochain point en fonction de la vitesse et met à jour la vitesse en fonctions de la gravité et du frottement de l'air.
+     * @param coordinates Les coordonnées actuelles.
+     * @return Les coordonnées suivantes.
+     */
+
     public Coordinates calculateNext(Coordinates coordinates){
         Coordinates c = coordinates.clone();
         c.add(speed.getX()/Board.MAP_RATIO, speed.getY()/Board.MAP_RATIO);
@@ -32,6 +44,11 @@ public class Forces {
             applyAirResistance();
         return c;
     }
+
+
+    /**
+     * Applique la résistance à l'air sur le vecteur vitesse.
+     */
 
     private void applyAirResistance(){
         speed.multiply(0.99);

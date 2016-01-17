@@ -11,6 +11,14 @@ import javax.swing.*;
  */
 public class MainFrame extends JFrame {
 
+
+    /**
+     * Créer la JFrame principale.
+     * @param board Le plateau de jeu.
+     * @param boardController Le controlleur de plateau.
+     * @param birdController Le controlleur des oiseaux.
+     */
+
     public MainFrame(Board board, BoardController boardController, BirdController birdController){
         setSize(Board.X_SIZE, Board.Y_SIZE);
         setTitle("Happy Bird");

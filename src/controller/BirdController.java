@@ -23,6 +23,15 @@ public class BirdController {
     private final ObstacleController obstacleController;
     private TimerTask flyTask;
 
+
+    /**
+     *
+     * @param bird L'oiseau de début de partie.
+     * @param obstacles Les obstacles actuels du plateau.
+     * @param boardController Le controlleur du plateau.
+     * @param obstacleController Le controlleur des obstacles.
+     */
+
     public BirdController(Bird bird, ArrayList<Obstacle> obstacles, BoardController boardController, ObstacleController obstacleController){
         this.bird = bird;
         this.obstacles = obstacles;
@@ -30,10 +39,21 @@ public class BirdController {
         this.obstacleController = obstacleController;
     }
 
+    /**
+     * Déplace l'oiseau lors du glissement de souris.
+     * @param c Les coordonnées de destination.
+     */
+
     public void drag(Coordinates c){
         bird = boardController.getActualBird();
         bird.setCoordinates(c);
     }
+
+
+    /**
+     * Démarre le vol de l'oiseau actuellement en jeu.
+     * @param v0 Le vecteur vitesse initial.
+     */
 
     public void fly(Vector v0){
         bird.setForces(new Forces(v0, true));
@@ -58,6 +78,11 @@ public class BirdController {
         flyTimer.schedule(flyTask, 10, 10);
     }
 
+
+    /**
+     *  Met à jour le bec de l'oiseau.
+     */
+
     private void updateBeak(){
         Vector speed = bird.getForces().getSpeed();
         double coef = speed.getNorme()/(Beak.FROM_BIRD_CENTER);
@@ -66,12 +91,23 @@ public class BirdController {
         b.getDirection().set((int)(speed.getX()/coef*Beak.LENGTH), (int)(speed.getY()/coef*Beak.LENGTH));
     }
 
+    /**
+     * Créer la prévisualisation de la courbe lorsque que l'oiseau est déplacer à l'aide de la souris.
+     * @param v0 Le vecteur vitesse initial.
+     * @param c Les coordonnées initials de l'oiseau.
+     */
+
     public void previewFlight(Vector v0, Coordinates c){
         Forces preview = new Forces(v0, true);
         bird.setForces(preview);
         updateBeak();
         bird.getPath().generateFullPath(c, preview);
     }
+
+
+    /**
+     * Vérifie si il y a eu collision avec le sol ou le mur.
+     */
 
     private void checkForGroundWall(){
         Coordinates c = bird.getCoordinates();
@@ -90,15 +126,23 @@ public class BirdController {
         }
     }
 
+
+    /**
+     * Vérifie si il y a eu collision les obstacles.
+     */
+
     private void checkForColision(){
         for(int i = 0 ; i < obstacles.size() ; i++){
             Obstacle o = obstacles.get(i);
-            if(o.collideWithCircle(bird.getCoordinates(), bird.BODY_RADIUS)){
-                o.setTouched(true);
+            if(o.collideWithCircle(bird.getCoordinates(), bird.BODY_RADIUS))
                 obstacleController.collide(o, bird.getForces().getSpeed());
-            }
         }
     }
+
+
+    /**
+     * Active le pouvoir d'un oiseau à usage unique après apuit sur la touche espace.
+     */
 
     public void activatePower(){
         if(bird.hasUsePower() || !bird.isFlying())
@@ -111,10 +155,6 @@ public class BirdController {
                 bird.getForces().getSpeed().multiply(2); break;
         }
     }
-
-
-
-
 
 
 }

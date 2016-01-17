@@ -16,10 +16,20 @@ public class BoardController {
 
     private final Board board;
 
+    /**
+     *
+     * @param board Le plateau.
+     */
+
     public BoardController(Board board) {
         this.board = board;
         generateBirds();
     }
+
+
+    /**
+     * Génére alléatoirement les oiseaux disponibles dans la partie.
+     */
 
     private void generateBirds(){
         ArrayList<Bird> birds = board.getBirds();
@@ -29,6 +39,11 @@ public class BoardController {
         }
         board.setActualBird(birds.remove(0));
     }
+
+
+    /**
+     * Retire l'oiseau actuel et place le suivant si il en reste en stock, sinon arrete la partie à l'aide d'un message.
+     */
 
     public void nextBird(){
         if(board.getBirds().size() == 0) {
@@ -42,6 +57,12 @@ public class BoardController {
     public Bird getActualBird(){
         return board.getActualBird();
     }
+
+
+    /**
+     * Ajoute des points au score.
+     * @param points Les points à ajoutés.
+     */
 
     public void addPoints(int points){
         board.addPoints(points);
