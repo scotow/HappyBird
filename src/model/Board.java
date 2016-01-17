@@ -16,6 +16,8 @@ public class Board {
     public final static int MAP_RATIO = 10;
     public final static int GROUND = 50;
     public final static double GROUND_ELASTICITY = 0.60;
+    public final static int MIN_OBSTACLES_AMOUNT = 3;
+    public final static int MAX_OBSTACLES_AMOUNT = 7;
 
 
     private Bird actualBird;

@@ -105,7 +105,7 @@ public class ObstacleController {
     public void generateObstacles(){
         obstacles.clear();
         Random rand = new Random();
-        for(int i = 0 ; i < 3 + rand.nextInt(5) ; i++){
+        for(int i = 0 ; i < Board.MIN_OBSTACLES_AMOUNT + rand.nextInt(Board.MAX_OBSTACLES_AMOUNT-Board.MIN_OBSTACLES_AMOUNT) ; i++){
             Coordinates tmp;
             boolean placable;
             int attempts = 0;

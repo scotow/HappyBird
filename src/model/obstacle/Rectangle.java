@@ -47,10 +47,7 @@ public class Rectangle extends Obstacle {
 
     @Override
     public boolean collideWithRectangle(Coordinates c, int radius) {
-        if (coordinates.getX() > c.getX()+radius || c.getX() > coordinates.getX()+RADIUS)
-            return false;
-        if (coordinates.getY() < c.getY()+radius || c.getY() < coordinates.getY()+RADIUS)
-            return false;
-        return true;
+        return coordinates.getX() < c.getX() + radius && coordinates.getX() + RADIUS > c.getX() &&
+                coordinates.getY() < c.getY() + radius && RADIUS + coordinates.getY() > c.getY();
     }
 }
