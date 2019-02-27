@@ -51,7 +51,7 @@ public class Bird extends Movable {
      */
 
     public boolean hasUsePower() {
-        return powerUsed;
+        return false;
     }
 
 

@@ -115,8 +115,8 @@ public class BirdController {
             bird.getForces().getSpeed().reverse();
             bird.getCoordinates().setX(Board.X_SIZE - Bird.BODY_RADIUS);
         }else if(c.getX()+Bird.BODY_RADIUS <=0) { //    Mur de gauche.
-            boardController.nextBird();
-            flyTask.cancel();
+            bird.getForces().getSpeed().reverse();
+            bird.getCoordinates().setX(Bird.BODY_RADIUS);
         }
         if((c.getY() < Bird.BODY_RADIUS+Board.GROUND && bird.getForces().getSpeed().getY() < 0)) { //  Sol.
             Vector speed = bird.getForces().getSpeed();

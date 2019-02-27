@@ -32,7 +32,7 @@ public abstract class Movable extends Observable{
 
     public boolean isTooSlow(){
         Vector speed = forces.getSpeed();
-        if(Math.abs(speed.getX()) <= 5 && Math.abs(speed.getY()) <= 5)
+        if(Math.abs(speed.getX()) <= 5 && Math.abs(speed.getY()) <= 5 && coordinates.getY() <= 100)
             return true;
         return false;
     }
