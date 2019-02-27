@@ -5,5 +5,5 @@ Les membres sont :
 	- Garbe Yann
 	- Houset Thomas 
 	
-Le but est de simuler un oiseau entrain de parcourir une courbe ou etant tirer par une personne pour voir si celui si touche les obstacles qui par la suite seront animes par la collision et la gravite.
+Le but est de simuler un oiseau entrain de parcourir une courbe ou etant tirer par une personne pour voir si celui ci touche les obstacles qui par la suite seront animes par la collision et la gravite.
 La compilation/execution se fait sur la classe HappyBird, dans le package HappyBird.java
